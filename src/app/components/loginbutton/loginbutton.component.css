@@ -1,0 +1,36 @@
+.loginButton{
+    color: black;
+    font-size: 40px;
+    cursor:pointer;
+    position: relative;
+}
+
+.loginButton:hover{
+    color: rgb(95, 95, 95);
+}
+
+.userMenu{
+    position: absolute;
+    width: 200px;
+    height: auto;
+    box-shadow: 20px 20px 50px grey;
+    animation-name: fadeInMenu;
+    animation-duration: 0.6s;
+    text-align: start;
+    background-color: white;
+}
+
+@keyframes fadeInMenu {
+    from {opacity: 0%;}
+    to {opacity: 100%;}
+}
+
+.profileMenuList{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+a{
+    margin: 5px;
+}

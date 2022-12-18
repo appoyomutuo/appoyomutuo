@@ -1,0 +1,20 @@
+label{
+    border-color: rgba(167, 167, 167, 0.8) !important;
+}
+
+input{
+    border-color: rgba(167, 167, 167, 0.8) !important;
+}
+
+form{
+    border-color: rgba(167, 167, 167, 0.8) !important;
+}
+
+textarea{
+    border-color: rgba(167, 167, 167, 0.8) !important;
+    height: 150px;
+}
+
+select{
+    border-color: rgba(167, 167, 167, 0.8) !important;
+}

@@ -1,0 +1,47 @@
+#home{
+    background-color:rgba(227, 227, 227, 0.7);
+    width: 75vw;
+    margin: auto;
+    /* height: 89vh; */
+    padding: 50px;
+    padding-top: 8vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    animation-name: homeAnimation;
+    animation-duration: 1.2s;
+}
+
+@keyframes homeAnimation {
+    from {opacity: 0%;}
+    to {opacity: 100%;}
+}
+
+.sliderPrincipalText{
+    width: 40%;
+    padding-left: 3vw;
+}
+
+.sliderPrincipalImage{
+    width: 60%;
+    padding-right: 3vw;
+}
+
+button {
+    background-color: #000000; /* Green */
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    margin: 10px;
+    padding: 12px 28px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+button:hover {
+    background-color: #363636; /* Green */
+}

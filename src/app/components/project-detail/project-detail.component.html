@@ -1,0 +1,132 @@
+<div class="projectLis-wrapper" *ngIf="project">
+  <!-- DETALLE -->
+    <section class="project-wrapper">
+        <div class="row">
+            <div class="col-lg">
+                <div id="shortcode8">
+                    <div class="shortcode-html">
+                        <!-- Box Shadow -->
+                        <div style="cursor: pointer;" class="imagebox u-shadow-v2 g-mb-30 g-pt-20">
+                            <img class="" src="{{project.imagenes[0]}}" alt="Image Description">
+                        </div>
+                        <!-- End Box Shadow -->
+                        <div *ngIf="hasGallery" style="display: flex;">
+                            <div *ngFor="let item of project.imagenes">
+                                <img style="width:60px;height:50px;margin-right:5px;cursor:pointer;" class="" src="{{item}}" alt="Image Description">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg" style="display: flex;flex-direction: column;justify-content: center;align-items: center;">
+                <div style="display:flex; align-items: center;">
+                  <div style="cursor: pointer;" class="js-copy-markup u-link-v5  g-color-main g-mr-15" href="#" data-content-target="#shortcode8" data-success-text="Copied">
+                      <i class="icon-real-estate-020 u-line-icon-pro-g-valign-middle g-font-size-20 g-color-black"></i>
+                      Madrid
+                  </div>
+                  <div class="js-modal-markup u-link-v5  g-color-main g-mr-15" href="#" data-content-target="#shortcode8" data-modal-target="#modalMarkup" data-modal-effect="fadein">
+                      <i class="icon-user u-line-icon-pro-g-valign-middle g-font-size-20 g-color-black"></i>
+                      {{project.initialPeople}}/{{project.necessaryPeople}}
+                  </div>
+                  <div *ngIf="project.participationType == 'tiempo'" class="js-modal-markup u-link-v5  g-color-main g-mr-15" href="#" data-content-target="#shortcode8" data-modal-target="#modalMarkup" data-modal-effect="fadein">
+                      <i class="icon-hotel-restaurant-003 u-line-icon-pro g-font-size-20 g-color-black"></i>
+                      {{project.requiredTime}} horas/{{project.period}}
+                  </div>
+                  <div *ngIf="project.participationType == 'dinero'" class="js-modal-markup u-link-v5  g-color-main g-mr-15" href="#" data-content-target="#shortcode8" data-modal-target="#modalMarkup" data-modal-effect="fadein">
+                      <i class="icon-finance-010 u-line-icon-pro g-font-size-20 g-color-black"></i>
+                      {{project.requiredTime}} €/{{project.period}}
+                  </div>
+                </div>
+                <div style="height:auto;" class="imagebox u-shadow-v2 g-brd-around g-brd-gray-light-v4 g-line-height-2 g-pa-40 g-mb-30" role="alert">
+                    <h3 class="h2 g-font-weight-300 g-mb-20 text-uppercase">{{project.name}}</h3>
+                    <p style="height: auto;overflow: hidden;text-overflow: ellipsis;" class="mb-0">{{project.description}}</p>
+                </div>
+                <div class="infobottom g-font-size-12 g-my-10 g-pl-10">
+                    <div>
+                      <a class="btn btn-md g-bg-black g-color-white g-bg-white--hover g-color-black--hover u-btn-outline-black g-mr-10 g-mt-5">Editar</a>
+                      <a class="btn btn-md g-bg-black g-color-white g-bg-white--hover g-color-black--hover u-btn-outline-black g-mr-10 g-mt-5" (click)="showPopupNewPeticion()">Unirme</a>
+                    </div>
+                </div>
+            </div>
+          </div>
+    </section>
+    <!-- ACORDEON -->
+    <section class="imagebox u-shadow-v2 g-brd-gray-light-v4">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-10">
+              <div id="accordion" class="u-accordion u-accordion-color-primary" role="tablist" aria-multiselectable="true">
+                <!-- Card -->
+                <div class="card g-brd-none rounded g-mb-20">
+                  <div id="accordion-heading-01" class="g-pa-0" role="tab">
+                    <h5 class="mb-0">
+                        <a class="d-flex justify-content-between u-shadow-v19 g-color-main g-text-underline--none--hover rounded g-px-30 g-py-20 collapsed" href="#accordion-body-01" data-toggle="collapse" data-parent="#accordion" aria-expanded="false" aria-controls="accordion-body-01">
+                          Necesidades del Proyecto
+                          <span class="u-accordion__control-icon g-color-primary">
+                            <i class="fa fa-angle-down"></i>
+                            <i class="fa fa-angle-up"></i>
+                          </span>
+                        </a>
+                      </h5>
+                  </div>
+                  <div id="accordion-body-01" class="collapse" role="tabpanel" aria-labelledby="accordion-heading-01" data-parent="#accordion" style="">
+                    <div class="u-accordion__body g-color-gray-dark-v4 g-pa-30">
+                        {{project.needs}}
+                    </div>
+                  </div>
+                </div>
+                <!-- End Card -->
+    
+                <!-- Card -->
+                <div class="card g-brd-none rounded g-mb-20">
+                  <div id="accordion-heading-02" class="g-pa-0" role="tab">
+                    <h5 class="mb-0">
+                        <a class="collapsed d-flex justify-content-between u-shadow-v19 g-color-main g-text-underline--none--hover rounded g-px-30 g-py-20" href="#accordion-body-02" data-toggle="collapse" data-parent="#accordion" aria-expanded="false" aria-controls="accordion-body-02">
+                          Lo que ofrecemos
+                          <span class="u-accordion__control-icon g-color-primary">
+                            <i class="fa fa-angle-down"></i>
+                            <i class="fa fa-angle-up"></i>
+                          </span>
+                        </a>
+                      </h5>
+                  </div>
+                  <div id="accordion-body-02" class="collapse" role="tabpanel" aria-labelledby="accordion-heading-02" data-parent="#accordion">
+                    <div class="u-accordion__body g-color-gray-dark-v4 g-pa-30">
+                        {{project.offer}}
+                    </div>
+                  </div>
+                </div>
+                <!-- End Card -->
+    
+                <!-- Card -->
+                <div class="card g-brd-none rounded g-mb-20">
+                  <div id="accordion-heading-03" class="g-pa-0" role="tab">
+                    <h5 class="mb-0">
+                        <a class="collapsed d-flex justify-content-between u-shadow-v19 g-color-main g-text-underline--none--hover rounded g-px-30 g-py-20" href="#accordion-body-03" data-toggle="collapse" data-parent="#accordion" aria-expanded="false" aria-controls="accordion-body-03">
+                          Contacto
+                          <span class="u-accordion__control-icon g-color-primary">
+                            <i class="fa fa-angle-down"></i>
+                            <i class="fa fa-angle-up"></i>
+                          </span>
+                        </a>
+                      </h5>
+                  </div>
+                  <div id="accordion-body-03" class="collapse" role="tabpanel" aria-labelledby="accordion-heading-03" data-parent="#accordion">
+                    <div class="u-accordion__body g-color-gray-dark-v4 g-pa-30">
+                        {{project.contact}}
+                    </div>
+                  </div>
+                </div>
+                <!-- End Card -->
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
+</div>
+
+<popup-peticion *ngIf="showPopUp_newPeticion" (closePopUp)=closePopUpFilters() (createNewPeticion)=createNewPeticion($event)></popup-peticion>
+
+
+

@@ -1,0 +1,24 @@
+<!-- CARRUSEL PROYECTOS -->
+ <section *ngIf="proyectos" id="proyectos" class="g-bg-white g-py-100">
+  <div class="container text-center g-max-width-750 g-mb-0">
+    <div class="text-uppercase g-mb-30">
+      <h3 class="h3 g-letter-spacing-5 g-font-size-12 g-font-weight-400 g-color-black g-mb-25" style="font-family:Poppins;">Buscador de proyectos</h3>
+      <div style="display: flex;align-items: center;justify-content: center;">
+        <h2 class="u-heading-v2__title g-line-height-1 g-letter-spacing-2 g-font-size-30 g-font-size-40--md g-color-black mb-0" style="font-family:Poppins;">Agricultura y Alimentación</h2>
+        <!-- <i class="icon-media-058 u-line-icon-pro g-valign-middle g-font-size-25 g-color-black g-ml-10" style="cursor: pointer;"></i> -->
+      </div>
+      <div (click)="showPopUpFilters()" style="width: 100px;height: 40px;background-color: black;display: flex;justify-content: center;align-items: center;margin: auto;margin-top: 30px;cursor: pointer;">
+        <i class="icon-education-092 u-line-icon-pro g-valign-middle g-font-size-20 g-color-white g-ml-10" style="cursor: pointer;"></i>
+        <p style="color:White;margin:auto">FILTROS</p>
+      </div>
+    </div>
+  </div>
+
+  <project-list [data]="currentData"></project-list>
+  <!-- <carrousel [data]="currentData"></carrousel> -->
+</section>
+<!-- End CARRUSEL PROYECTOS -->
+
+<!-- POPUP FILTROS -->
+<popup-filters *ngIf="showPopUp_Filters" (closePopUp)=closePopUpFilters()></popup-filters>
+<!-- End POPUP FILTROS -->

@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "appoyomutuo-e91e9": {
+      "hosting": {
+        "appoyomutuoweb": [
+          "appoyomutuo-e91e9"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "appoyomutuo-e91e9"
+  }
+}

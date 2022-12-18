@@ -1,0 +1,40 @@
+*{
+    text-decoration: none;
+}
+
+.projectLis-wrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 80vw;
+    margin: auto;
+    padding-top: 30px;
+}
+.project-wrapper{
+    width: 450px;
+    display: flex;
+    margin-bottom: 80px;
+    margin: 15px;
+    border: 1px solid rgba(167, 167, 167, 0.8) !important;
+    padding: 10px;
+    box-shadow: 0 15px 6px -6px rgb(0 0 0 / 15%) !important;
+    border-color: rgba(207, 207, 207, 0.8) !important;
+}
+
+img{
+    object-fit: cover;
+    width: 100%;
+    height: 300px;
+}
+
+.imagebox{
+    box-shadow: 0 15px 6px -6px rgb(0 0 0 / 15%) !important;
+    border-color: rgba(207, 207, 207, 0.8) !important;
+}
+
+.infobottom{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

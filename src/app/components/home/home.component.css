@@ -1,0 +1,92 @@
+.imgPrincipal{
+    width: 40vw;
+    height: auto;
+}
+#circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  width: 500px;
+  height: 500px;
+  background: black;
+  border-radius: 50%
+}
+
+.square-uno {
+    margin: auto;
+    width: 80px;
+    height: 350px;
+    background: black;
+    position: absolute;
+    right: -40px;
+}
+.square-dos {
+    margin: auto;
+    width: 80px;
+    height: 350px;
+    background: black;
+    position: absolute;
+    right: -40px;
+    transform: rotate(270deg);
+    transform-origin: bottom;
+}
+.square-tres {
+    margin: auto;
+    width: 80px;
+    height: 350px;
+    background: black;
+    position: absolute;
+    right: -40px;
+    transform: rotate(-270deg);
+    transform-origin: bottom;
+}
+.square-cuatro {
+    margin: auto;
+    width: 80px;
+    height: 350px;
+    background: black;
+    position: absolute;
+    right: -40px;
+    transform: rotate(-180deg);
+    transform-origin: bottom;
+}
+.square-cinco {
+    margin: auto;
+    width: 80px;
+    height: 350px;
+    background: black;
+    position: absolute;
+    right: -40px;
+    transform: rotate(-45deg);
+    transform-origin: bottom;
+}
+.square-seis {
+    margin: auto;
+    width: 80px;
+    height: 350px;
+    background: black;
+    position: absolute;
+    right: -40px;
+    transform: rotate(45deg);
+    transform-origin: bottom;
+}
+.square-siete {
+    margin: auto;
+    width: 80px;
+    height: 350px;
+    background: black;
+    position: absolute;
+    right: -40px;
+    transform: rotate(135deg);
+    transform-origin: bottom;
+}
+.square-ocho {
+    margin: auto;
+    width: 80px;
+    height: 350px;
+    background: black;
+    position: absolute;
+    right: -40px;
+    transform: rotate(-135deg);
+    transform-origin: bottom;
+}

@@ -1,0 +1,45 @@
+<div *ngIf="project" class="container text-center g-max-width-750 g-mb-0">
+    <div class="text-uppercase g-mb-30">
+      <h3 class="h3 g-letter-spacing-5 g-font-size-12 g-font-weight-400 g-color-black g-mb-25" style="font-family:Poppins;">{{project.name}}</h3>
+      <div style="display: flex;align-items: center;justify-content: center;">
+        <h2 class="u-heading-v2__title g-line-height-1 g-letter-spacing-2 g-font-size-30 g-font-size-40--md g-color-black mb-0" style="font-family:Poppins;">Foro</h2>
+      </div>
+    </div>
+</div>
+<div class="generalWrapper">
+    <div class="chatbox">
+        <div *ngIf="mensajes.length > 0">
+            <div *ngFor="let item of mensajes" class="mensajeWrapper">
+                <span class="u-icon-v1 usuario">
+                    <i class="icon-user"></i>
+                </span>
+                <div class="bocadillo u-ns-bg-v1-left--md">
+                    <div class="bocadilloDistribucion">
+                        <div style="display: flex;justify-content: space-between;align-items: center;flex-wrap: wrap-reverse;">
+                            <small style="font-family:Poppins;font-weight: bold;margin-bottom: 0px;">
+                                {{item.mailAutor}}
+                            </small>
+                            <small style="font-family:Poppins;font-weight: bold;">
+                                {{item.fecha}}
+                            </small>
+                        </div>
+                        <div style="margin-left: 10px;margin-top: 10px;">
+                            {{item.mensaje}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="mensajes.length == 0" style="width: 100%;display: flex;justify-content: center;margin: auto;">
+            <p style="font-family:Poppins;text-align: center;">Aún no hay ningún mensaje en este foro. <br>¡Sé la primera persona en decir algo!</p>
+        </div>
+    </div>
+    <div class="writeZone">
+        <!-- MENSAJE -->
+        <label style="margin-right:10px;font-family:Poppins;">Nuevo Mensaje:</label>
+        <div style="display: flex;align-items: center;flex-direction: column;">
+            <input id="inputGroup1_1" style="width: 40vw;" class="form-control form-control-md rounded-0" type="text" placeholder="" name="name" [(ngModel)]="newMensaje.mensaje">
+            <button (click)="addMensaje()" style="border: 1px solid black !important;" class="btn btn-md g-bg-black g-color-white g-bg-white--hover g-color-black--hover u-btn-outline-white g-mt-10">Enviar</button>
+        </div>
+    </div>
+</div>

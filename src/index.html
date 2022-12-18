@@ -2,12 +2,254 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Appoyomutuoweb</title>
+  <title>Appoyo Mútuo</title>
   <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+   <!-- Required Meta Tags Always Come First -->
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+   <!-- Fav-->
+   <link rel="shortcut icon" href="../../favicon.ico">
+
+   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,300,600">
+   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Poppins:500%2C700">
+   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto%3A700%2C300">
+   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Raleway%3A400%2C800%2C500">
+   <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+
+   <link rel="stylesheet" href="../../assets/vendor/icon-line/css/simple-line-icons.css">
+
+   <!-- LINK AUTH -->
+   <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-auth.js"></script>
+  <script src="https://cdn.firebase.com/libs/firebaseui/3.0.0/firebaseui.js"></script>
+
+   <!-- CSS Template -->
+   <link rel="stylesheet" href="assets/css/styles.op-architecture.css">
+
+   <!-- CSS Customization -->
+   <link rel="stylesheet" href="../../assets/css/custom.css">
+
+   <!-- CSS Global Compulsory -->
+   <link rel="stylesheet" href="../../assets/vendor/bootstrap/bootstrap.min.css">
+
+   <!-- CSS Implementing Plugins -->
+   <link rel="stylesheet" href="../../assets/vendor/icon-awesome/css/font-awesome.min.css">
+   <link rel="stylesheet" href="../../assets/vendor/icon-etlinefont/style.css">
+   <link rel="stylesheet" href="../../assets/vendor/icon-hs/style.css">
+   <link rel="stylesheet" href="../../assets/vendor/icon-line-pro/style.css">
+
+   <link rel="stylesheet" href="../../assets/vendor/animate.css">
+   <link rel="stylesheet" href="../../assets/vendor/slick-carousel/slick/slick.css">
+
+   <link rel="stylesheet" href="../../assets/vendor/hs-megamenu/src/hs.megamenu.css">
+   <link rel="stylesheet" href="../../assets/vendor/hamburgers/hamburgers.min.css">
+
+   <!-- CSS Unify -->
+   <link rel="stylesheet" href="../../assets/css/unify.css">
+
+   <!-- Revolution Slider -->
+   <link rel="stylesheet" href="../../assets/vendor/revolution-slider/revolution/fonts/pe-icon-7-stroke/css/pe-icon-7-stroke.css">
+   <link rel="stylesheet" href="../../assets/vendor/revolution-slider/revolution/css/settings.css">
+   <link rel="stylesheet" href="../../assets/vendor/revolution-slider/revolution-addons/polyfold/css/revolution.addon.polyfold.css">
+   <link rel="stylesheet" href="assets/css/style.css">
+
+
+
+   <!-- CSS Global Compulsory -->
+   <link rel="stylesheet" href="../../../assets/vendor/bootstrap/bootstrap.min.css">
+   <link rel="stylesheet" href="../../../assets/vendor/bootstrap/offcanvas.css">
+   <!-- CSS Global Icons -->   
+   <link rel="stylesheet" href="../../../assets/vendor/dzsparallaxer/dzsscroller/scroller.css">
+   <link rel="stylesheet" href="../../../assets/vendor/dzsparallaxer/advancedscroller/plugin.css">
+   <link rel="stylesheet" href="../../../assets/vendor/fancybox/jquery.fancybox.css">
+ 
+   <!-- CSS Unify -->
+   <link rel="stylesheet" href="../../../assets/css/unify-core.css">
+   <link rel="stylesheet" href="../../../assets/css/unify-components.css">
+   <link rel="stylesheet" href="../../../assets/css/unify-globals.css">
+   <!-- CSS Customization -->
+   <link rel="stylesheet" href="../../../assets/css/custom.css">
+
+    <!-- CSS Implementing Plugins -->
+    <link  rel="stylesheet" href="../../../assets/vendor/slick-carousel/slick/slick.css">
+    <link  rel="stylesheet" href="../../../assets/vendor/jquery-ui/themes/base/jquery-ui.min.css">
+
+    <!-- LEAFLET -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css"
+    integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14="
+    crossorigin=""/>
+
+     <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js"
+    integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg="
+    crossorigin=""></script>
+   
 </head>
 <body>
-  <app-root></app-root>
+  <main id="main-content" #mainContent>
+     <!-- Header -->
+     <header id="js-header" class="u-header u-header--sticky-top u-header--change-appearance"
+     data-header-fix-moment="100">
+      <div class="u-header__section g-bg-white g-transition-0_3 g-py-5 g-py-18--md"
+          data-header-fix-moment-exclude="g-py-17--md"
+          data-header-fix-moment-classes="g-py-10--md">
+        <nav class="navbar navbar-expand-lg g-py-0">
+          <div class="container g-pos-rel">
+            <!-- Logo -->
+            <a href="#home" class="nav-link navbar-brand u-header__logo"
+                data-type="static">
+                <!-- <h3 class="g-font-size-25">REFORMEMOS TU HOGAR</h3> -->
+              <img class="u-header__logo-img u-header__logo-img--main g-pb-10" style="width: 200px;max-height:50px;background-color: white !important;padding:0px !important;" src="../../../assets/img/imagenes/logo2.PNG" alt="Image description">
+            </a>
+            <!-- End Logo -->
+
+            <!-- Navigation -->
+            <div class="collapse navbar-collapse align-items-center flex-sm-row g-pt-20" id="navBar" data-mobile-scroll-hide="true">
+              <ul id="js-scroll-nav" class="navbar-nav text-uppercase g-letter-spacing-1 g-font-size-12 g-pt-20 g-pt-0--lg ml-auto">
+                <li class="nav-item g-mx-15--lg g-mb-7 g-mb-0--lg">
+                  <a href="/buscador" class="nav-link p-0 g-font-weight-400 g-color-blue--hover">Buscar</a>
+                </li>
+                <li class="nav-item g-mx-15--lg g-mb-7 g-mb-0--lg">
+                  <a href="/creador" class="nav-link p-0 g-font-weight-400 g-color-blue--hover">Crear</a>
+                </li>
+                <li class="nav-item g-mx-15--lg g-mb-7 g-mb-0--lg">
+                  <a href="/informacion" class="nav-link p-0 g-font-weight-400 g-color-blue--hover">Información</a>
+                </li>
+                <li class="nav-item g-mx-15--lg g-mb-7 g-mb-0--lg">
+                  <a href="/contacto" class="nav-link p-0 g-font-weight-400 g-color-blue--hover">Contacto</a>
+                </li>
+                <li class="g-mx-15--lg g-mb-7 g-mb-0--lg">
+                  <app-loginbutton></app-loginbutton>
+                  <!-- <a href="/loginRoom" class="nav-link p-0 g-font-weight-400 g-color-blue--hover">Login</a> -->
+                </li>
+              </ul>
+            </div>
+            <!-- End Navigation -->
+
+            <!-- Responsive Toggle Button -->
+            <button class="navbar-toggler btn g-line-height-1 g-brd-none g-pa-0 g-pos-abs g-top-5 g-right-0" type="button"
+                    aria-label="Toggle navigation"
+                    aria-expanded="false"
+                    aria-controls="navBar"
+                    data-toggle="collapse"
+                    data-target="#navBar">
+              <span class="hamburger hamburger--slider">
+                <span class="hamburger-box">
+                  <span class="hamburger-inner"></span>
+                </span>
+              </span>
+            </button>
+            <!-- End Responsive Toggle Button -->
+          </div>
+        </nav>
+      </div>
+    </header>
+<!-- End Header -->
+    <div style="margin-top:100px;"></div>
+    <app-root></app-root>
+    <a class="js-go-to u-go-to-v1" href="#"
+         data-type="fixed"
+         data-position='{
+           "bottom": 15,
+           "right": 15
+         }'
+         data-offset-top="400"
+         data-compensation="#js-header"
+         data-show-effect="zoomIn">
+        <i class="hs-icon hs-icon-arrow-top"></i>
+      </a>
+  </main>
+
+<!-- JS Global Compulsory -->
+<script src="../../../assets/vendor/jquery/jquery.min.js"></script>
+<script src="../../../assets/vendor/jquery-migrate/jquery-migrate.min.js"></script>
+<script src="../../../assets/vendor/popper.js/popper.min.js"></script>
+<script src="../../../assets/vendor/bootstrap/bootstrap.min.js"></script>
+
+<script src="../../../assets/vendor/bootstrap/offcanvas.js"></script>
+
+<!-- JS Implementing Plugins -->
+<script src="../../../assets/vendor/dzsparallaxer/dzsparallaxer.js"></script>
+<script src="../../../assets/vendor/dzsparallaxer/dzsscroller/scroller.js"></script>
+<script src="../../../assets/vendor/dzsparallaxer/advancedscroller/plugin.js"></script>
+<script src="../../../assets/vendor/masonry/dist/masonry.pkgd.min.js"></script>
+<script src="../../../assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+<script src="../../../assets/vendor/slick-carousel/slick/slick.js"></script>
+<script src="../../../assets/vendor/fancybox/jquery.fancybox.min.js"></script>
+
+<!-- JS Unify -->
+<script src="../../../assets/js/hs.core.js"></script>
+
+<script src="../../../assets/js/components/hs.header.js"></script>
+<script src="../../../assets/js/helpers/hs.hamburgers.js"></script>
+<script src="../../assets/js/components/hs.scroll-nav.js"></script>
+<script src="../../assets/js/components/hs.tabs.js"></script>
+
+<script src="../../../assets/js/components/hs.dropdown.js"></script>
+<script src="../../../assets/js/components/hs.popup.js"></script>
+<script src="../../../assets/js/components/hs.carousel.js"></script>
+
+<script src="../../../assets/js/components/hs.go-to.js"></script>
+
+<!-- JS Unify -->
+<script  src="../../../assets/js/helpers/hs.focus-state.js"></script>
+<script  src="../../../assets/js/components/hs.file-attachement.js"></script>
+<script  src="../../../assets/js/components/hs.count-qty.js"></script>
+
+<!-- JS Custom -->
+<script src="../../../assets/js/custom.js"></script>
+
+<script>
+  $(document).on('ready', function () {
+    console.log("===========INIT");
+    // initialization of carousel
+    $.HSCore.components.HSCarousel.init('.js-carousel');
+
+    // initialization of forms
+    $.HSCore.components.HSFileAttachment.init('.js-file-attachment');
+    $.HSCore.helpers.HSFocusState.init();
+
+    // initialization of forms
+    $.HSCore.components.HSCountQty.init('.js-quantity');
+
+    // initialization of header
+    $.HSCore.components.HSHeader.init($('#js-header'));
+    $.HSCore.helpers.HSHamburgers.init('.hamburger');
+    // initialization of go to
+    $.HSCore.components.HSGoTo.init('.js-go-to');
+
+
+    // initialization of HSDropdown component
+    $.HSCore.components.HSDropdown.init( $('[data-dropdown-target]'), {
+      afterOpen: function(){
+        $(this).find('input[type="search"]').focus();
+      }
+    });
+
+    // initialization of masonry
+    $('.masonry-grid').imagesLoaded().then(function () {
+      $('.masonry-grid').masonry({
+        columnWidth: '.masonry-grid-sizer',
+        itemSelector: '.masonry-grid-item',
+        percentPosition: true
+      });
+    });
+
+    // initialization of popups
+    $.HSCore.components.HSPopup.init('.js-fancybox');
+  });
+
+//   document.querySelector('#loginButton').addEventListener('click', function(event) {
+//   event.preventDefault();
+// });
+</script>
+
 </body>
 </html>
+
+<style>
+  html { scroll-behavior: smooth; } 
+</style>

@@ -1,0 +1,655 @@
+@font-face {
+    font-family: 'GouditaLight';
+    font-style: italic;
+    font-weight: bold;
+    src: url('../fonts/GouditaSansLightSFRegular.ttf'); /* IE9 Compat Modes */
+}
+@font-face {
+    font-family: 'GouditaSansSF';
+    font-style: normal;
+    font-weight: normal;
+    src: url('../fonts/GouditaSansSF.eot'); /* IE9 Compat Modes */
+    src: url('../fonts/GouditaSansSF.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('../fonts/GouditaSansSF.woff') format('woff'),
+         url('../fonts/GouditaSansSF.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'GouditaSansSF';
+    font-style: italic;
+    font-weight: normal;
+    src: url('../fonts/GouditaSansSFItalic.eot'); /* IE9 Compat Modes */
+    src: url('../fonts/GouditaSansSFItalic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('../fonts/GouditaSansSFItalic.woff') format('woff'),
+         url('../fonts/GouditaSansSFItalic.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'GouditaSansSF';
+    font-style: normal;
+    font-weight: bold;
+    src: url('../fonts/GouditaSansSFBold.eot'); /* IE9 Compat Modes */
+    src: url('../fonts/GouditaSansSFBold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('../fonts/GouditaSansSFBold.woff') format('woff'),
+         url('../fonts/GouditaSansSFBold.ttf') format('truetype');
+}
+/* GENERAL */
+.can-scroll{
+    background-color: green;
+    overflow-y: visible;
+    overflow-x: hidden;
+}
+.block-scroll{    
+    overflow-y:hidden;
+    /* position: fixed; */
+}
+.showingPopUp{
+    display: block !important;
+}
+.showingPopUpFlex{
+    display: flex !important;
+}
+.hiddenPopUp{
+    display: none !important;
+}
+select{
+    color:gray !important;
+    box-shadow: 0 5px 10px -6px rgb(0 0 0 / 75%) !important;
+}
+.multiselect-container>li>a>label {
+    padding: 4px 20px 3px 20px;
+}
+.multiselect {
+    box-shadow: 0 5px 10px -6px rgb(0 0 0 / 75%) !important;
+    text-align: start;
+}
+/* TOP BAR */
+.divPosTopBar{
+    width: 100%;
+    height: 130px;
+}
+#js-header{
+    font-family: 'GouditaLight';
+    font-size: 18px;
+    font-weight: 100;
+    line-height: 27px;
+}
+.topbar-wrapper{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.navbarContainer{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    max-width: none !important;
+}
+.navigationZone{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 5%;
+}
+.navigationMenu{
+    min-width: 800px !important;
+}
+.logoTopbar2{
+    display: none;
+}
+.loginButton{
+    background-color: #4c7cc9;
+    font-size: 20px;
+    min-width: 120px;   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 10px;
+    right: 50px;
+}
+.menuDesplegable{
+    overflow-y: auto;
+}
+.navBar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 100% !important;
+    padding: 5px 30px !important;
+}
+.navBar-text{
+    font-size: 18px;
+}
+.rowSobreHM{
+    display: flex;
+    flex-direction: row;
+}
+.submenu_SobreHM{
+    display: flex;
+}
+.searchBar{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-right: 20px;
+}
+.searchBar input[type=text] {
+    width: 150px;
+    float: right;
+    padding-left: 10px;
+    margin-right: 15px;
+    border: none;
+    font-size: 15px;
+    border-radius: 5%;
+}
+.searchBarMovil{
+    display: none !important;
+}
+.navBarHeight{
+    height: 75px;
+}
+
+/* GENERALES BUSCADORES */
+.tabButton{
+    padding: 5px 15px;
+    border: 1px solid gray;
+    font-size: 15px;
+    text-align: center;
+    width: 140px !important;
+    border-radius: 5px;
+    margin: 8px;
+    border-color: #eee !important;
+    color:#4c7cc9;
+    cursor: pointer;
+}
+.buscadorItem{
+    min-height: 215px;
+}
+.buscadorItemDirection{
+    min-height: 40px;
+}
+.buscadorLinea{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 97%;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    padding: 15px 0;
+    background-color: #dee2e5;
+
+    border: 1px solid rgb(0 0 0 / 10%);
+    box-shadow: -5px 10px rgb(136 136 136 / 20%);
+    border-bottom-left-radius: 4px !important;
+    border-bottom-right-radius: 4px !important;
+    box-shadow: 0 5px 10px -6px rgb(0 0 0 / 10%);
+}
+.slick-track{
+    opacity: 1;
+    width: 1425px;
+    transform: translate3d(-570px, 0px, 0px);
+}
+/* LISTAS */
+#listaUPS{
+    display: flex;
+    flex-wrap: wrap;
+}
+#listaMedicos div, #listaUPS div {
+    max-width: 350px !important;
+}
+/* INDEX */
+.bannerAbarcaImg{   
+    background-image: url("../../images/Banner_1920x800_Partes-de-Guerra_Juan-Abarca.jpg");
+}
+
+/* CUADRO MEDICO BUSCADOR */
+.abecedario{
+    display: flex;
+    justify-content: center;
+}
+.abecedario ul{
+    overflow-x: auto;
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 0 !important;
+    padding-bottom: 20px;
+}
+.doctorFile .row{
+    display: flex !important;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.doctorFile img{
+    width: 100px !important;
+    height: 100px !important;
+    margin: 0 auto;
+}
+.doctorFile-button{
+    width: 100% !important;
+    display: flex;
+    justify-content: center;
+}
+.doctorFile-button button{
+    width: 95px !important;
+    margin-top: 0 !important;
+}
+.doctorFile-icons{
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+.doctorFile-icons ul li{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* SLIDER */
+.tp-mask-wrap a{
+    font-size: 25px !important;
+}
+
+/* BANNER SALUDIZATE */
+.imgBannerSaludizate img{
+    width: 90%;
+}
+/* HOSPITALES BUSCADOR */
+.cbp-item-wrapper{
+    width: 100%;
+    height: 450px;
+    position: relative;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+.cbp-item-wrapper a{
+    margin-top:15px;
+}
+.hospitalName{
+    height: 40px;
+    text-align: center;
+}
+
+/* BUSCADOR ESPECIALIDADES */
+#filterControls{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+    padding-left: 0 !important;
+}
+
+/* CENTROS DETALLES */
+.centroInfoPrincipal{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 0 15%;
+}
+.comentarios{
+    height: 150px;
+}
+
+/* FETILITY CENTER */
+.fertilityArticle{
+    min-width: 400px;
+    max-width: 400px;
+    padding: 20px;
+}
+/* CONTACTO */
+.itemBuscadorContacto{    
+    width: 350px;
+    height: 250px;
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid rgb(0 0 0 / 10%);
+    box-shadow: -5px 10px rgba(136, 136, 136,0.2);
+    border-bottom-left-radius: 4px !important;
+    border-bottom-right-radius: 4px !important;
+    box-shadow: 0 5px 10px -6px rgb(0 0 0 / 10%);
+}
+.itemBuscadorContacto p{
+    margin-bottom: 0;
+    margin-top: 10px;
+}
+.ddlContacto{
+    padding-top: 180px;
+}
+.contactoTitle{
+    font-size: 35px !important;
+}
+
+/* FOOTER */
+footer section .shortcode3 .shortcode-html .g-bg-gray-dark-v1 {
+    background-color: red;
+}
+
+
+/* MEDIA QUERYS */
+@media (max-width: 1450px) {
+    /* TOPBAR */
+    .logoTopbar{
+        width: 170px;
+    }
+    .navigationMenu{
+        min-width: 680px !important;
+        margin-right: 20px;
+    }
+    .navigationZone {
+        margin-right: 20px;
+    }
+    .navBar-text{
+        font-size: 15px;
+    }
+}
+@media (max-width: 1150px) {
+    /* TOP BAR */
+    .navBar{
+        min-width: 500px !important;
+        max-width: none !important;
+        margin: 0 auto;
+    }
+    .nav-link{
+        font-size: 16px;
+    }
+    .logoTopbar{
+        width: 115px;
+    }
+    .navigationMenu{
+        min-width: 680px !important;
+        margin-right: 10px;
+    }
+    .navigationZone{
+        max-width: 100%;
+        background-color: white;
+        padding-left: 15px;
+    }
+    .navBar-text{
+        font-size: 14px;
+    }
+    /* CARRUSEL */
+    .navbarContainer{
+        min-width: 900px !important;
+    }
+    .ml-auto, .mx-auto{
+        margin-left: 0 !important;
+    }
+    /* PROVINCIA */
+    .detalleMapaProvincia{
+        display: none;
+    }
+}
+
+/* CAMBIO A MOVIL */
+@media (max-width: 990px) {
+    /* TOPBAR */
+    .logoTopbar{
+        width: 180px;
+        margin-bottom: 0px;        
+    }
+    .loginButton{
+        position: absolute;
+        margin-right: 50px;
+        font-size: 16px;
+        min-width: 120px;
+        right: 15%;top:0;
+    }
+    .navBarHeight{
+        height: 60px;
+    }
+    .navigationMenu{
+        min-width: 100vw !important;
+    }
+    .navbarContainer {
+        min-width: 700px !important;
+    }
+    .hamburguerButton{
+        top: -9px !important;
+    }
+    .menuDesplegable{
+        max-width: 90% !important;
+        height: 680px;
+    }
+    .navigationZone{
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+    #navBar ul li{
+        max-height: 300px;
+        overflow-y: scroll;
+    }
+    .submenu_SobreHM{
+        display: flex;        
+        flex-direction: column-reverse !important;
+        font-size: 14px;
+    }
+    .titleAbout{
+        font-size: 16px;
+    }
+    .submenu_Red article{
+        display: flex;
+        flex-direction: column;
+        margin-top:15px;
+    }
+    .submenu_About{
+        font-size: 15px;
+    }
+    /* CENTROS */
+    .comentarios {
+        height: 220px;
+    }
+    /* BUSQUEDA */
+    .buscadorLinea {
+        padding: 30px 0;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+    .buscadorLinea select {
+        margin:20px 0;
+        width: 300px !important;
+    }
+    input{
+        box-shadow: 0 5px 10px -6px rgb(0 0 0 / 75%) !important;
+    }
+}
+@media (max-width: 850px) {
+    /* TOP BAR */
+    .navbarContainer {
+        min-width: 400px !important;
+    }
+    /* CENTROS DETALLES */
+    .centroInfoPrincipal{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .menuDesplegable{
+        width: 80% !important;
+    }
+    /* SALUDIZATE */
+    .btnSaludizate{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    /* INDEX */
+    .bannerAbarcaImg{
+        background-image: url("../../images/Banner_1920x800_Partes-de-Guerra_Juan-Abarca_VMovil.jpg");
+    }
+    /* BUSCADOR MEDICO */
+    .medicoFoto, .medicoHospitales,
+    .medicoDatos{
+        display: flex;       
+       justify-content: center;
+       margin-bottom: 10px;
+       text-align: center;
+    }
+    .medicoHospitales{
+        flex-direction: column;
+    }
+    .doctorFile img {
+        margin-left: 0 !important;
+    }
+    .banderaGoTo{
+        width: 100px !important;
+    }
+}
+@media (max-width: 650px) {
+    /* HEADER */
+    .container .row{
+        flex-direction: row !important;
+    }
+    .btnAccesoUsuario{
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+    }
+    .icon-plus{
+        font-size: 12px !important;
+    }
+    .navbarContainer {
+        min-width: 500px !important;
+    }
+    .searchBarMovil{
+        display: block !important;
+    }
+    .searchBar{
+        display: none;
+    }
+    /* CARRUSEL */
+    .navbarContainer{
+        max-width: none !important;
+        min-width: 400px !important;
+    }
+    /* BANNER A UN PULSO */
+    .bannerarrows{
+        display: none !important;
+    }
+    .bannerAUnPulso{
+        padding-bottom: 0 !important;
+        padding-top: 30px !important;
+    }
+    /* FETILITY CENTER */
+    .fertilityArticle{
+        min-width: 350px;
+        max-width: 350px;
+    }
+    .bannerTestimonios{
+        background-position: right !important;
+    }
+    /* SALUDIZATE */
+    .imgBannerSaludizate{
+        display: flex;
+        justify-content: center;
+        padding-top:15px;
+    }
+    .bannerComercialSaludizateText{
+        display: none;
+    }
+    /* CONTACTO */
+    .ddlContacto{
+        padding-top: 320px;
+    }
+    .contactoTitle{
+        font-size: 30px !important;
+    }
+    .iconosRow{
+        top: -10% !important
+    }
+    /* MODAL */
+    .popUp{
+        max-width: 300px !important;
+    }
+}
+@media (max-width: 550px) {
+    /* TOP BAR */
+    .searchBar input{
+        display: none;
+    }
+    .navBar{
+        min-width: 400px !important;
+    }
+    .logoTopbar, .navbar-brand{
+        display: none !important;
+    }
+    .navbar-brand{
+        display: inline-block;
+    }
+    .logoTopbar2{
+        display: block;
+        margin-bottom: 0px;
+        margin-left: 10px;
+        width: 70px;
+    }
+    .menuDesplegable{
+        width: 70% !important;
+        padding-bottom: 40px;
+        padding-bottom: 10px !important;
+    }
+}
+@media (max-width: 420px) {
+    /* TOPBAR */
+    .navbarContainer{
+        min-width: 350px !important;
+    }
+    .navBar{
+        min-width: 200px;
+        /* padding-top: 50px !important; */
+    }
+    .navbarContainer{
+        min-width: 200px !important;
+    }
+    .topbarList sli{
+        margin: 0 !important;
+    }
+    .navigationZone{
+        margin-bottom: 8px;
+        margin-top: 15px;
+    }
+    .list-inline-item a{
+        font-size: 12px;
+    }
+    .navBar{
+        min-width: 100px !important;
+    }
+    /* SECTIONS POS TOPBAR */
+    .sectionposTopBar{
+        margin-top: 120px !important;
+    }
+    #revSlider_forcefullwidth{
+        margin-top: 0px !important;
+    }
+    /* CARRUSEL */
+    .carruselIndex{
+        margin-top: 0px !important;
+    }    
+    /* HOSPITALES BUSCADOR */
+    .hospitalName{
+        height: 30px;
+    }
+}
+@media (max-width: 330px) {
+    /* TOP BAR */
+    .logoTopbar2{
+        display: none;
+    }
+}
+@media (max-width: 295px) {
+    /* TOP BAR */
+    .rrssList{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-width: 120px;
+    }
+    .topbar-wrapper{
+        justify-content: center;
+    }
+    .navBar ul{
+        margin-top:30px;
+    }
+}

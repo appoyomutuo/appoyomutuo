@@ -1,0 +1,78 @@
+<div *ngIf="project" style="padding:0px 20px;">
+    <div class="container text-center g-max-width-750 g-mb-0">
+        <div class="text-uppercase g-mb-30">
+          <h3 class="h3 g-letter-spacing-5 g-font-size-12 g-font-weight-400 g-color-black g-mb-25" style="font-family:Poppins;">{{project.name}}</h3>
+          <div style="display: flex;align-items: center;justify-content: center;">
+            <h2 class="u-heading-v2__title g-line-height-1 g-letter-spacing-2 g-font-size-30 g-font-size-40--md g-color-black mb-0" style="font-family:Poppins;">Tareas</h2>
+          </div>
+        </div>
+    </div>
+
+    <!-- AÑADIR TAREA -->
+    <div style="width: 200px;cursor: pointer;margin-left: 12%;margin-bottom: 20px;" (click)="showPopupNewTarea()">
+        <a class="btn btn-md g-bg-black g-color-white g-bg-white--hover g-color-black--hover u-btn-outline-black g-mr-10 g-mt-5" style="display: flex;align-items: center;justify-content: center;"><i class="material-icons g-mr-5 g-font-12">add_circle_outline</i>Añadir Tarea</a>
+    </div>
+
+    <!-- LISTAS -->
+    <div class="tareasWrapper" style="display: flex;justify-content: center;align-items: flex-start;margin: auto;">
+        <!-- TODO -->
+        <div cdkDropList
+        #todoList="cdkDropList"
+        [cdkDropListData]="todo"
+        [cdkDropListConnectedTo]="[doingList,doneList]"
+        class="example-list"
+        (cdkDropListDropped)="drop($event)"
+        class="generalContainer u-shadow-v1-5 g-line-height-2 g-pa-40 g-mb-30">
+            <h3 class="h2 g-font-weight-300 g-mb-20">Por Hacer</h3>
+            <div style="display: flex;flex-direction: column;height: auto;">
+              <div *ngFor="let item of todo" cdkDrag class="u-shadow-v2 g-brd-around g-brd-gray-light-v4 g-line-height-2 g-pa-20 g-mb-30" role="alert" style="display: flex;align-items: center;justify-content: space-between;">
+                  <h4 class="h2 g-font-weight-300" style="font-size: 20px;">{{item.nombre}}</h4>
+                  <span class="u-icon-v1">
+                      <i (click)="readTarea(item)" class="material-icons">search</i>
+                  </span>
+              </div>
+            </div>
+        </div>
+        <!-- DOING -->
+        <div cdkDropList
+        #doingList="cdkDropList"
+        [cdkDropListData]="doing"
+        [cdkDropListConnectedTo]="[doneList,todoList]"
+        class="example-list"
+        (cdkDropListDropped)="drop($event)"
+        class="generalContainer u-shadow-v1-5 g-line-height-2 g-pa-40 g-mb-30">
+            <h3 class="h2 g-font-weight-300 g-mb-20">Haciendo</h3>
+            <div style="display: flex;flex-direction: column;">
+                <div *ngFor="let item of doing" cdkDrag class="u-shadow-v2 g-brd-around g-brd-gray-light-v4 g-line-height-2 g-pa-20 g-mb-30" role="alert" style="display: flex;align-items: center;justify-content: space-between;">
+                    <h4 class="h2 g-font-weight-300" style="font-size: 20px;">{{item.nombre}}</h4>
+                    <span class="u-icon-v1">
+                        <i class="material-icons">search</i>
+                    </span>
+                </div>
+              </div>
+        </div>
+        <!-- DONE -->
+        <div cdkDropList
+        #doneList="cdkDropList"
+        [cdkDropListData]="done"
+        [cdkDropListConnectedTo]="[doingList,todoList]"
+        class="example-list"
+        (cdkDropListDropped)="drop($event)"
+        class="generalContainer u-shadow-v1-5 g-line-height-2 g-pa-40 g-mb-30">
+            <h3 class="h2 g-font-weight-300 g-mb-20">Hechas</h3>
+            <div style="display: flex;flex-direction: column;">
+                <div *ngFor="let item of done" cdkDrag class="u-shadow-v2 g-brd-around g-brd-gray-light-v4 g-line-height-2 g-pa-20 g-mb-30" role="alert" style="display: flex;align-items: center;justify-content: space-between;">
+                    <h4 class="h2 g-font-weight-300" style="font-size: 20px;">{{item.nombre}}</h4>
+                    <span class="u-icon-v1">
+                        <i class="material-icons">search</i>
+                    </span>
+                </div>
+              </div>
+        </div>
+    </div>
+    <div style="width: 100%;display: flex;justify-content: center;">
+        <h3 class="h3 g-letter-spacing-5 g-font-size-12 g-font-weight-400 g-color-black g-mb-25" style="font-family:Poppins;">Arrastra las tareas hasta su actual estado o crea nuevas</h3>
+    </div>
+</div>
+
+<popup-newtarea *ngIf="showPopUp_newTarea" (closePopUp)=closePopUpFilters() (createNewTask)=createNewTask($event) (editTask)=editTask($event) (deleteTask)=deleteTask($event) [tareaToRead]=tareaToRead></popup-newtarea>

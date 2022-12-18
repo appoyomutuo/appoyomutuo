@@ -1,0 +1,32 @@
+<div class="container text-center g-max-width-750 g-pt-30">
+    <div class="container text-center g-max-width-750 g-mb-0">
+        <div class="text-uppercase g-mb-30">
+            <h3 class="h3 g-letter-spacing-5 g-font-size-12 g-font-weight-400 g-color-black g-mb-25" style="font-family:Poppins;">Todas estas personas están esperando a participar en tus proyectos</h3>
+            <div style="display: flex;align-items: center;justify-content: center;">
+            <h2 class="u-heading-v2__title g-line-height-1 g-letter-spacing-2 g-font-size-30 g-font-size-40--md g-color-black mb-0" style="font-family:Poppins;">Peticiones</h2>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- LISTA PETICIONES -->
+<div class="projectLis-wrapper">
+    <div class="project-wrapper" *ngFor="let item of peticionesSinLeer">
+        <div class="row" style="display: flex;flex-direction: column;justify-content: center;align-items: center;margin: auto;">
+            <div class="col-lg">
+                <label>De: {{item.nombre}} ({{item.mailPeticion}})</label>
+                <label>Proyecto: {{item.nombreProyecto}}</label>
+                <label>Mensaje: {{item.mensaje}}</label>
+                <div id="shortcode8">
+                    <div class="shortcode-html" style="display:flex;flex-direction:column;justify-content:center;align-items: center;">
+                        <div class="infobottom g-font-size-12 g-my-10 g-pl-10">
+                            <div>
+                                <button (click)="acceptPeticion(item)" style="border: 1px solid black !important;" class="btn btn-md g-bg-black g-color-white g-bg-white--hover g-color-black--hover u-btn-outline-white g-mr-10 g-mt-10">Aceptar</button>
+                                <button (click)="declinePeticion(item.id)" style="border: 1px solid black !important;" class="btn btn-md g-bg-black g-color-white g-bg-white--hover g-color-black--hover u-btn-outline-white g-mr-10 g-mt-10">Cancelar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+    </div>
+</div>

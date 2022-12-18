@@ -1,0 +1,17 @@
+@font-face {
+    font-family: WhitePigeon;
+    src: url(../fonts/WhitePigeon.otf) format("opentype");
+}
+@font-face {
+    font-family: WhiteDream;
+    src: url(../fonts/WhiteDream.otf) format("opentype");
+}
+
+.sectionclick{
+    cursor: pointer;
+}
+
+.col-md-12{
+    padding: 0px !important;
+}
+

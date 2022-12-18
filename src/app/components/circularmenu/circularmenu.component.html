@@ -1,0 +1,230 @@
+
+<div style="width: 100vw;height: 780px; display: flex;flex-direction:column;justify-content:  center;align-items: center;">
+    <div style="display: flex;justify-content: center;align-items: center;width: 120px;">
+        <div (click)="goTo('0')" class="backarrow">
+            <h3 style="color: white;font-size: 14px;margin: auto;">{{breadcrumb}}</h3>
+        </div>
+    </div>
+    <div style="width: 100%;">
+        <!-- MENU 0 INICIAL-->
+        <div *ngIf="currentMenu === '0'" id="menu0" class="imagenMenu menu0" style="width: 100%;height: 100%;display: flex;justify-content: center;">
+            <div style="position: relative;">
+                <!-- 1 ACCIONES Y ASAMBLEAS -->
+                <div style="left: 130px;top:50px;" class="menuSection container text-center g-max-width-750 g-mb-30">
+                    <div style="display: flex;justify-content: center;align-items: center;">
+                        <h2 (click)="goTo('1')" class="titleSection">Acciones y Asambleas</h2>
+                        <i (click)="showInfo('01')" class="icon-media-112 u-line-icon-pro" style="cursor: pointer;position: absolute;right: 25px;"></i>
+                    </div>
+                    <div class="line"></div>
+                </div>
+                <!-- 2 AGRICULTURA Y ALIMENTACIÓN -->
+                <div style="left: -240px;top:130px;" class="menuSection container text-center g-max-width-750 g-mb-30">
+                    <div style="display: flex;justify-content: center;align-items: center;">
+                        <h2 (click)="goTo('2')" class="titleSection">Agricultura y Alimentación</h2>
+                        <i (click)="showInfo('02')" class="icon-media-112 u-line-icon-pro" style="cursor: pointer;position: absolute;right: 5px;"></i>
+                    </div>
+                    <div class="line"></div>
+                </div>
+                <!-- 3 USO DE ESPACIOS -->
+                <div style="left: 470px;top:130px;" class="menuSection container text-center g-max-width-750 g-mb-30">
+                    <div style="display: flex;justify-content: center;align-items: center;">
+                        <h2 (click)="goTo('3')" class="titleSection">Construcción de Espacios</h2>
+                        <i (click)="showInfo('03')" class="icon-media-112 u-line-icon-pro" style="cursor: pointer;position: absolute;right: 10px;"></i>
+                    </div>
+                    <div class="line"></div>
+                </div>
+                <!-- 4 AUTOEMPLEO Y EDUCACIÓN -->
+                <div style="left: -280px;top:330px;" class="menuSection container text-center g-max-width-750 g-mb-30">
+                    <div style="display: flex;justify-content: center;align-items: center;">
+                        <h2 (click)="goTo('4')" class="titleSection">Autoempleo y Educación</h2>
+                        <i (click)="showInfo('04')" class="icon-media-112 u-line-icon-pro" style="cursor: pointer;position: absolute;right: 15px;"></i>
+                    </div>
+                    <div class="line"></div>
+                </div>
+                <!-- 5 SALÚD Y CUIDADOS -->
+                <div style="left: 520px;top:330px;" class="menuSection container text-center g-max-width-750 g-mb-30">
+                    <div style="display: flex;justify-content: center;align-items: center;">
+                        <h2 (click)="goTo('5')" class="titleSection">Salúd y Cuidados</h2>
+                        <i (click)="showInfo('05')" class="icon-media-112 u-line-icon-pro" style="cursor: pointer;position: absolute;right: 55px;"></i>
+                    </div>
+                    <div class="line"></div>
+                </div>
+                <!-- 6 TECNOLOGÍA Y ENERGÍA -->
+                <div style="left: -240px;top:500px;" class="menuSection container text-center g-max-width-750 g-mb-30">
+                    <div style="display: flex;justify-content: center;align-items: center;">
+                        <h2 (click)="goTo('6')" class="titleSection">Tecnología y Energía</h2>
+                        <i (click)="showInfo('06')" class="icon-media-112 u-line-icon-pro" style="cursor: pointer;position: absolute;right: 35px;"></i>
+                    </div>
+                    <div class="line"></div>
+                </div>
+                <!-- 7 CREACIÓN ARTÍSTICA -->
+                <div style="left: 470px;top:500px;" class="menuSection container text-center g-max-width-750 g-mb-30">
+                    <div style="display: flex;justify-content: center;align-items: center;">
+                        <h2 (click)="goTo('7')" class="titleSection">Creación Artística</h2>
+                        <i (click)="showInfo('07')" class="icon-media-112 u-line-icon-pro" style="cursor: pointer;position: absolute;right: 50px;"></i>
+                    </div>
+                    <div class="line"></div>
+                </div>
+                <!-- 8 TRANSPORTE Y EXCURSIONES -->
+                <div style="left: 130px;top:665px;" class="menuSection container text-center g-max-width-750 g-mb-30">
+                    <div style="display: flex;justify-content: center;align-items: center;">
+                        <h2 (click)="goTo('8')" class="titleSection">Transporte y Excursiones</h2>
+                        <i (click)="showInfo('08')" class="icon-media-112 u-line-icon-pro" style="cursor: pointer;position: absolute;right: 15px;"></i>
+                    </div>
+                    <div class="line"></div>
+                </div>
+            </div>
+            <!-- IMAGEN -->
+            <img class="menuImagen" style="width: 580px;height: 580px;margin-top: 100px;" src="../../../assets/img/imagenes/menu0.png" alt="Image description">
+            <img *ngIf="currentInfoImage" class="menuImagen" style="width: 580px;height: 580px;margin-top: 100px;position: absolute;" src="{{currentInfoImage}}" alt="Image description">
+        </div>
+
+        <!-- MENU 1 ACCIONES Y ASAMBLEAS -->
+        <div *ngIf="currentMenu === '1'" id="menu1" class="imagenMenu 1" style="width: 100%;height: 100%;display: flex;justify-content: center;">
+            <div style="position: relative;">
+                <!-- 1 ACCIONES Y ASAMBLEAS -->
+                <div style="left: 130px;top:50px;" class="menuSection container text-center g-max-width-750 g-mb-30">
+                    <div style="display: flex;justify-content: center;align-items: center;">
+                        <h2 (click)="goToBuscador('1')" class="titleSection">Asambleas</h2>
+                        <i (click)="showInfo('01')" class="icon-media-112 u-line-icon-pro" style="cursor: pointer;position: absolute;right: 30px;"></i>
+                    </div>
+                    <div class="line"></div>
+                </div>
+                <!-- 2 AGRICULTURA Y ALIMENTACIÓN -->
+                <div style="left: -240px;top:130px;" class="menuSection container text-center g-max-width-750 g-mb-30">
+                    <div style="display: flex;justify-content: center;align-items: center;">
+                        <h2 (click)="goToBuscador('2')" class="titleSection">Acciones Largo Plazo</h2>
+                        <i (click)="showInfo('02')" class="icon-media-112 u-line-icon-pro" style="cursor: pointer;position: absolute;right: 5px;"></i>
+                    </div>
+                    <div class="line"></div>
+                </div>
+                <!-- 3 CONSTRUCCIÓN DE ESPACIOS -->
+                <div style="left: 470px;top:130px;" class="menuSection container text-center g-max-width-750 g-mb-30">
+                    <div style="display: flex;justify-content: center;align-items: center;">
+                        <h2 (click)="goToBuscador('3')" class="titleSection">Acciones Corto Plazo</h2>
+                        <i (click)="showInfo('03')" class="icon-media-112 u-line-icon-pro" style="cursor: pointer;position: absolute;right: 10px;"></i>
+                    </div>
+                    <div class="line"></div>
+                </div>
+            </div>
+            <!-- IMAGEN -->
+            <img class="menuImagen" style="width: 580px;height: 580px;margin-top: 100px;" src="../../../assets/img/imagenes/menu1.png" alt="Image description">
+            <img *ngIf="currentInfoImage" class="menuImagen" style="width: 580px;height: 580px;margin-top: 100px;position: absolute;" src="{{currentInfoImage}}" alt="Image description">
+        </div>
+
+         <!-- MENU 0 AGRICULTURA Y ALIMENTACIÓN-->
+         <div *ngIf="currentMenu === '2'" id="menu2" class="imagenMenu menu2" style="width: 100%;height: 100%;display: flex;justify-content: center;">
+            <div style="position: relative;">
+                <!-- 1 ACCIONES Y ASAMBLEAS -->
+                <div style="left: 130px;top:50px;" class="menuSection container text-center g-max-width-750 g-mb-30">
+                    <div style="display: flex;justify-content: center;align-items: center;">
+                        <h2 (click)="goToBuscador('1')" class="titleSection">Huertos Colectivos</h2>
+                        <i (click)="showInfo('01')" class="icon-media-112 u-line-icon-pro" style="cursor: pointer;position: absolute;right: 30px;"></i>
+                    </div>
+                    <div class="line"></div>
+                </div>
+                <!-- 2 AGRICULTURA Y ALIMENTACIÓN -->
+                <div style="left: -240px;top:130px;" class="menuSection container text-center g-max-width-750 g-mb-30">
+                    <div style="display: flex;justify-content: center;align-items: center;">
+                        <h2 (click)="goToBuscador('2')" class="titleSection">Cestas Temporada</h2>
+                        <i (click)="showInfo('02')" class="icon-media-112 u-line-icon-pro" style="cursor: pointer;position: absolute;right: 5px;"></i>
+                    </div>
+                    <div class="line"></div>
+                </div>
+                <!-- 3 CONSTRUCCIÓN DE ESPACIOS -->
+                <div style="left: 470px;top:130px;" class="menuSection container text-center g-max-width-750 g-mb-30">
+                    <div style="display: flex;justify-content: center;align-items: center;">
+                        <h2 (click)="goToBuscador('3')" class="titleSection">Compra Ecológica</h2>
+                        <i (click)="showInfo('03')" class="icon-media-112 u-line-icon-pro" style="cursor: pointer;position: absolute;right: 10px;"></i>
+                    </div>
+                    <div class="line"></div>
+                </div>
+                <!-- 4 AUTOEMPLEO Y EDUCACIÓN -->
+                <div style="left: -280px;top:330px;" class="menuSection container text-center g-max-width-750 g-mb-30">
+                    <div style="display: flex;justify-content: center;align-items: center;">
+                        <h2 (click)="goToBuscador('4')" class="titleSection">Plantas y Semillas</h2>
+                        <i (click)="showInfo('04')" class="icon-media-112 u-line-icon-pro" style="cursor: pointer;position: absolute;right: 15px;"></i>
+                    </div>
+                    <div class="line"></div>
+                </div>
+            </div>
+            <!-- IMAGEN -->
+            <img class="menuImagen" style="width: 580px;height: 580px;margin-top: 100px;" src="../../../assets/img/imagenes/menu2.png" alt="Image description">
+            <img *ngIf="currentInfoImage" class="menuImagen" style="width: 580px;height: 580px;margin-top: 100px;position: absolute;" src="{{currentInfoImage}}" alt="Image description">
+        </div>
+    </div>
+</div>
+
+
+<style>
+    .menuSection{
+        position:absolute; 
+        width: auto;
+        height: 50px;
+        position: absolute;
+        z-index: 1000;
+    }
+    .menuImagen{
+        animation-name: imagenanimation;
+        animation-duration: 1.2s;
+    }
+    @keyframes imagenanimation {
+        from {opacity: 10%;}
+        to {opacity: 100%;}
+    }
+    .titleSection{
+        min-width: 300px; 
+        max-width: 300px; 
+        white-space: normal; 
+        font-size: 20px; 
+        line-height: 40px; 
+        font-weight: 700; 
+        color: rgb(0, 0, 0);
+        font-family:Poppins;
+        margin-bottom: 0px !important;
+        cursor: pointer;
+        animation-name: titleanimation;
+        animation-duration: 1.2s;
+    }
+    .titleSection:hover{
+        color:gray;
+        transition: 0.5s;
+    }
+    .titleSection:hover .menuImagen {
+        opacity:0.5;
+    }
+    @keyframes titleanimation {
+        from {opacity: 10%;}
+        to {opacity: 100%;}
+    }
+    .line{
+        width: 100%;
+        height: 3px;
+        background-color: black;
+        animation-name: lineanimation;
+        animation-duration: 1.5s;
+    }
+    @keyframes lineanimation {
+        from {width: 10%;}
+        to {width: 100%;}
+    }
+
+    .backarrow{
+        width: 100px;
+        height: 30px;
+        padding: 5px 8px; 
+        background-color: black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        font-family:Poppins;
+    }
+    .backarrow:hover{
+        background-color: gray;
+        color: white;
+    }
+    .u-line-icon-pro{
+        font-size: 16px !important;
+    }
+</style>

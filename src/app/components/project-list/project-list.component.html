@@ -1,0 +1,46 @@
+<div class="projectLis-wrapper" *ngIf="cards.length > 0">
+    <div class="project-wrapper" *ngFor="let item of cards">
+        <div class="row">
+            <div class="col-lg">
+                <div id="shortcode8">
+                    <div class="shortcode-html">
+                        <!-- Box Shadow -->
+                        <div style="cursor: pointer;" class="imagebox u-shadow-v2 g-mb-30 g-pt-20">
+                            <img class="" src="{{item.imagenes[0]}}" alt="Image Description">
+                        </div>
+                        <!-- End Box Shadow -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg">
+                <div style="height:auto;" class="imagebox u-shadow-v2 g-brd-around g-brd-gray-light-v4 g-line-height-2 g-pa-40 g-mb-30" role="alert">
+                    <h3 class="h2 g-font-weight-300 g-mb-20 text-uppercase">{{item.name}}</h3>
+                    <p style="height: 180px;overflow: hidden;text-overflow: ellipsis;" class="mb-0">{{item.description}}</p>
+                    <a (click)="gotoProjectDetail(item.id)" style="border: 1px solid black !important;" class="btn btn-md g-bg-white g-color-black g-bg-black--hover g-color-white--hover u-btn-outline-black g-mr-10 g-mt-10">+ Saber más</a>
+                </div>
+                <div class="infobottom g-font-size-12 g-my-10 g-pl-10">
+                    <div style="display:flex; align-items: center;">
+                        <div style="cursor: pointer;" class="js-copy-markup u-link-v5  g-color-main g-mr-15" href="#" data-content-target="#shortcode8" data-success-text="Copied">
+                            <i class="icon-real-estate-020 u-line-icon-pro-g-valign-middle g-font-size-20 g-color-black"></i>
+                            Madrid
+                        </div>
+                        <div class="js-modal-markup u-link-v5  g-color-main g-mr-15" href="#" data-content-target="#shortcode8" data-modal-target="#modalMarkup" data-modal-effect="fadein">
+                            <i class="icon-user u-line-icon-pro-g-valign-middle g-font-size-20 g-color-black"></i>
+                            {{item.initialPeople}}/{{item.necessaryPeople}}
+                        </div>
+                        <div *ngIf="item.participationType == 'tiempo'" class="js-modal-markup u-link-v5  g-color-main g-mr-15" href="#" data-content-target="#shortcode8" data-modal-target="#modalMarkup" data-modal-effect="fadein">
+                            <i class="icon-hotel-restaurant-003 u-line-icon-pro g-font-size-20 g-color-black"></i>
+                            {{item.requiredTime}} horas/{{item.period}}
+                        </div>
+                        <div *ngIf="item.participationType == 'dinero'" class="js-modal-markup u-link-v5  g-color-main g-mr-15" href="#" data-content-target="#shortcode8" data-modal-target="#modalMarkup" data-modal-effect="fadein">
+                            <i class="icon-finance-010 u-line-icon-pro g-font-size-20 g-color-black"></i>
+                            {{item.requiredTime}} €/{{item.period}}
+                        </div>
+                    </div>
+                    <!-- <a (click)="gotoProjectDetail(item.name)" class="btn btn-md g-bg-black g-color-white g-bg-white--hover g-color-black--hover u-btn-outline-black g-mr-10 g-mt-5">Unirme</a> -->
+                </div>
+            </div>
+          </div>
+    </div>
+</div>
