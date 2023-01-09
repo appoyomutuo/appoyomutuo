@@ -21,6 +21,7 @@ export class MyprojectsComponent implements OnInit {
   ngOnInit(): void {
     // proyectos propios
     var userMail = sessionStorage.getItem("usermail")!
+    console.log("user mail", userMail)
     this.proyectoService.searchItemByMail(userMail).subscribe(proyectos =>{
       console.log("mis proyectos recibido", proyectos)
       this.ownProjects = proyectos!

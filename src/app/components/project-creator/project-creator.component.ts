@@ -11,10 +11,12 @@ export class ProjectCreatorComponent implements OnInit {
   newProject: Proyecto ={
     id: "0",
     name: "",
+    colectivo: "",
     description: "",
     categoria: "",
     tags:[],
     ubication: "",
+    comunidad: "",
     initialPeople: 0,
     necessaryPeople: 0,
     requiredTime:0,
@@ -81,8 +83,10 @@ export class ProjectCreatorComponent implements OnInit {
   }
 
   addTag(){
-    this.tags.push(this.tag)
-    console.log("tags", this.tags)
+    if(this.tag != ""){
+      this.tags.push(this.tag)
+      console.log("tags", this.tags)
+    }
   }
 
   deleteItem(event: any, item: Proyecto){
@@ -108,6 +112,10 @@ export class ProjectCreatorComponent implements OnInit {
 
   closePopUpMapa(){
     this.showPopUp_Mapa = false
+  }
+
+  handleComunidadChange(e:any){
+    this.newProject.comunidad = e.target.value
   }
 
   handleParticipationChange(e:any){

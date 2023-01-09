@@ -173,6 +173,21 @@ export class ProyectoService {
     return project
   }
 
+  // ==============================================================================>BÚSQUEDAS
+  getItemsByCategoria(categoria:string){
+    var projects =this.afs.collection('Proyectos', ref => ref.where('categoria', '==', categoria)).snapshotChanges().pipe(
+      map(actions => {       
+        return actions.map(a => {
+          const data = a.payload.doc.data() as Proyecto;
+          data.id = a.payload.doc.id;
+          data.$key = a.payload.doc.id;
+          return data;
+        });
+      })
+    );
+    return  projects
+  }
+
   // ==============================================================================>TAREAS
   addTask(task:any){
     this.tareasCollection = this.afs.collection('Tareas');

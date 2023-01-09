@@ -2,10 +2,12 @@ export interface Proyecto {
     $key?: string; //Angular necesita este campo.
     id: string;
     name: string;
+    colectivo: string;
     description: string;
     categoria:string;
     tags:string[],
     ubication: string;
+    comunidad:string;
     initialPeople: number;
     necessaryPeople: number;
     requiredTime:number;

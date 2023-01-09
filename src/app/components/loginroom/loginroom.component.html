@@ -1,5 +1,5 @@
 <div *ngIf="!logueado; else login">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" aria-label="Tenth navbar example">
+    <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark" aria-label="Tenth navbar example">
       <div class="container-fluid">
           <img src="../../../assets/img/art3-120x120.jpg" alt="" style="width: 45px; height: 50px;">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample08" aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation">
@@ -17,12 +17,29 @@
           </ul>
         </div>
       </div>
-    </nav>
+    </nav> -->
+    <section class="g-bg-gray-light-v5">
+      <div class="container g-py-100">
+        <div class="row justify-content-center">
+          <div class="col-sm-8 col-lg-5">
+            <div class="u-shadow-v21 g-bg-white rounded g-py-40 g-px-30">
+              <!-- <header class="text-center mb-4">
+                <h2 class="h2 g-color-black g-font-weight-600">Login</h2>
+              </header> -->
+              <div style="display: flex;flex-direction: column;justify-content: center;align-items: center; width: 100%;">
+                <a [routerLink]="['/login']" style="width: 200px;margin-bottom: 10px;" class="btn btn-block u-shadow-v32 g-brd-white g-brd-2 g-color-white g-bg-black g-brd-black--hover g-bg-white--hover g-color-black--hover g-font-size-16 g-rounded-30 g-py-10 ml-2 g-mt-0" type="button">Acceder a mi cuenta</a>
+                <a [routerLink]="['/newuser']" style="width: 200px;" class="btn btn-block u-shadow-v32 g-brd-white g-brd-2 g-color-white g-bg-black g-brd-black--hover g-bg-white--hover g-color-black--hover g-font-size-16 g-rounded-30 g-py-10 ml-2 g-mt-0" type="button">Crear una cuenta</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
 
  <ng-template #login>
 
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark" aria-label="Tenth navbar example">
+  <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark" aria-label="Tenth navbar example">
     <div class="container-fluid">
         <img src="./../../../assets/images/angular.png" alt="" style="width: 45px; height: 50px;">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample08" aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation">
@@ -67,5 +84,5 @@
       </ul>
     </a>
     </div>
-  </nav>
+  </nav> -->
  </ng-template> 

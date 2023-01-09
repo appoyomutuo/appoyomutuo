@@ -14,64 +14,59 @@
                 <div class="container g-pt-150 g-pb-30">
                 <form class="row">
                     <div class="col-xl-12 g-mb-30">
-                        <div class="g-mb-50">
-                            <label class="g-font-weight-500 g-font-size-15 g-pl-30">Buscar un proyecto que contenga...</label>
-                            <input class="form-control u-shadow-v19 g-brd-none g-bg-white g-font-size-16 g-rounded-30 g-px-30 g-py-13 g-mb-30" type="text" placeholder="eg. How to fund your research on Ontario?">
-                        </div>
-
                         <div class="row">
+                            <!-- CATEGORIA -->
                             <div class="col-sm-6 g-mb-50">
-                            <!-- Area of Interest -->
-                            <label class="g-font-weight-500 g-font-size-15 g-pl-30">Tags</label>
-                            <select class="js-custom-select w-100 u-select-v2 u-shadow-v19 g-brd-none g-color-black g-color-primary--hover g-bg-white text-left g-rounded-30 g-pl-30 g-py-12" data-placeholder="Area of Interest" data-open-icon="fa fa-angle-down" data-close-icon="fa fa-angle-up">
-                                <option class="g-brd-secondary-light-v2 g-color-black g-color-white--active g-bg-primary--active" value="">All</option>
-                                <option class="g-brd-secondary-light-v2 g-color-black g-color-white--active g-bg-primary--active" value="architecture_creative_arts">Architecture, visual and creative arts</option>
-                                <option class="g-brd-secondary-light-v2 g-color-black g-color-white--active g-bg-primary--active" value="arts_social_sciences">Arts and social sciences</option>
-                                <option class="g-brd-secondary-light-v2 g-color-black g-color-white--active g-bg-primary--active" value="business_law">Business and law</option>
-                                <option class="g-brd-secondary-light-v2 g-color-black g-color-white--active g-bg-primary--active" value="engineering_it">Engineering and IT</option>
-                                <option class="g-brd-secondary-light-v2 g-color-black g-color-white--active g-bg-primary--active" value="indigenous">Indigenous</option>
-                                <option class="g-brd-secondary-light-v2 g-color-black g-color-white--active g-bg-primary--active" value="medicine_health">Medicine and health</option>
-                                <option class="g-brd-secondary-light-v2 g-color-black g-color-white--active g-bg-primary--active" value="natural_sciences">Natural sciences</option>
-                                <option class="g-brd-secondary-light-v2 g-color-black g-color-white--active g-bg-primary--active" value="sport">Sport</option>
-                                <option class="g-brd-secondary-light-v2 g-color-black g-color-white--active g-bg-primary--active" value="university_general_interest">University and general interest</option>
-                            </select>
-                            <!-- End Area of Interest -->
+                                <label class="g-font-weight-500 g-font-size-15 g-pl-30">Categoría</label>
+                                <select class="js-custom-select w-100 u-select-v2 u-shadow-v19 g-brd-none g-color-black g-color-primary--hover g-bg-white text-left g-rounded-30 g-pl-30 g-py-12" data-placeholder="all" data-open-icon="fa fa-angle-down" data-close-icon="fa fa-angle-up">
+                                    <option value="default">-Elige una opción-</option>
+                                    <option class="g-brd-secondary-light-v2 g-color-black g-color-white--active g-bg-primary--active" value="all">Todas</option>
+                                    <option class="g-brd-secondary-light-v2 g-color-black g-color-white--active g-bg-primary--active" value="agricultura_alimentacion">Agricultura y Alimentación</option>
+                                    <option class="g-brd-secondary-light-v2 g-color-black g-color-white--active g-bg-primary--active" value="autoempleo_educacion">Autoempleo y Educación</option>
+                                    <option class="g-brd-secondary-light-v2 g-color-black g-color-white--active g-bg-primary--active" value="salud_cuidados">Salud y Cuidados</option>
+                                    <option class="g-brd-secondary-light-v2 g-color-black g-color-white--active g-bg-primary--active" value="creacionartistica">Creación Artística</option>
+                                    <option class="g-brd-secondary-light-v2 g-color-black g-color-white--active g-bg-primary--active" value="espacios_vivienda">Espacios y Vivienda</option>
+                                    <option class="g-brd-secondary-light-v2 g-color-black g-color-white--active g-bg-primary--active" value="tecnologia_energia">Tecnología y Energía</option>
+                                    <option class="g-brd-secondary-light-v2 g-color-black g-color-white--active g-bg-primary--active" value="ocio_viajes">Ocio y Viajes</option>
+                                    <option class="g-brd-secondary-light-v2 g-color-black g-color-white--active g-bg-primary--active" value="acciones_asambleas">Acciones y Asambleas</option>
+                                </select>
                             </div>
 
+                            <!-- COMUNIDAD -->
                             <div class="col-sm-6 g-mb-50">
-                            <!-- Type -->
-                            <label class="g-font-weight-500 g-font-size-15 g-pl-30">Área</label>
-                            <select class="js-custom-select w-100 u-select-v2 u-shadow-v19 g-brd-none g-color-black g-color-primary--hover g-bg-white text-left g-rounded-30 g-pl-30 g-py-12" data-placeholder="Type" data-open-icon="fa fa-angle-down" data-close-icon="fa fa-angle-up">
-                                <option class="g-brd-secondary-light-v2 g-color-black g-color-white--active g-bg-primary--active" value="">All</option>
-                                <option class="g-brd-secondary-light-v2 g-color-black g-color-white--active g-bg-primary--active" value="awards_ceremonies">Awards and ceremonies</option>
-                                <option class="g-brd-secondary-light-v2 g-color-black g-color-white--active g-bg-primary--active" value="conferences_workshops">Conferences and workshops</option>
-                                <option class="g-brd-secondary-light-v2 g-color-black g-color-white--active g-bg-primary--active" value="exhibition_performing_arts">Exhibition and performing arts</option>
-                                <option class="g-brd-secondary-light-v2 g-color-black g-color-white--active g-bg-primary--active" value="forums">Lectures, Talks and Forums</option>
-                                <option class="g-brd-secondary-light-v2 g-color-black g-color-white--active g-bg-primary--active" value="social_networking">Social and networking</option>
-                                <option class="g-brd-secondary-light-v2 g-color-black g-color-white--active g-bg-primary--active" value="special_events">Special events</option>
-                                <option class="g-brd-secondary-light-v2 g-color-black g-color-white--active g-bg-primary--active" value="sport">Sport</option>
-                                <option class="g-brd-secondary-light-v2 g-color-black g-color-white--active g-bg-primary--active" value="tours">Tours</option>
-                            </select>
-                            <!-- End Type -->
+                                <label class="g-font-weight-500 g-font-size-15 g-pl-30">Comunidad</label>
+                                <select class="js-custom-select w-100 u-select-v2 u-shadow-v19 g-brd-none g-color-black g-color-primary--hover g-bg-white text-left g-rounded-30 g-pl-30 g-py-12" data-placeholder="all" data-open-icon="fa fa-angle-down" data-close-icon="fa fa-angle-up">
+                                    <option value="default">-Elige una opción-</option>
+                                    <option value="andalucía">Andalucía</option>
+                                    <option value="aragón">Aragón</option>
+                                    <option value="asturias">Asturias</option>
+                                    <option value="aalears">Illes Balears</option>
+                                    <option value="aanarias">Canarias</option>
+                                    <option value="aantabria">Cantabria</option>
+                                    <option value="castillaleon">Castilla y León</option>
+                                    <option value="acciones_asambleas">Castilla-La Mancha</option>
+                                    <option value="cataluña">Cataluña</option>
+                                    <option value="valencia">Comunitat Valenciana</option>
+                                    <option value="extremadura">Extremadura</option>
+                                    <option value="galicia">Galicia</option>
+                                    <option value="madrid">Madrid</option>
+                                    <option value="murcia">Murcia</option>
+                                    <option value="navarra">Navarra</option>
+                                    <option value="pasivasco">País Vasco</option>
+                                    <option value="rioja">La Rioja</option>
+                                    <option value="ceuta">Ceuta</option>
+                                    <option value="melilla">Melilla</option>
+                                </select>
                             </div>
 
+                            <!-- TAGS -->
                             <div class="col-sm-6 g-mb-50">
-                            <!-- For -->
-                            <label class="g-font-weight-500 g-font-size-15 g-pl-30">Ubicación</label>
-                            <select class="js-custom-select w-100 u-select-v2 u-shadow-v19 g-brd-none g-color-black g-color-primary--hover g-bg-white text-left g-rounded-30 g-pl-30 g-py-12" data-placeholder="For" data-open-icon="fa fa-angle-down" data-close-icon="fa fa-angle-up">
-                                <option class="g-brd-secondary-light-v2 g-color-black g-color-white--active g-bg-primary--active" value="">All</option>
-                                <option class="g-brd-secondary-light-v2 g-color-black g-color-white--active g-bg-primary--active" value="alumni_and_friends">Alumni and friends</option>
-                                <option class="g-brd-secondary-light-v2 g-color-black g-color-white--active g-bg-primary--active" value="current_students">Current students</option>
-                                <option class="g-brd-secondary-light-v2 g-color-black g-color-white--active g-bg-primary--active" value="future_students">Future students</option>
-                                <option class="g-brd-secondary-light-v2 g-color-black g-color-white--active g-bg-primary--active" value="public">Public</option>
-                                <option class="g-brd-secondary-light-v2 g-color-black g-color-white--active g-bg-primary--active" value="staff">Staff</option>
-                            </select>
-                            <!-- End For -->
+                                <label class="g-font-weight-500 g-font-size-15 g-pl-30">Tags</label>
+                                <input id="inputGroup1_1" class="form-control form-control-md rounded-0" type="text" placeholder="" name="tag">
                             </div>
 
-                            <div class="col-sm-6 g-mb-50">
-                                <!-- For -->
-                                <label class="g-font-weight-500 g-font-size-15 g-pl-30">Tiempo</label>
+                            <!-- <div class="col-sm-6 g-mb-50">
+                                <label class="g-font-weight-500 g-font-size-15 g-pl-30">Ubicación</label>
                                 <select class="js-custom-select w-100 u-select-v2 u-shadow-v19 g-brd-none g-color-black g-color-primary--hover g-bg-white text-left g-rounded-30 g-pl-30 g-py-12" data-placeholder="For" data-open-icon="fa fa-angle-down" data-close-icon="fa fa-angle-up">
                                     <option class="g-brd-secondary-light-v2 g-color-black g-color-white--active g-bg-primary--active" value="">All</option>
                                     <option class="g-brd-secondary-light-v2 g-color-black g-color-white--active g-bg-primary--active" value="alumni_and_friends">Alumni and friends</option>
@@ -80,15 +75,35 @@
                                     <option class="g-brd-secondary-light-v2 g-color-black g-color-white--active g-bg-primary--active" value="public">Public</option>
                                     <option class="g-brd-secondary-light-v2 g-color-black g-color-white--active g-bg-primary--active" value="staff">Staff</option>
                                 </select>
-                                <!-- End For -->
-                                </div>
+                            </div> -->
+
+                            <!-- APORTACION MONETARIA -->
+                            <div class="col-sm-6 g-mb-50">
+                                <label class="g-font-weight-500 g-font-size-15 g-pl-30">Aportación monetaria</label>
+                                <select class="js-custom-select w-100 u-select-v2 u-shadow-v19 g-brd-none g-color-black g-color-primary--hover g-bg-white text-left g-rounded-30 g-pl-30 g-py-12" data-placeholder="For" data-open-icon="fa fa-angle-down" data-close-icon="fa fa-angle-up">
+                                    <option class="g-brd-secondary-light-v2 g-color-black g-color-white--active g-bg-primary--active" value="all">Todos</option>
+                                    <option class="g-brd-secondary-light-v2 g-color-black g-color-white--active g-bg-primary--active" value="0">0€</option>
+                                    <option class="g-brd-secondary-light-v2 g-color-black g-color-white--active g-bg-primary--active" value="1">0€-10€</option>
+                                    <option class="g-brd-secondary-light-v2 g-color-black g-color-white--active g-bg-primary--active" value="2">10€-50</option>
+                                    <option class="g-brd-secondary-light-v2 g-color-black g-color-white--active g-bg-primary--active" value="3">+50€</option>
+                                </select>
+                            </div>
+
+                            <!-- APORTACION TIEMPO -->
+                            <div class="col-sm-6 g-mb-50">
+                                <label class="g-font-weight-500 g-font-size-15 g-pl-30">Aportación tiempo</label>
+                                <select class="js-custom-select w-100 u-select-v2 u-shadow-v19 g-brd-none g-color-black g-color-primary--hover g-bg-white text-left g-rounded-30 g-pl-30 g-py-12" data-placeholder="For" data-open-icon="fa fa-angle-down" data-close-icon="fa fa-angle-up">
+                                    <option class="g-brd-secondary-light-v2 g-color-black g-color-white--active g-bg-primary--active" value="all">Todos</option>
+                                    <option class="g-brd-secondary-light-v2 g-color-black g-color-white--active g-bg-primary--active" value="0">0h</option>
+                                    <option class="g-brd-secondary-light-v2 g-color-black g-color-white--active g-bg-primary--active" value="1">0h-4h</option>
+                                    <option class="g-brd-secondary-light-v2 g-color-black g-color-white--active g-bg-primary--active" value="2">4h-8h</option>
+                                    <option class="g-brd-secondary-light-v2 g-color-black g-color-white--active g-bg-primary--active" value="3">+8h</option>
+                                </select>
+                            </div>
 
                             <!-- BOTONES -->
-                            <div class="col-sm-6 g-mt-30 g-mb-30">
-                                <div class="d-flex">
-                                    <button class="btn btn-block u-shadow-v32 g-brd-black g-brd-2 g-color-black g-bg-white g-brd-black--hover g-bg-black--hover g-color-white--hover g-font-size-16 g-rounded-30 g-py-10 ml-2 g-mt-0" type="button">Reset</button>
-                                    <button class="btn btn-block u-shadow-v32 g-brd-black g-brd-2 g-color-black g-bg-white g-brd-black--hover g-bg-black--hover g-color-white--hover g-font-size-16 g-rounded-30 g-py-10 ml-2 g-mt-0" type="button">Search</button>
-                                </div>
+                            <div class="col-sm-12 g-mt-30 g-mb-30" style="display: flex;justify-content: center;align-items: center;width: 100%;">
+                                <button (click)="buscar()" style="width: 200px;" class="btn btn-block u-shadow-v32 g-brd-black g-brd-2 g-color-black g-bg-white g-brd-black--hover g-bg-black--hover g-color-white--hover g-font-size-16 g-rounded-30 g-py-10 ml-2 g-mt-0" type="button">Buscar</button>
                             </div>
                         </div>
                     </div>
@@ -104,63 +119,3 @@
         </div>
     </div>
 </div>
-
-<style>
-    .popupWrapper{
-        width: 100vw;
-        height: 100vh;
-        background-color: rgba(0, 0, 0,0.7);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: fixed;
-        top:0;
-        left: 0;
-        z-index: 1000;
-        animation-name: showPopUp;
-        animation-duration: 0.5s;
-    }
-    @keyframes showPopUp {
-        from {}
-        to {}
-    }
-    .popupCard{
-        width: 60vw;
-        height: auto;
-        background-color: white;
-        display: flex;
-        flex-direction: column;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        box-shadow: 4px 10px rgba(0, 0, 0, 0.2);
-        animation-name: showPopUpCard;
-        animation-duration: 0.8s;
-        z-index: 1001;
-        border-radius: 20px;
-    }
-    @keyframes showPopUpCard {
-        from {transform: scale(0.8);opacity: 10%; z-index: 1001;}
-        to {transform: scale(1);opacity: 100%;}
-    }
-    .popupHeader{
-        display: flex;
-        align-items: center;
-        justify-content: space-evenly;
-        width: 90%;
-        height: 10%;
-        padding-top: 15px;
-    }
-    .popupTitle{
-        min-width: 90%;
-        display: flex;
-        justify-content: center;
-        text-align: center;
-        padding-top: 5px;
-    }
-    .popupContent{
-        width: 100%;
-        height: auto;
-        padding: 50px 15%;
-    }
-</style>

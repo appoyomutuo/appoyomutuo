@@ -18,6 +18,13 @@
                 <small class="form-text text-muted g-font-size-default g-mt-10 g-mb-30">Pon nombre a tu proyecto</small>
             </div>
 
+            <!-- COLECTIVO -->
+            <div class="form-group g-mb-30">
+                <label class="g-mb-10">Colectivo</label>
+                <input id="inputGroup1_1" class="form-control form-control-md rounded-0" type="text" placeholder="" name="colectivo" [(ngModel)]="newProject.colectivo">
+                <small class="form-text text-muted g-font-size-default g-mt-10 g-mb-30">Indica si el proyecto se lleva a cabo por algún colectivo</small>
+            </div>
+
             <!-- IMÁGENES -->
             <div class="form-group g-mb-10" style="display: flex;flex-direction: column;">
                 <label class="g-mb-10">Imágenes</label>
@@ -62,14 +69,42 @@
             <!-- TAGS -->
             <div class="form-group g-mb-30">
                 <label class="g-mb-10" for="inputGroup2_12">Tags</label>
-                <div style="display: flex;">
-                    <p style="padding:10px;background-color: black;color: white;" class="g-rounded-30 text-lowercase font-italic g-mr-5" *ngFor="let tag of tags">{{tag}} </p>
-                </div>
                 <div style="display: flex;align-items: center;">
                     <input style="width: 120px;height: 33px;"  id="inputGroup1_12" class="form-control form-control-md rounded-0" type="text" placeholder="" name="tags" [(ngModel)]="tag">
                     <button (click)="addTag()" style="width: 120px;transform:scale(0.8)" class="btn btn-block u-shadow-v32 g-bg-black g-color-white g-bg-white--hover g-color-black--hover u-btn-outline-black g-font-size-16 g-rounded-30 g-py-10 ml-2 g-mt-0" type="button">Añadir Tag</button>
                 </div>
+                <div style="display: flex;">
+                    <p style="padding:10px;background-color: black;color: white;" class="g-rounded-30 text-lowercase font-italic g-mr-5" *ngFor="let tag of tags">{{tag}} </p>
+                </div>
                 <small class="form-text text-muted g-font-size-default g-mt-10 g-mb-30">Añade palabras relacionadas para que otras personas puedan encontrarte</small>
+            </div>
+
+            <!-- COMUNIDAD -->
+            <div class="form-group g-mb-30" style="display: flex;flex-direction: column;">
+                <label class="g-mb-10" for="inputGroup1_1">Comunidad Autónoma</label>
+                <select (change)="handleComunidadChange($event)" style="width: 200px;background-color: white;color: black;margin-bottom: 15px;">
+                    <option value="default">-Elige una opción-</option>
+                    <option value="andalucía">Andalucía</option>
+                    <option value="aragón">Aragón</option>
+                    <option value="asturias">Asturias</option>
+                    <option value="aalears">Illes Balears</option>
+                    <option value="aanarias">Canarias</option>
+                    <option value="aantabria">Cantabria</option>
+                    <option value="castillaleon">Castilla y León</option>
+                    <option value="acciones_asambleas">Castilla-La Mancha</option>
+                    <option value="cataluña">Cataluña</option>
+                    <option value="valencia">Comunitat Valenciana</option>
+                    <option value="extremadura">Extremadura</option>
+                    <option value="galicia">Galicia</option>
+                    <option value="madrid">Madrid</option>
+                    <option value="murcia">Murcia</option>
+                    <option value="navarra">Navarra</option>
+                    <option value="pasivasco">País Vasco</option>
+                    <option value="rioja">La Rioja</option>
+                    <option value="ceuta">Ceuta</option>
+                    <option value="melilla">Melilla</option>
+                </select>
+                <small class="form-text text-muted g-font-size-default g-mt-10 g-mb-30">Indica en qué comunidad se lleva a cabo el proyecto</small>
             </div>
 
             <!-- UBICACIÓN -->

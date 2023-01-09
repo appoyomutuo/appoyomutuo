@@ -18,15 +18,24 @@ export class LoginbuttonComponent implements OnInit {
 
   ngOnInit(): void {
     console.log("isLogued", sessionStorage.getItem("isLogued"))
-    if(sessionStorage.getItem("isLogued")){
+    if(sessionStorage.getItem("isLogued") == "true"){
       this.isLogued = "true"
       this.getPeticiones()
+    }
+    else{
+      this.isLogued = "false"
     }
   }
 
   menuClick(){
     console.log("click")
     this.showMenu = !this.showMenu
+    if(sessionStorage.getItem("isLogued") == "true"){
+      this.isLogued = "true"
+      this.getPeticiones()
+    }else{
+      this.isLogued = "false"
+    }
     // this.isLogued = sessionStorage.getItem("isLogued") == "true"? "true":"false"
   }
 

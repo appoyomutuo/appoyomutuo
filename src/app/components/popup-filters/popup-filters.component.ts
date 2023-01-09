@@ -14,6 +14,10 @@ export class PopupFiltersComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  buscar(){
+    
+  }
+
   closeModal(){
     this.closePopUp.emit({ closePopUP: this.closePopUP });
   }

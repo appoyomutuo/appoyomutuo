@@ -1,15 +1,51 @@
+<!-- SELECTOR CATEGORIAS -->
+<section *ngIf="!hasCategoria"  class="g-bg-white g-py-100">
+  <div class="categoriasWrapper">
+    <div class="pieza" (click)="selectCategoria('agricultura_alimentacion')">
+      <p class="categoriaTitle">Alimentacion <br>y<br> Agricultura</p>
+    </div>
+    <div class="pieza" (click)="selectCategoria('autoempleo_educacion')">
+      <p class="categoriaTitle">Autoempleo <br>y<br> Educación</p>
+    </div>
+    <div class="pieza" (click)="selectCategoria('salud_cuidados')">
+      <p class="categoriaTitle">Salud <br>y<br> Cuidados</p>
+    </div>
+    <div class="pieza" (click)="selectCategoria('creacionartistica')">
+      <p class="categoriaTitle">Creación <br>Artística</p>
+    </div>
+    <div class="pieza" (click)="selectCategoria('espacios_vivienda')">
+      <p class="categoriaTitle">Espacios <br>y<br> Vivienda</p>
+    </div>
+    <div class="pieza" (click)="selectCategoria('tecnologia_energia')">
+      <p class="categoriaTitle">Tecnología <br>y<br> Energía</p>
+    </div>
+    <div class="pieza" (click)="selectCategoria('ocio_viajes')">
+      <p class="categoriaTitle">Ocio <br>y<br> Viajes</p>
+    </div>
+    <div class="pieza" (click)="selectCategoria('acciones_asambleas')">
+      <p class="categoriaTitle">Acciones <br>y<br> Asambleas</p>
+    </div>
+  </div>
+</section>
+
 <!-- CARRUSEL PROYECTOS -->
- <section *ngIf="proyectos" id="proyectos" class="g-bg-white g-py-100">
+ <section *ngIf="proyectos && hasCategoria" id="proyectos" class="g-bg-white g-py-100">
   <div class="container text-center g-max-width-750 g-mb-0">
     <div class="text-uppercase g-mb-30">
-      <h3 class="h3 g-letter-spacing-5 g-font-size-12 g-font-weight-400 g-color-black g-mb-25" style="font-family:Poppins;">Buscador de proyectos</h3>
-      <div style="display: flex;align-items: center;justify-content: center;">
-        <h2 class="u-heading-v2__title g-line-height-1 g-letter-spacing-2 g-font-size-30 g-font-size-40--md g-color-black mb-0" style="font-family:Poppins;">Agricultura y Alimentación</h2>
+      <h3 class="h3 g-letter-spacing-5 g-font-size-12 g-font-weight-400 g-color-black g-mb-15" style="font-family:Poppins;">Buscador de proyectos</h3>
+      <div style="display: flex;align-items: center;justify-content: center;flex-direction: column;">
+        <h2 class="u-heading-v2__title g-line-height-1 g-letter-spacing-2 g-font-size-30 g-font-size-40--md g-color-black mb-0" style="font-family:Poppins;">{{categoriaTransform}}</h2>
+        <h2 class="h3 g-letter-spacing-5 g-font-size-12 g-font-weight-400 g-color-black g-mb-15 g-mt-15" style="font-family:Poppins;">({{totalProjects}})</h2>
         <!-- <i class="icon-media-058 u-line-icon-pro g-valign-middle g-font-size-25 g-color-black g-ml-10" style="cursor: pointer;"></i> -->
       </div>
-      <div (click)="showPopUpFilters()" style="width: 100px;height: 40px;background-color: black;display: flex;justify-content: center;align-items: center;margin: auto;margin-top: 30px;cursor: pointer;">
-        <i class="icon-education-092 u-line-icon-pro g-valign-middle g-font-size-20 g-color-white g-ml-10" style="cursor: pointer;"></i>
-        <p style="color:White;margin:auto">FILTROS</p>
+      <div style="display: flex;justify-content: center;max-width: 300px;margin: auto;">
+        <div (click)="showPopUpFilters()" style="width: 100px;height: 40px;background-color: black;display: flex;justify-content: center;align-items: center;margin: auto;cursor: pointer;">
+          <i class="icon-education-092 u-line-icon-pro g-valign-middle g-font-size-20 g-color-white g-ml-10" style="cursor: pointer;"></i>
+          <p style="color:White;margin:auto">FILTROS</p>
+        </div>
+        <div (click)="showAll()" style="width: 100px;height: 40px;background-color: black;display: flex;justify-content: center;align-items: center;margin: auto;cursor: pointer;">          
+          <p style="color:White;margin:auto">Ver Todos</p>
+        </div>
       </div>
     </div>
   </div>
