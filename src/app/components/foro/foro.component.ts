@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 
 import { ProyectoService } from 'src/app/services/proyecto.service';
 import { Foro } from 'src/app/models/foro';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-foro',
@@ -36,33 +37,51 @@ export class ForoComponent {
   project: any;
   id: any;
 
-  countOnInit = 0
+  noMensajes = false
+
+  subscription2: Subscription
+  subscription3: Subscription
+
+  loading = true
   
   ngOnInit(): void {
-    if(this.countOnInit == 0){
-      this.activatedRoute.queryParams.subscribe((query: any) => {
-        this.id = query.project
-      });
-  
-      if(this.id){
-        this.proyectoService.getItemByID(this.id).subscribe(proyecto =>{
-          this.project = proyecto!
-          // console.log("proyecto recibido", this.project)
-          // GET FORO
-          if(this.project != null){
-            this.proyectoService.getForoByIdProject(this.id).subscribe(foro =>{
-              this.foroMensajes = foro
+    this.getMensajes()
+  }
+
+  getMensajes(){
+    this.activatedRoute.queryParams.subscribe((query: any) => {
+      this.id = query.project
+    });
+
+    if(this.id){
+      this.subscription2 = this.proyectoService.getItemByID(this.id).subscribe(proyecto =>{
+        this.project = proyecto!
+        // GET FORO
+        if(this.project != null){
+          this.subscription3 = this.proyectoService.getForoByIdProject(this.id).subscribe(foro =>{
+            this.foroMensajes = foro
+            if(this.foroMensajes.length == 0){
+              this.noMensajes = true
+            }else{
               this.foroMensajes.forEach(foromensajeItems => {
                 foromensajeItems.mensajes.forEach(items => {
+                  var date = new Date(items.fecha)
+                  items.fecha = date
+                  console.log("fecha", date)
                   this.mensajes.push(items)
+                  this.mensajes.sort(function(a,b){
+                    return b.fecha - a.fecha;
+                  });
                 });
               });
-            })
-          }
-        })
-      }
+            }
+            this.subscription2.unsubscribe()
+            this.subscription3.unsubscribe()
+            this.loading = false
+          })
+        }
+      })
     }
-    this.countOnInit++
   }
 
   addMensaje(){
@@ -78,5 +97,6 @@ export class ForoComponent {
       console.log("foro", this.foro)
     }
     this.proyectoService.createForoAddFirstMensaje(this.foro)
+    this.getMensajes()
   }
 }

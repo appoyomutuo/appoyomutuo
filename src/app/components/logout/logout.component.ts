@@ -18,6 +18,7 @@ export class LogoutComponent implements OnInit {
     this._service.logOut();
     this._router.navigate(["/"]);
     sessionStorage.setItem("isLogued", "false")
+    sessionStorage.clear()
   }
 
 }

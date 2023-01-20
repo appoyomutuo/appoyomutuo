@@ -18,7 +18,7 @@
                             <!-- CATEGORIA -->
                             <div class="col-sm-6 g-mb-50">
                                 <label class="g-font-weight-500 g-font-size-15 g-pl-30">Categoría</label>
-                                <select class="js-custom-select w-100 u-select-v2 u-shadow-v19 g-brd-none g-color-black g-color-primary--hover g-bg-white text-left g-rounded-30 g-pl-30 g-py-12" data-placeholder="all" data-open-icon="fa fa-angle-down" data-close-icon="fa fa-angle-up">
+                                <select (change)="handleCategoriaChange($event)" class="js-custom-select w-100 u-select-v2 u-shadow-v19 g-brd-none g-color-black g-color-primary--hover g-bg-white text-left g-rounded-30 g-pl-30 g-py-12" data-placeholder="all" data-open-icon="fa fa-angle-down" data-close-icon="fa fa-angle-up">
                                     <option value="default">-Elige una opción-</option>
                                     <option class="g-brd-secondary-light-v2 g-color-black g-color-white--active g-bg-primary--active" value="all">Todas</option>
                                     <option class="g-brd-secondary-light-v2 g-color-black g-color-white--active g-bg-primary--active" value="agricultura_alimentacion">Agricultura y Alimentación</option>
@@ -35,7 +35,7 @@
                             <!-- COMUNIDAD -->
                             <div class="col-sm-6 g-mb-50">
                                 <label class="g-font-weight-500 g-font-size-15 g-pl-30">Comunidad</label>
-                                <select class="js-custom-select w-100 u-select-v2 u-shadow-v19 g-brd-none g-color-black g-color-primary--hover g-bg-white text-left g-rounded-30 g-pl-30 g-py-12" data-placeholder="all" data-open-icon="fa fa-angle-down" data-close-icon="fa fa-angle-up">
+                                <select (change)="handleComunidadChange($event)" class="js-custom-select w-100 u-select-v2 u-shadow-v19 g-brd-none g-color-black g-color-primary--hover g-bg-white text-left g-rounded-30 g-pl-30 g-py-12" data-placeholder="all" data-open-icon="fa fa-angle-down" data-close-icon="fa fa-angle-up">
                                     <option value="default">-Elige una opción-</option>
                                     <option value="andalucía">Andalucía</option>
                                     <option value="aragón">Aragón</option>
@@ -103,7 +103,7 @@
 
                             <!-- BOTONES -->
                             <div class="col-sm-12 g-mt-30 g-mb-30" style="display: flex;justify-content: center;align-items: center;width: 100%;">
-                                <button (click)="buscar()" style="width: 200px;" class="btn btn-block u-shadow-v32 g-brd-black g-brd-2 g-color-black g-bg-white g-brd-black--hover g-bg-black--hover g-color-white--hover g-font-size-16 g-rounded-30 g-py-10 ml-2 g-mt-0" type="button">Buscar</button>
+                                <button (click)="buscar($event)" style="width: 200px;" class="btn btn-block u-shadow-v32 g-brd-black g-brd-2 g-color-black g-bg-white g-brd-black--hover g-bg-black--hover g-color-white--hover g-font-size-16 g-rounded-30 g-py-10 ml-2 g-mt-0" type="button">Buscar</button>
                             </div>
                         </div>
                     </div>

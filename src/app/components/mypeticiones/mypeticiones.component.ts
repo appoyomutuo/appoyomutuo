@@ -24,13 +24,13 @@ export class MypeticionesComponent {
       console.log(peticiones)
       this.peticiones = peticiones
       // this.setPeticionesComoLeidas(this.peticiones)
+      this.peticiones.forEach(element => {
+        if(element.leida == false){
+          this.peticionesSinLeer.push(element)
+        }
+      });
     })
 
-    this.peticiones.forEach(element => {
-      if(element.leida == false){
-        this.peticionesSinLeer.push(element)
-      }
-    });
   }
 
   setPeticionesComoLeidas(peticiones:any){

@@ -13,6 +13,10 @@ export class MyprojectsComponent implements OnInit {
   ownProjects: any[] = []
   participationProjects: any[] = []
 
+  loading = false
+
+  userMail = ""
+
   constructor(
     private proyectoService: ProyectoService,
     private router:Router
@@ -20,21 +24,24 @@ export class MyprojectsComponent implements OnInit {
 
   ngOnInit(): void {
     // proyectos propios
-    var userMail = sessionStorage.getItem("usermail")!
-    console.log("user mail", userMail)
-    this.proyectoService.searchItemByMail(userMail).subscribe(proyectos =>{
+    this.userMail = sessionStorage.getItem("usermail")!
+    console.log("user mail", this.userMail)
+    this.loading = true
+    this.proyectoService.searchItemByMail(this.userMail).subscribe(proyectos =>{
       console.log("mis proyectos recibido", proyectos)
       this.ownProjects = proyectos!
+      this.loading = false
     })
 
     // proyectos en los que participo
-    this.proyectoService.searchParticipantesByMail(userMail).subscribe(proyectosParticipante =>{
+    this.proyectoService.searchParticipantesByMail(this.userMail).subscribe(proyectosParticipante =>{
       console.log("proyectos en que participo recibido", proyectosParticipante)
       // this.participationProjects = proyectos!
       proyectosParticipante.forEach(element => {
         this.proyectoService.getItemByID(element.idProyecto).subscribe(proyecto =>{
           console.log("proyecto recibido", proyecto)
           this.participationProjects.push(proyecto)
+          this.loading = false
         })
       });
     })

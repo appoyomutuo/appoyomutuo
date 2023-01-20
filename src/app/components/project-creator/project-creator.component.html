@@ -80,18 +80,18 @@
             </div>
 
             <!-- COMUNIDAD -->
-            <div class="form-group g-mb-30" style="display: flex;flex-direction: column;">
+            <div class="form-group g-mt-30" style="display: flex;flex-direction: column;">
                 <label class="g-mb-10" for="inputGroup1_1">Comunidad Autónoma</label>
                 <select (change)="handleComunidadChange($event)" style="width: 200px;background-color: white;color: black;margin-bottom: 15px;">
                     <option value="default">-Elige una opción-</option>
                     <option value="andalucía">Andalucía</option>
                     <option value="aragón">Aragón</option>
                     <option value="asturias">Asturias</option>
-                    <option value="aalears">Illes Balears</option>
-                    <option value="aanarias">Canarias</option>
-                    <option value="aantabria">Cantabria</option>
+                    <option value="balears">Illes Balears</option>
+                    <option value="canarias">Canarias</option>
+                    <option value="cantabria">Cantabria</option>
                     <option value="castillaleon">Castilla y León</option>
-                    <option value="acciones_asambleas">Castilla-La Mancha</option>
+                    <option value="castillamancha">Castilla-La Mancha</option>
                     <option value="cataluña">Cataluña</option>
                     <option value="valencia">Comunitat Valenciana</option>
                     <option value="extremadura">Extremadura</option>
@@ -110,10 +110,15 @@
             <!-- UBICACIÓN -->
             <div class="form-group g-mb-30">
                 <label class="g-mb-10" for="inputGroup1_1">Ubicación</label>
-                <input id="inputGroup1_1" class="form-control form-control-md rounded-0" type="text" placeholder="" name="ubication" [(ngModel)]="newProject.ubication">
+                <!-- POPUP INCUSTRADO -->
+                <div style="max-height: 300px;overflow-y: hidden;">
+                    <popup-mapa (closePopUp)=closePopUpMapa() (setCoordinates)=setCoordinates($event)></popup-mapa>
+                </div>
+                <!-- POPUP MAPA -->
+                <!-- <input id="inputGroup1_1" class="form-control form-control-md rounded-0" type="text" placeholder="" name="ubication" [(ngModel)]="newProject.ubication">
                 <small class="form-text text-muted g-font-size-default g-mt-10 g-mb-30">Indica en qué lugar se desarrolla tu proyecto. Puedes seleccionar un punto en el mapa pinchando aquí
                     <i (click)="showPopupMapa()" style="cursor: pointer;" class="icon-real-estate-020 u-line-icon-pro-g-valign-middle g-font-size-20 g-color-black"></i>
-                </small>
+                </small> -->
             </div>
 
             <!-- PERSONAS INICIALES -->
@@ -209,6 +214,6 @@
 <popup-warning *ngIf="showPopUp_Filters" (closePopUp)=closePopUpFilters()></popup-warning>
 <!-- End POPUP FILTROS -->
 
-<!-- POPUP FILTROS -->
-<popup-mapa *ngIf="showPopUp_Mapa" (closePopUp)=closePopUpMapa() (setCoordinates)=setCoordinates($event)></popup-mapa>
-<!-- End POPUP FILTROS -->
+<!-- POPUP MAPA -->
+<!-- <popup-mapa *ngIf="showPopUp_Mapa" (closePopUp)=closePopUpMapa() (setCoordinates)=setCoordinates($event)></popup-mapa> -->
+<!-- End POPUP MAPA -->

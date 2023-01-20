@@ -53,8 +53,11 @@
   <project-list [data]="currentData"></project-list>
   <!-- <carrousel [data]="currentData"></carrousel> -->
 </section>
+<div *ngIf="loading" style="display: flex;justify-content: center;width: 100%;">
+  <div class="spinner"></div>
+</div>
 <!-- End CARRUSEL PROYECTOS -->
 
 <!-- POPUP FILTROS -->
-<popup-filters *ngIf="showPopUp_Filters" (closePopUp)=closePopUpFilters()></popup-filters>
+<popup-filters *ngIf="showPopUp_Filters" (closePopUp)=closePopUpFilters() (showSearched)=showSearched($event) (changeCategory)="changeCategory($event)"></popup-filters>
 <!-- End POPUP FILTROS -->

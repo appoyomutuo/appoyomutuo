@@ -29,6 +29,8 @@ export class PopupNewtareaComponent {
     if(this.tareaToRead != null){
       this.newTarea = this.tareaToRead
       this.isReading = true
+    }else{
+      this.isReading = false
     }
   }
 
@@ -38,6 +40,7 @@ export class PopupNewtareaComponent {
 
   createTarea(){
     this.createNewTask.emit({ newTask: this.newTarea });
+    this.closeModal()
   }
 
   editTarea(){

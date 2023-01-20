@@ -22,6 +22,8 @@ export class BuscadorComponent implements OnInit {
 
   totalProjects = 0
 
+  loading = false
+
   constructor(private proyectoService: ProyectoService) { }
 
 
@@ -31,6 +33,7 @@ export class BuscadorComponent implements OnInit {
     //   this.proyectos = proyectos;
     //   this.currentData =  this.proyectos
     // })
+    // this.busquedaInicial(this.categoria)
   }
 
   selectCategoria(categoria:any){
@@ -65,25 +68,47 @@ export class BuscadorComponent implements OnInit {
   }
 
   showAll(){
+    this.proyectos = [];
+    this.currentData =  [];
+    this.loading = true;
     this.proyectoService.getItems().subscribe(proyectos =>{
       // console.log("::::> datos de Proyectos: " + JSON.stringify(proyectos));
       this.proyectos = proyectos;
       this.currentData =  this.proyectos
       this.totalProjects = this.proyectos.length
       this.categoriaTransform = "Todos los Proyectos"
+      this.loading = false
     })
 
   }
   
   busquedaInicial(categoria:string){
-    console.log("categoria", this.categoria)
+    this.loading = true
     this.proyectoService.getItemsByCategoria(categoria).subscribe(proyectos =>{
-      // console.log("::::> datos de Proyectos: " + JSON.stringify(proyectos));
-      this.proyectos = proyectos;
+      console.log("::::> datos de Proyectos: " + JSON.stringify(proyectos));
+      this.proyectos = proyectos
       this.currentData =  this.proyectos
       this.totalProjects = this.proyectos.length
+      this.loading = false
     })
+  }
 
+  showSearched(proyects:any){
+    this.loading = true
+    this.proyectos = []
+    this.currentData =  []
+    if(this.proyectos.length == 0){
+      console.log("proyectos length", this.proyectos.length)
+      this.proyectos = proyects.proyects
+      this.currentData =  this.proyectos
+      this.totalProjects = this.proyectos.length
+      this.loading = false
+    }
+  }
+
+  changeCategory(category:any){
+    console.log("salto", category.category)
+    this.selectCategoria(category.category)
   }
 
   showPopUpFilters(){

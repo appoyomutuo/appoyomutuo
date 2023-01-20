@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 })
 export class ProjectListComponent implements OnInit {
   @Input() data!: [];
+  prevData = []
 
   constructor(private router:Router) { }
 
@@ -16,10 +17,12 @@ export class ProjectListComponent implements OnInit {
   ngOnInit(): void {
     // console.log("===data===", this.data)
     // this.cards = this.data
+    this.prevData = this.data
   }
 
   ngDoCheck(){
-    if(this.data.length > 0){
+    if(this.data.length > 0 && this.prevData !== this.data){
+      this.cards = []
       console.log("===data===", this.data)
       this.cards = this.data
     }
