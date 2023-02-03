@@ -1,7 +1,7 @@
 <div class="projectLis-wrapper" *ngIf="project">
   <!-- DETALLE -->
     <section class="project-wrapper">
-        <div class="row">
+        <div class="row" style="align-items: center;">
             <div class="col-lg">
                 <div id="shortcode8">
                     <div class="shortcode-html">
@@ -43,18 +43,24 @@
                     <p style="height: auto;overflow: hidden;text-overflow: ellipsis;" class="mb-0">{{project.description}}</p>
                 </div>
                 <div class="infobottom g-font-size-12 g-my-10 g-pl-10">
-                    <div>
-                      <a class="btn btn-md g-bg-black g-color-white g-bg-white--hover g-color-black--hover u-btn-outline-black g-mr-10 g-mt-5">Editar</a>
-                      <a class="btn btn-md g-bg-black g-color-white g-bg-white--hover g-color-black--hover u-btn-outline-black g-mr-10 g-mt-5" (click)="showPopupNewPeticion()">Unirme</a>
+                    <div style="display: flex;justify-content: center;align-items: center;">
+                      <a *ngIf="isOwner" (click)="editProject()" style="width: 100px;" class="btn btn-block u-shadow-v32 g-brd-white g-brd-2 g-color-white g-bg-black g-brd-black--hover g-bg-white--hover g-color-black--hover g-font-size-16 g-rounded-30 g-py-10 ml-2 g-mt-0" type="button">Editar</a>
+                      <a *ngIf="!isOwner" (click)="showPopupNewPeticion()" style="width: 100px;" class="btn btn-block u-shadow-v32 g-brd-white g-brd-2 g-color-white g-bg-black g-brd-black--hover g-bg-white--hover g-color-black--hover g-font-size-16 g-rounded-30 g-py-10 ml-2 g-mt-0" type="button">Unirme</a>
+                      <!-- <a  class="btn btn-md g-bg-black g-color-white g-bg-white--hover g-color-black--hover u-btn-outline-black g-mr-10 g-mt-5">Editar</a> -->
+                      <!-- <a *ngIf="!isOwner" class="btn btn-md g-bg-black g-color-white g-bg-white--hover g-color-black--hover u-btn-outline-black g-mr-10 g-mt-5" (click)="showPopupNewPeticion()">Unirme</a> -->
                     </div>
                 </div>
             </div>
           </div>
     </section>
+    
     <!-- ACORDEON -->
     <section class="imagebox u-shadow-v2 g-brd-gray-light-v4">
         <div class="container">
-          <div class="row justify-content-center">
+          <div class="row justify-content-center g-mb-30">
+            <div style="width: 100%;margin: auto;display: flex;justify-content: center;margin-top: 50px;">
+              <h3 class="h2 g-font-weight-300 g-mb-20 text-uppercase">Detalles</h3>
+            </div>
             <div class="col-lg-10">
               <div id="accordion" class="u-accordion u-accordion-color-primary" role="tablist" aria-multiselectable="true">
                 <!-- Card -->
@@ -122,8 +128,22 @@
               </div>
             </div>
           </div>
+          <!-- UBICACIÓN -->
+          <div style="width: 100%;margin: auto;display: flex;justify-content: center;">
+            <h3 class="h2 g-font-weight-300 g-mb-20 text-uppercase">Ubicación</h3>
+          </div>
+          <div class="g-mb-30">
+            <!-- POPUP INCUSTRADO -->
+            <div style="height: 300px;overflow-y: hidden;">
+              <p> {{project.contact}}</p>
+              <mapa-detalle [latLong]=latLong></mapa-detalle>
+              <!-- <popup-mapa></popup-mapa> -->
+            </div>
+          </div>
         </div>
     </section>
+
+
 </div>
 
 <popup-peticion *ngIf="showPopUp_newPeticion" (closePopUp)=closePopUpFilters() (createNewPeticion)=createNewPeticion($event)></popup-peticion>

@@ -15,7 +15,7 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit(): void {
-  this.usuarioLogueado();
+    this.usuarioLogueado();
   }
 
   usuarioLogueado(){

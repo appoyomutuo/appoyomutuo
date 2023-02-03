@@ -25,7 +25,6 @@ export class PopupNewtareaComponent {
   isReading = false
 
   ngOnInit(): void {
-    console.log("entro aqui", this.tareaToRead)
     if(this.tareaToRead != null){
       this.newTarea = this.tareaToRead
       this.isReading = true

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 import { ProyectoService } from 'src/app/services/proyecto.service';
 
@@ -17,6 +18,10 @@ export class MyprojectsComponent implements OnInit {
 
   userMail = ""
 
+  subscription: Subscription
+  subscription2: Subscription
+  subscription3: Subscription
+
   constructor(
     private proyectoService: ProyectoService,
     private router:Router
@@ -27,21 +32,24 @@ export class MyprojectsComponent implements OnInit {
     this.userMail = sessionStorage.getItem("usermail")!
     console.log("user mail", this.userMail)
     this.loading = true
-    this.proyectoService.searchItemByMail(this.userMail).subscribe(proyectos =>{
+    this.subscription = this.proyectoService.searchItemByMail(this.userMail).subscribe(proyectos =>{
       console.log("mis proyectos recibido", proyectos)
       this.ownProjects = proyectos!
       this.loading = false
+      this.subscription.unsubscribe()
     })
 
     // proyectos en los que participo
-    this.proyectoService.searchParticipantesByMail(this.userMail).subscribe(proyectosParticipante =>{
+    this.subscription2 = this.proyectoService.searchParticipantesByMail(this.userMail).subscribe(proyectosParticipante =>{
       console.log("proyectos en que participo recibido", proyectosParticipante)
       // this.participationProjects = proyectos!
       proyectosParticipante.forEach(element => {
-        this.proyectoService.getItemByID(element.idProyecto).subscribe(proyecto =>{
+        this.subscription3 = this.proyectoService.getItemByID(element.idProyecto).subscribe(proyecto =>{
           console.log("proyecto recibido", proyecto)
           this.participationProjects.push(proyecto)
           this.loading = false
+          this.subscription2.unsubscribe()
+          this.subscription3.unsubscribe()
         })
       });
     })

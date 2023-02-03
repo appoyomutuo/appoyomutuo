@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ProyectoService } from 'src/app/services/proyecto.service';
 import { Proyecto } from 'src/app/models/proyecto';
 import { Participanteproyecto } from 'src/app/models/participanteproyecto';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'mypeticiones',
@@ -13,22 +14,33 @@ export class MypeticionesComponent {
   peticiones = []
   peticionesSinLeer = []
 
+  loading = true
+
+  showPopupAcceptPeticion = false
+
+  decline = false
+
   constructor(private proyectoService: ProyectoService) { }
+
+  subscription: Subscription
 
   ngOnInit(): void {
     this.getPeticiones()
   }
 
   getPeticiones() {
-    this.proyectoService.getPeticionesByMail(sessionStorage.getItem("usermail")).subscribe(peticiones =>{
+    this.subscription = this.proyectoService.getPeticionesByMail(sessionStorage.getItem("usermail")).subscribe(peticiones =>{
       console.log(peticiones)
       this.peticiones = peticiones
       // this.setPeticionesComoLeidas(this.peticiones)
       this.peticiones.forEach(element => {
-        if(element.leida == false){
+        if(element.leida == false && element.borrada == false){
           this.peticionesSinLeer.push(element)
         }
       });
+      this.loading = false
+      this.subscription.unsubscribe()
+      // this.setPeticionesComoLeidas(this.peticionesSinLeer)
     })
 
   }
@@ -43,6 +55,7 @@ export class MypeticionesComponent {
   acceptPeticion(peticion: any) {
     // marcar como aceptada
     peticion.estado = true
+    peticion.leida = true
     this.proyectoService.updatePeticion(peticion)
 
     var newParticipante: Participanteproyecto = {
@@ -52,6 +65,10 @@ export class MypeticionesComponent {
     }
 
     this.proyectoService.addParticipante(newParticipante)
+
+    this.showPopupAcceptPeticion = true
+
+    // this.getPeticiones()
 
     // incluir una entrada en la colección participanteproyecto
     
@@ -71,8 +88,16 @@ export class MypeticionesComponent {
     // })
   }
 
-  declinePeticion(peticionId: any) {
+  declinePeticion(peticion: any) {
+    this.showPopupAcceptPeticion = true
+    this.decline = true
+    peticion.borrada = true
+    this.proyectoService.updatePeticion(peticion)
+  }
 
+  closePopUpAcceptTarea(){
+    this.showPopupAcceptPeticion = false
+    window.location.reload();
   }
 
 }

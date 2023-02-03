@@ -16,6 +16,7 @@ import { ContactComponent } from './components/contact/contact.component';
 import { TareasComponent } from './components/tareas/tareas.component';
 import { MypeticionesComponent } from './components/mypeticiones/mypeticiones.component';
 import { ForoComponent } from './components/foro/foro.component';
+import { ProjectEditComponent } from './components/project-edit/project-edit.component';
 
 
 const appRoutes: Routes = [
@@ -24,11 +25,12 @@ const appRoutes: Routes = [
     {path: 'login', component:LoginComponent},
     {path: 'logout', component:LogoutComponent},
     {path: 'newuser', component:NewuserComponent},
-    {path: 'perfil', component:ProfileComponent},
+    {path: 'profile', component:ProfileComponent},
     {path: 'myprojects', component:MyprojectsComponent},
     {path: 'home', component:HomeComponent},
     {path: 'buscador', component:BuscadorComponent},
     {path: 'creador', component:ProjectCreatorComponent},
+    {path: 'edit-project', component:ProjectEditComponent},
     {path: 'projectDetail', component:ProjectDetailComponent},
     {path: 'tareas', component:TareasComponent},
     {path: 'foro', component:ForoComponent},

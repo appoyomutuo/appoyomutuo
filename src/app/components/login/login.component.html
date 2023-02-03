@@ -21,18 +21,20 @@
                   </div>
   
                   <div style="display: flex;flex-direction: column;align-items: center;justify-content: center;">
-                      <div class="mb-4">
-                        <button (click)="logIn()" style="width: 120px;margin-bottom: 10px;" class="btn btn-block u-shadow-v32 g-brd-white g-brd-2 g-color-white g-bg-black g-brd-black--hover g-bg-white--hover g-color-black--hover g-font-size-16 g-rounded-30 g-py-10 ml-2 g-mt-0" type="button">Login</button>
-                      </div>
-                      <div class="mb-4">
-                        <button (click)="logInGoogle()" style="width: 200px;margin-bottom: 10px;" class="btn btn-block u-shadow-v32 g-brd-white g-brd-2 g-color-white g-bg-black g-brd-black--hover g-bg-white--hover g-color-black--hover g-font-size-16 g-rounded-30 g-py-10 ml-2 g-mt-0" type="button">Login con Google</button>
-                      </div>
+                    <p class="g-color-gray-dark-v5 g-font-size-13 mb-10">Accede con tu cuenta de Appoyo Mutuo</p>
+                    <div class="mb-4">
+                      <button (click)="logIn()" style="width: 120px;margin-bottom: 10px;" class="btn btn-block u-shadow-v32 g-brd-white g-brd-2 g-color-white g-bg-black g-brd-black--hover g-bg-white--hover g-color-black--hover g-font-size-16 g-rounded-30 g-py-10 ml-2 g-mt-0" type="button">Login</button>
+                    </div>
+                    <p class="g-color-gray-dark-v5 g-font-size-13 mb-10">O accede directamente con tu cuenta de Google</p>
+                    <div class="mb-4">
+                      <button (click)="logInGoogle()" style="width: 200px;margin-bottom: 10px;" class="btn btn-block u-shadow-v32 g-brd-white g-brd-2 g-color-white g-bg-black g-brd-black--hover g-bg-white--hover g-color-black--hover g-font-size-16 g-rounded-30 g-py-10 ml-2 g-mt-0" type="button">Login con Google</button>
+                    </div>
                   </div>
                 </form>
                 <!-- End Form -->
   
                 <footer class="text-center">
-                  <p class="g-color-gray-dark-v5 g-font-size-13 mb-0">Aún no tienes cuenta? <a [routerLink]="['/newuser']" class="g-font-weight-600">Crea una</a>
+                  <p class="g-color-gray-dark-v5 g-font-size-13 mb-0">¿Aún no tienes cuenta? <a [routerLink]="['/newuser']" class="g-font-weight-600">Crea una</a>
                   </p>
                 </footer>
               </div>

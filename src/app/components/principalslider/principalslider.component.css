@@ -1,13 +1,11 @@
 #home{
-    /* background-color:rgba(227, 227, 227, 0.7); */
-    width: 95vw;
+    /* width: 95vw;
     margin: auto;
-    /* height: 89vh; */
     padding: 50px;
     padding-top: 8vw;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
 
     animation-name: homeAnimation;
     animation-duration: 1.2s;

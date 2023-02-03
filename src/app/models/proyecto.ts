@@ -7,6 +7,7 @@ export interface Proyecto {
     categoria:string;
     tags:string[],
     ubication: string;
+    direction: string;
     comunidad:string;
     initialPeople: number;
     necessaryPeople: number;

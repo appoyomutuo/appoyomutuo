@@ -20,7 +20,8 @@ export class PopupPeticionComponent {
     nombre: "",
     mensaje: "",
     estado:false,
-    leida:false
+    leida:false,
+    borrada:false
   }
 
   ngOnInit(): void {

@@ -44,6 +44,9 @@ import { PopupNewtareaComponent } from './components/popup-newtarea/popup-newtar
 import { PopupPeticionComponent } from './components/popup-peticion/popup-peticion.component';
 import { MypeticionesComponent } from './components/mypeticiones/mypeticiones.component';
 import { ForoComponent } from './components/foro/foro.component';
+import { PopupAcceptpeticionComponent } from './components/popup-acceptpeticion/popup-acceptpeticion.component';
+import { MapaDetalleComponent } from './components/mapa-detalle/mapa-detalle.component';
+import { ProjectEditComponent } from './components/project-edit/project-edit.component';
 
 @NgModule({
   declarations: [
@@ -72,7 +75,10 @@ import { ForoComponent } from './components/foro/foro.component';
     PopupNewtareaComponent,
     PopupPeticionComponent,
     MypeticionesComponent,
-    ForoComponent
+    ForoComponent,
+    PopupAcceptpeticionComponent,
+    MapaDetalleComponent,
+    ProjectEditComponent
   ],
   imports: [
     BrowserModule,

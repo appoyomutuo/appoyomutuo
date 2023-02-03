@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { ProyectoService } from 'src/app/services/proyecto.service';
 
 import { Peticion } from 'src/app/models/peticion';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-project-detail',
@@ -15,6 +16,7 @@ export class ProjectDetailComponent implements OnInit {
   constructor(
     private proyectoService: ProyectoService,
     private activatedRoute: ActivatedRoute,
+    private router:Router
   ) { }
 
   project: any;
@@ -22,6 +24,13 @@ export class ProjectDetailComponent implements OnInit {
   hasGallery: any = false
 
   showPopUp_newPeticion: Boolean = false
+
+  ownerMail = ""
+  isOwner = false
+
+  latLong = ""
+
+  subscription: Subscription
 
   newPeticion:Peticion = {
     idPeticion: "",
@@ -32,7 +41,8 @@ export class ProjectDetailComponent implements OnInit {
     nombre: "",
     mensaje: "",
     estado:false,
-    leida:false
+    leida:false,
+    borrada:false
   }
 
   ngOnInit(): void {
@@ -40,12 +50,24 @@ export class ProjectDetailComponent implements OnInit {
       this.id = query.project
     })
 
-    this.proyectoService.getItemByID(this.id).subscribe(proyecto =>{
+    this.subscription = this.proyectoService.getItemByID(this.id).subscribe(proyecto =>{
       console.log("proyecto recibido", proyecto)
       this.project = proyecto!
+      this.ownerMail = this.project.owner
       if(this.project.imagenes.length > 2){
         this.hasGallery = true
       }
+      console.log("owner mail: ", this.ownerMail)
+      if(sessionStorage.getItem("usermail") === this.ownerMail){
+        this.isOwner = true
+      }else{
+        this.isOwner = false
+      }
+
+      this.latLong = this.project.ubication
+
+
+      this.subscription.unsubscribe()
     })
   }
 
@@ -66,6 +88,10 @@ export class ProjectDetailComponent implements OnInit {
     console.log("peticion creada", this.newPeticion)
     this.proyectoService.addPeticion(this.newPeticion)
     this.showPopUp_newPeticion = false
+  }
+
+  editProject(){
+    this.router.navigate(['/edit-project'], { queryParams: { project: this.id } });
   }
 
 }

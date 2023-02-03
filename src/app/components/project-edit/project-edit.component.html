@@ -1,10 +1,10 @@
-<!-- FORMULARIO PROYECTOS -->
-<section id="proyectos" class="g-bg-white g-py-100">
+<!-- EDITAR PROYECTO -->
+<section *ngIf="project !== null" id="proyectos" class="g-bg-white g-py-100">
     <div class="container text-center g-max-width-750 g-mb-0">
       <div class="text-uppercase g-mb-30">
-        <h3 class="h3 g-letter-spacing-5 g-font-size-12 g-font-weight-400 g-color-black g-mb-25" style="font-family:Poppins;">Creador de proyectos</h3>
+        <h3 class="h3 g-letter-spacing-5 g-font-size-12 g-font-weight-400 g-color-black g-mb-25" style="font-family:Poppins;">{{project.name}}</h3>
         <div style="display: flex;align-items: center;justify-content: center;">
-          <h2 class="u-heading-v2__title g-line-height-1 g-letter-spacing-2 g-font-size-30 g-font-size-40--md g-color-black mb-0" style="font-family:Poppins;">Formulario de Alta</h2>
+          <h2 class="u-heading-v2__title g-line-height-1 g-letter-spacing-2 g-font-size-30 g-font-size-40--md g-color-black mb-0" style="font-family:Poppins;">Editar Proyecto</h2>
         </div>
       </div>
     </div>
@@ -14,14 +14,14 @@
             <!-- NOMBRE -->
             <div class="form-group g-mb-30">
                 <label class="g-mb-10">Nombre</label>
-                <input id="inputGroup1_1" class="form-control form-control-md rounded-0" type="text" placeholder="" name="name" [(ngModel)]="newProject.name">
+                <input id="inputGroup1_1" class="form-control form-control-md rounded-0" type="text" placeholder="" name="name" [(ngModel)]="project.name">
                 <small class="form-text text-muted g-font-size-default g-mt-10 g-mb-30">Pon nombre a tu proyecto</small>
             </div>
 
             <!-- COLECTIVO -->
             <div class="form-group g-mb-30">
                 <label class="g-mb-10">Colectivo</label>
-                <input id="inputGroup1_1" class="form-control form-control-md rounded-0" type="text" placeholder="" name="colectivo" [(ngModel)]="newProject.colectivo">
+                <input id="inputGroup1_1" class="form-control form-control-md rounded-0" type="text" placeholder="" name="colectivo" [(ngModel)]="project.colectivo">
                 <small class="form-text text-muted g-font-size-default g-mt-10 g-mb-30">Indica si el proyecto se lleva a cabo por algún colectivo</small>
             </div>
 
@@ -45,14 +45,14 @@
             <!-- DESCRIPCIÓN -->
             <div class="form-group g-mb-30">
                 <label class="g-mb-10" for="inputGroup2_1">Descripción</label>
-                <textarea id="inputGroup2_1" class="form-control form-control-md g-resize-none rounded-0" rows="3" placeholder="" name="decription" [(ngModel)]="newProject.description"></textarea>
+                <textarea id="inputGroup2_1" class="form-control form-control-md g-resize-none rounded-0" rows="3" placeholder="" name="decription" [(ngModel)]="project.description"></textarea>
                 <small class="form-text text-muted g-font-size-default g-mt-10 g-mb-30">Indica en pocas palabras de qué trata el proyecto</small>
             </div>
 
             <!-- CATEGORIA -->
             <div class="form-group g-mb-30" style="display: flex;flex-direction: column;">
                 <label class="g-mb-10">Categoría</label>
-                <select (change)="handleCategoriaChange($event)" style="width: 200px;background-color: white;color: black;margin-bottom: 15px;">
+                <select (change)="handleCategoriaChange($event)" value="{{project.categoria}}" style="width: 200px;background-color: white;color: black;margin-bottom: 15px;">
                     <option value="default">-Elige una opción-</option>
                     <option value="agricultura_alimentacion">Agricultura y Alimentación</option>
                     <option value="autoempleo_educacion">Autoempleo y Educación</option>
@@ -82,7 +82,7 @@
             <!-- COMUNIDAD -->
             <div class="form-group g-mt-30" style="display: flex;flex-direction: column;">
                 <label class="g-mb-10" for="inputGroup1_1">Comunidad Autónoma</label>
-                <select (change)="handleComunidadChange($event)" style="width: 200px;background-color: white;color: black;margin-bottom: 15px;">
+                <select (change)="handleComunidadChange($event)" value="{{project.comunidad}}" style="width: 200px;background-color: white;color: black;margin-bottom: 15px;">
                     <option value="default">-Elige una opción-</option>
                     <option value="andalucía">Andalucía</option>
                     <option value="aragón">Aragón</option>
@@ -112,11 +112,11 @@
                 <label class="g-mb-10" for="inputGroup1_1">Ubicación</label>
                 <!-- POPUP INCUSTRADO -->
                 <div style="max-height: 300px;overflow-y: hidden;">
-                    <popup-mapa (closePopUp)=closePopUpMapa() (setCoordinates)=setCoordinates($event)></popup-mapa>
+                    <popup-mapa (setCoordinates)=setCoordinates($event)></popup-mapa>
                 </div>
                 <small class="form-text text-muted g-font-size-default g-mt-10 g-mb-30">Clicka en el mapa para indicar la ubicación</small>
                 <!-- POPUP MAPA -->
-                <!-- <input id="inputGroup1_1" class="form-control form-control-md rounded-0" type="text" placeholder="" name="ubication" [(ngModel)]="newProject.ubication">
+                <!-- <input id="inputGroup1_1" class="form-control form-control-md rounded-0" type="text" placeholder="" name="ubication" [(ngModel)]="project.ubication">
                 <small class="form-text text-muted g-font-size-default g-mt-10 g-mb-30">Indica en qué lugar se desarrolla tu proyecto. Puedes seleccionar un punto en el mapa pinchando aquí
                     <i (click)="showPopupMapa()" style="cursor: pointer;" class="icon-real-estate-020 u-line-icon-pro-g-valign-middle g-font-size-20 g-color-black"></i>
                 </small> -->
@@ -125,28 +125,28 @@
             <!-- DIRECCION -->
             <div class="form-group g-mb-30">
                 <label class="g-mb-10">Dirección</label>
-                <input id="inputGroup1_1" class="form-control form-control-md rounded-0" type="text" placeholder="" name="direction" [(ngModel)]="newProject.direction">
+                <input id="inputGroup1_1" class="form-control form-control-md rounded-0" type="text" placeholder="" name="direction" [(ngModel)]="project.direction">
                 <small class="form-text text-muted g-font-size-default g-mt-10 g-mb-30">Especifica la dirección</small>
             </div>
 
             <!-- PERSONAS INICIALES -->
             <div class="form-group g-mb-30">
                 <label class="g-mb-10" for="inputGroup1_133">Personas Iniciales</label>
-                <input style="width: 100px;" id="inputGroup1_133" class="form-control form-control-md rounded-0" type="number" placeholder="0" name="initialPeople" [(ngModel)]="newProject.initialPeople">
+                <input style="width: 100px;" id="inputGroup1_133" class="form-control form-control-md rounded-0" type="number" placeholder="0" name="initialPeople" [(ngModel)]="project.initialPeople">
                 <small class="form-text text-muted g-font-size-default g-mt-10 g-mb-30">Cuántas personas ya participan</small>
             </div>
 
             <!-- PERSONAS NECESARIAS -->
             <div class="form-group g-mb-30">
                 <label class="g-mb-10" for="inputGroup1_134">Personas Necesarias</label>
-                <input style="width: 70px;" id="inputGroup1_134" class="form-control form-control-md rounded-0" type="number" placeholder="0" name="necessaryPeople" [(ngModel)]="newProject.necessaryPeople">
+                <input style="width: 70px;" id="inputGroup1_134" class="form-control form-control-md rounded-0" type="number" placeholder="0" name="necessaryPeople" [(ngModel)]="project.necessaryPeople">
                 <small class="form-text text-muted g-font-size-default g-mt-10 g-mb-30">Cuántas personas hacen falta</small>
             </div>
 
             <!-- FORMAS PARTICIPACION -->
             <div class="form-group" style="display: flex;flex-direction: column;">
                 <label class="g-mb-10" for="inputGroup1_135">Formas de Participación</label>
-                <select (change)="handleParticipationChange($event)" style="width: 200px;background-color: white;color: black;margin-bottom: 15px;">
+                <select (change)="handleParticipationChange($event)" value="{{project.participationType}}" style="width: 200px;background-color: white;color: black;margin-bottom: 15px;">
                     <option value="default">-Elige una opción-</option>
                     <option value="tiempo">Aportación de tiempo</option>
                     <option value="dinero">Aportación monetaria</option>
@@ -155,8 +155,8 @@
                 <!-- TIEMPO -->
                 <div *ngIf="participacion == 'tiempo' || participacion == 'ambas'" style="display: flex;align-items: center;align-items: center;flex-wrap: wrap;">
                     <div class="form-group" style="display: flex;justify-content: center;margin-bottom: 0px;align-items: center;">
-                        <input style="width: 70px;" id="inputGroup1_135" class="form-control form-control-md rounded-0" type="number" placeholder="0" name="requiredTime" [(ngModel)]="newProject.requiredTime">
-                        <p style="margin-bottom:0px !Important; margin-left:10px; width:120px;padding-top: 5px;">horas / {{newProject.period}}</p>
+                        <input style="width: 70px;" id="inputGroup1_135" class="form-control form-control-md rounded-0" type="number" placeholder="0" name="requiredTime" [(ngModel)]="project.requiredTime">
+                        <p style="margin-bottom:0px !Important; margin-left:10px; width:120px;padding-top: 5px;">horas / {{project.period}}</p>
                     </div>
                     <div style="display: flex;width: 270px;">
                         <button (click)="setPeriod($event,'semana')" style="width: 100px;transform:scale(0.8)" class="btn btn-block u-shadow-v32 g-brd-black g-brd-2 g-color-black g-bg-white g-brd-black--hover g-bg-black--hover g-color-white--hover g-font-size-16 g-rounded-30 g-py-10 ml-2 g-mt-0" type="button">Semana</button>
@@ -167,8 +167,8 @@
                 <!-- DINERO -->
                 <div *ngIf="participacion == 'dinero' || participacion == 'ambas'" style="display: flex;align-items: center;align-items: center;flex-wrap: wrap;">
                     <div class="form-group" style="display: flex;justify-content: center;margin-bottom: 0px;align-items: center;">
-                        <input style="width: 70px;" id="inputGroup1_135" class="form-control form-control-md rounded-0" type="number" placeholder="0" name="requiredTime" [(ngModel)]="newProject.requiredTime">
-                        <p style="margin-bottom:0px !Important; margin-left:10px; width:120px;padding-top: 5px;">€ / {{newProject.period}}</p>
+                        <input style="width: 70px;" id="inputGroup1_135" class="form-control form-control-md rounded-0" type="number" placeholder="0" name="requiredTime" [(ngModel)]="project.requiredTime">
+                        <p style="margin-bottom:0px !Important; margin-left:10px; width:120px;padding-top: 5px;">€ / {{project.period}}</p>
                     </div>
                     <div style="display: flex;width: 270px;">
                         <button (click)="setPeriod($event,'semana')" style="width: 100px;transform:scale(0.8)" class="btn btn-block u-shadow-v32 g-brd-black g-brd-2 g-color-black g-bg-white g-brd-black--hover g-bg-black--hover g-color-white--hover g-font-size-16 g-rounded-30 g-py-10 ml-2 g-mt-0" type="button">Semana</button>
@@ -182,47 +182,31 @@
             <!-- NECESIDADES -->
             <div class="form-group g-mb-30">
                 <label class="g-mb-10" for="inputGroup2_1">Necesidades</label>
-                <textarea id="inputGroup2_1" class="form-control form-control-md g-resize-none rounded-0" rows="3" placeholder="" name="needs" [(ngModel)]="newProject.needs"></textarea>
+                <textarea id="inputGroup2_1" class="form-control form-control-md g-resize-none rounded-0" rows="3" placeholder="" name="needs" [(ngModel)]="project.needs"></textarea>
                 <small class="form-text text-muted g-font-size-default g-mt-10 g-mb-30">Indica en pocas palabras las necesidades que existen</small>
             </div>
 
             <!-- OFERTA -->
             <div class="form-group g-mb-30">
                 <label class="g-mb-10" for="inputGroup2_1">Qué Ofrecemos</label>
-                <textarea id="inputGroup2_1" class="form-control form-control-md g-resize-none rounded-0" rows="3" placeholder="" name="offer" [(ngModel)]="newProject.offer"></textarea>
+                <textarea id="inputGroup2_1" class="form-control form-control-md g-resize-none rounded-0" rows="3" placeholder="" name="offer" [(ngModel)]="project.offer"></textarea>
                 <small class="form-text text-muted g-font-size-default g-mt-10 g-mb-30">Dinos que puede obtener los usuarios que se unan a tu proyecto</small>
             </div>
 
             <!-- CONTACTO -->
             <div class="form-group g-mb-30">
                 <label class="g-mb-10" for="inputGroup2_1">Cómo Contactar</label>
-                <textarea id="inputGroup2_1" class="form-control form-control-md g-resize-none rounded-0" rows="3" placeholder="" name="contact" [(ngModel)]="newProject.contact"></textarea>
+                <textarea id="inputGroup2_1" class="form-control form-control-md g-resize-none rounded-0" rows="3" placeholder="" name="contact" [(ngModel)]="project.contact"></textarea>
                 <small class="form-text text-muted g-font-size-default g-mt-10 g-mb-30">Otras formas de contacto aparte de las que aporta AppoyoMutuo</small>
             </div>
 
             <!-- BOTONES -->
             <div class="g-mt-30 g-mb-30" style="width: 100%;display: flex;justify-content: center;">
                 <div class="d-flex" style="width: 200px;">
-                    <button (click)="createProject()" class="btn btn-block u-shadow-v32 g-brd-white g-brd-2 g-color-white g-bg-black g-brd-black--hover g-bg-white--hover g-color-black--hover g-font-size-16 g-rounded-30 g-py-10 ml-2 g-mt-0" type="button">Crear Proyecto</button>
+                    <button (click)="editProject()" class="btn btn-block u-shadow-v32 g-brd-white g-brd-2 g-color-white g-bg-black g-brd-black--hover g-bg-white--hover g-color-black--hover g-font-size-16 g-rounded-30 g-py-10 ml-2 g-mt-0" type="button">Guardar</button>
                 </div>
             </div>
         </form>
-        <!-- VISUALIZADOR DE PROYECTOS -->
-        <div>
-            <div *ngFor="let item of proyectos">
-                <p>{{item.name}}</p>
-                <button (click)="deleteItem($event, item)" class="btn btn-block u-shadow-v32 g-brd-white g-brd-2 g-color-white g-bg-black g-brd-white--hover g-bg-white--hover g-color-black--hover g-font-size-16 g-rounded-30 g-py-10 ml-2 g-mt-0" type="button">Borrar</button>
-            </div>
-        </div>
-        <!-- end VISUALIZADOR DE PROYECTOS -->
     </div>
 </section>
 <!-- End FORMULARIO PROYECTOS -->
-
-<!-- POPUP FILTROS -->
-<popup-warning *ngIf="showPopUp_Filters" (closePopUp)=closePopUpFilters()></popup-warning>
-<!-- End POPUP FILTROS -->
-
-<!-- POPUP MAPA -->
-<!-- <popup-mapa *ngIf="showPopUp_Mapa" (closePopUp)=closePopUpMapa() (setCoordinates)=setCoordinates($event)></popup-mapa> -->
-<!-- End POPUP MAPA -->

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 
 import { ProyectoService } from 'src/app/services/proyecto.service';
 
@@ -14,13 +15,15 @@ export class LoginbuttonComponent implements OnInit {
 
   nuevasPeticionesCount = 0
 
+  subscription: Subscription
+
   constructor(private proyectoService: ProyectoService) { }
 
   ngOnInit(): void {
     console.log("isLogued", sessionStorage.getItem("isLogued"))
     if(sessionStorage.getItem("isLogued") == "true"){
       this.isLogued = "true"
-      this.getPeticiones()
+      // this.getPeticiones()
     }
     else{
       this.isLogued = "false"
@@ -40,12 +43,13 @@ export class LoginbuttonComponent implements OnInit {
   }
 
   getPeticiones(){
-    this.proyectoService.getPeticionesByMail(sessionStorage.getItem("usermail")).subscribe(peticiones =>{
+    this.subscription = this.proyectoService.getPeticionesByMail(sessionStorage.getItem("usermail")).subscribe(peticiones =>{
       peticiones.forEach(element => {
-        if(element.leida == false){
+        if(element.borrada == false){
           this.nuevasPeticionesCount++
         }
       });
+      this.subscription.unsubscribe()
     })
   }
 }

@@ -16,6 +16,7 @@ export class ProjectCreatorComponent implements OnInit {
     categoria: "",
     tags:[],
     ubication: "",
+    direction:"",
     comunidad: "",
     initialPeople: 0,
     necessaryPeople: 0,
@@ -119,6 +120,7 @@ export class ProjectCreatorComponent implements OnInit {
   }
 
   handleParticipationChange(e:any){
+    console.log("valuie", e.target.value)
     this.participacion = e.target.value
     this.newProject.participationType = e.target.value
   }

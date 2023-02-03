@@ -9,4 +9,5 @@ export interface Peticion {
     mensaje: string;
     estado:Boolean;
     leida:Boolean
+    borrada:Boolean;
 }
