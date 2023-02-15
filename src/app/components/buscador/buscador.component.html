@@ -1,43 +1,5 @@
-<!-- SELECTOR CATEGORIAS -->
-<section *ngIf="!hasCategoria"  class="g-bg-white g-py-100">
-  <div class="categoriasWrapper">
-    <div class="pieza" (click)="selectCategoria('agricultura_alimentacion')">
-      <div class="logopieza"></div>
-      <p class="categoriaTitle">Alimentación y Agricultura</p>
-    </div>
-    <div class="pieza" (click)="selectCategoria('autoempleo_educacion')">
-      <div class="logopieza"></div>
-      <p class="categoriaTitle">Autoempleo y Educación</p>
-    </div>
-    <div class="pieza" (click)="selectCategoria('salud_cuidados')">
-      <div class="logopieza"></div>
-      <p class="categoriaTitle">Salud y Cuidados</p>
-    </div>
-    <div class="pieza" (click)="selectCategoria('creacionartistica')">
-      <div class="logopieza"></div>
-      <p class="categoriaTitle">Creación Artística</p>
-    </div>
-    <div class="pieza" (click)="selectCategoria('espacios_vivienda')">
-      <div class="logopieza"></div>
-      <p class="categoriaTitle">Espacios y Vivienda</p>
-    </div>
-    <div class="pieza" (click)="selectCategoria('tecnologia_energia')">
-      <div class="logopieza"></div>
-      <p class="categoriaTitle">Tecnología y Energía</p>
-    </div>
-    <div class="pieza" (click)="selectCategoria('ocio_viajes')">
-      <div class="logopieza"></div>
-      <p class="categoriaTitle">Ocio y Viajes</p>
-    </div>
-    <div class="pieza" (click)="selectCategoria('acciones_asambleas')">
-      <div class="logopieza"></div>
-      <p class="categoriaTitle">Acciones y Asambleas</p>
-    </div>
-  </div>
-</section>
-
 <!-- CARRUSEL PROYECTOS -->
- <section *ngIf="proyectos && hasCategoria" id="proyectos" class="g-bg-white g-py-100">
+ <section *ngIf="proyectos" id="proyectos" class="g-bg-white g-py-100">
   <div class="container text-center g-max-width-750 g-mb-0">
     <div class="text-uppercase g-mb-30">
       <h3 class="h3 g-letter-spacing-5 g-font-size-12 g-font-weight-400 g-color-black g-mb-15" style="font-family:Poppins;">Buscador de proyectos</h3>
@@ -51,9 +13,9 @@
           <i class="icon-education-092 u-line-icon-pro g-valign-middle g-font-size-20 g-color-white g-ml-10" style="cursor: pointer;"></i>
           <p style="color:White;margin:auto">FILTROS</p>
         </div>
-        <div (click)="showAll()" style="width: 100px;height: 40px;background-color: black;display: flex;justify-content: center;align-items: center;margin: auto;cursor: pointer;">          
+        <!-- <div (click)="showAll()" style="width: 100px;height: 40px;background-color: black;display: flex;justify-content: center;align-items: center;margin: auto;cursor: pointer;">          
           <p style="color:White;margin:auto">Ver Todos</p>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
@@ -61,7 +23,7 @@
   <project-list [data]="currentData"></project-list>
   <!-- <carrousel [data]="currentData"></carrousel> -->
 </section>
-<div *ngIf="loading" style="display: flex;justify-content: center;width: 100%;">
+<div *ngIf="loading" style="display: flex;justify-content: center;width: 100%;height: 60vh;">
   <div class="spinner"></div>
 </div>
 <!-- End CARRUSEL PROYECTOS -->

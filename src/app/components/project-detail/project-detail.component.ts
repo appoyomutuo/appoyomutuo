@@ -32,6 +32,8 @@ export class ProjectDetailComponent implements OnInit {
 
   subscription: Subscription
 
+  currentImage = ""
+
   newPeticion:Peticion = {
     idPeticion: "",
     idProyecto: "",
@@ -54,6 +56,7 @@ export class ProjectDetailComponent implements OnInit {
       console.log("proyecto recibido", proyecto)
       this.project = proyecto!
       this.ownerMail = this.project.owner
+      this.currentImage = this.project.imagenes[0]
       if(this.project.imagenes.length > 2){
         this.hasGallery = true
       }
@@ -69,6 +72,14 @@ export class ProjectDetailComponent implements OnInit {
 
       this.subscription.unsubscribe()
     })
+  }
+
+  changeImage(image:any){
+    console.log("imagen", image)
+    var index = this.project.imagenes.indexOf(image);
+    if (image !== -1) {
+      this.currentImage = this.project.imagenes[index]
+    }
   }
 
   showPopupNewPeticion(){

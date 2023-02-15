@@ -74,7 +74,7 @@
                     <button (click)="addTag()" style="width: 120px;transform:scale(0.8)" class="btn btn-block u-shadow-v32 g-bg-black g-color-white g-bg-white--hover g-color-black--hover u-btn-outline-black g-font-size-16 g-rounded-30 g-py-10 ml-2 g-mt-0" type="button">Añadir Tag</button>
                 </div>
                 <div style="display: flex;margin-top:10px;">
-                    <p style="padding:10px;background-color: white;color: black;border: 1px solid black;" class="g-rounded-30 text-lowercase font-italic g-mr-5" *ngFor="let tag of tags">{{tag}} </p>
+                    <p (click)="deleteTag(tag)" style="padding:10px;background-color: white;color: black;border: 1px solid black;cursor: pointer;" class="g-rounded-30 text-lowercase font-italic g-mr-5  g-bg-black--hover g-color-white--hover" *ngFor="let tag of tags">{{tag}} </p>
                 </div>
                 <small class="form-text text-muted g-font-size-default g-mt-10 g-mb-30">Añade palabras relacionadas para que otras personas puedan encontrarte</small>
             </div>
@@ -156,24 +156,24 @@
                 <div *ngIf="participacion == 'tiempo' || participacion == 'ambas'" style="display: flex;align-items: center;align-items: center;flex-wrap: wrap;">
                     <div class="form-group" style="display: flex;justify-content: center;margin-bottom: 0px;align-items: center;">
                         <input style="width: 70px;" id="inputGroup1_135" class="form-control form-control-md rounded-0" type="number" placeholder="0" name="requiredTime" [(ngModel)]="newProject.requiredTime">
-                        <p style="margin-bottom:0px !Important; margin-left:10px; width:120px;padding-top: 5px;">horas / {{newProject.period}}</p>
+                        <p style="margin-bottom:0px !Important; margin-left:10px; width:120px;padding-top: 5px;">horas / {{newProject.periodTime}}</p>
                     </div>
                     <div style="display: flex;width: 270px;">
-                        <button (click)="setPeriod($event,'semana')" style="width: 100px;transform:scale(0.8)" class="btn btn-block u-shadow-v32 g-brd-black g-brd-2 g-color-black g-bg-white g-brd-black--hover g-bg-black--hover g-color-white--hover g-font-size-16 g-rounded-30 g-py-10 ml-2 g-mt-0" type="button">Semana</button>
-                        <button (click)="setPeriod($event,'mes')" style="width: 100px;transform:scale(0.8)" class="btn btn-block u-shadow-v32 g-brd-black g-brd-2 g-color-black g-bg-white g-brd-black--hover g-bg-black--hover g-color-white--hover g-font-size-16 g-rounded-30 g-py-10 ml-2 g-mt-0" type="button">Mes</button>
-                        <button (click)="setPeriod($event,'año')" style="width: 100px;transform:scale(0.8)" class="btn btn-block u-shadow-v32 g-brd-black g-brd-2 g-color-black g-bg-white g-brd-black--hover g-bg-black--hover g-color-white--hover g-font-size-16 g-rounded-30 g-py-10 ml-2 g-mt-0" type="button">Año</button>
+                        <button (click)="setPeriod_Time($event,'semana')" style="width: 100px;transform:scale(0.8)" class="btn btn-block u-shadow-v32 g-brd-black g-brd-2 g-color-black g-bg-white g-brd-black--hover g-bg-black--hover g-color-white--hover g-font-size-16 g-rounded-30 g-py-10 ml-2 g-mt-0" type="button">Semana</button>
+                        <button (click)="setPeriod_Time($event,'mes')" style="width: 100px;transform:scale(0.8)" class="btn btn-block u-shadow-v32 g-brd-black g-brd-2 g-color-black g-bg-white g-brd-black--hover g-bg-black--hover g-color-white--hover g-font-size-16 g-rounded-30 g-py-10 ml-2 g-mt-0" type="button">Mes</button>
+                        <button (click)="setPeriod_Time($event,'año')" style="width: 100px;transform:scale(0.8)" class="btn btn-block u-shadow-v32 g-brd-black g-brd-2 g-color-black g-bg-white g-brd-black--hover g-bg-black--hover g-color-white--hover g-font-size-16 g-rounded-30 g-py-10 ml-2 g-mt-0" type="button">Año</button>
                     </div>
                 </div>
                 <!-- DINERO -->
                 <div *ngIf="participacion == 'dinero' || participacion == 'ambas'" style="display: flex;align-items: center;align-items: center;flex-wrap: wrap;">
                     <div class="form-group" style="display: flex;justify-content: center;margin-bottom: 0px;align-items: center;">
-                        <input style="width: 70px;" id="inputGroup1_135" class="form-control form-control-md rounded-0" type="number" placeholder="0" name="requiredTime" [(ngModel)]="newProject.requiredTime">
-                        <p style="margin-bottom:0px !Important; margin-left:10px; width:120px;padding-top: 5px;">€ / {{newProject.period}}</p>
+                        <input style="width: 70px;" id="inputGroup1_135" class="form-control form-control-md rounded-0" type="number" placeholder="0" name="requiredTime" [(ngModel)]="newProject.requiredMoney">
+                        <p style="margin-bottom:0px !Important; margin-left:10px; width:120px;padding-top: 5px;">€ / {{newProject.periodMoney}}</p>
                     </div>
                     <div style="display: flex;width: 270px;">
-                        <button (click)="setPeriod($event,'semana')" style="width: 100px;transform:scale(0.8)" class="btn btn-block u-shadow-v32 g-brd-black g-brd-2 g-color-black g-bg-white g-brd-black--hover g-bg-black--hover g-color-white--hover g-font-size-16 g-rounded-30 g-py-10 ml-2 g-mt-0" type="button">Semana</button>
-                        <button (click)="setPeriod($event,'mes')" style="width: 100px;transform:scale(0.8)" class="btn btn-block u-shadow-v32 g-brd-black g-brd-2 g-color-black g-bg-white g-brd-black--hover g-bg-black--hover g-color-white--hover g-font-size-16 g-rounded-30 g-py-10 ml-2 g-mt-0" type="button">Mes</button>
-                        <button (click)="setPeriod($event,'año')" style="width: 100px;transform:scale(0.8)" class="btn btn-block u-shadow-v32 g-brd-black g-brd-2 g-color-black g-bg-white g-brd-black--hover g-bg-black--hover g-color-white--hover g-font-size-16 g-rounded-30 g-py-10 ml-2 g-mt-0" type="button">Año</button>
+                        <button (click)="setPeriod_Money($event,'semana')" style="width: 100px;transform:scale(0.8)" class="btn btn-block u-shadow-v32 g-brd-black g-brd-2 g-color-black g-bg-white g-brd-black--hover g-bg-black--hover g-color-white--hover g-font-size-16 g-rounded-30 g-py-10 ml-2 g-mt-0" type="button">Semana</button>
+                        <button (click)="setPeriod_Money($event,'mes')" style="width: 100px;transform:scale(0.8)" class="btn btn-block u-shadow-v32 g-brd-black g-brd-2 g-color-black g-bg-white g-brd-black--hover g-bg-black--hover g-color-white--hover g-font-size-16 g-rounded-30 g-py-10 ml-2 g-mt-0" type="button">Mes</button>
+                        <button (click)="setPeriod_Money($event,'año')" style="width: 100px;transform:scale(0.8)" class="btn btn-block u-shadow-v32 g-brd-black g-brd-2 g-color-black g-bg-white g-brd-black--hover g-bg-black--hover g-color-white--hover g-font-size-16 g-rounded-30 g-py-10 ml-2 g-mt-0" type="button">Año</button>
                     </div>
                 </div>
                 <small class="form-text text-muted g-font-size-default g-mt-10 g-mb-30">De qué manera se puede participar</small>

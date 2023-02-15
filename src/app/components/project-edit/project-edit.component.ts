@@ -64,8 +64,12 @@ export class ProjectEditComponent {
     this.imagenes = files
   }
 
-  setPeriod(event:any, value:string){
-    this.project.period = value;
+  setPeriod_Time(event:any, value:string){
+    this.project.periodTime = value;
+  }
+
+  setPeriod_Money(event:any, value:string){
+    this.project.periodMoney = value;
   }
 
   addTag(){
@@ -73,15 +77,19 @@ export class ProjectEditComponent {
       this.tags.push(this.tag)
       console.log("tags", this.tags)
     }
+
+    this.tag = ""
+  }
+
+  deleteTag(tag:any){
+    var index = this.tags.indexOf(tag);
+    if (tag !== -1) {
+      this.tags.splice(index, 1);
+    }
   }
 
   deleteItem(event: any, item: Proyecto){
     this.proyectoService.deleteItem(item);
-  }
-
-  editItem(event: any, item: Proyecto){
-    this.editState = true;
-    this.proyectoToEdit = item;
   }
 
   updateItem(item: Proyecto){
@@ -95,7 +103,19 @@ export class ProjectEditComponent {
   handleParticipationChange(e:any){
     console.log("valuie", e.target.value)
     this.participacion = e.target.value
-    this.project.participationType = e.target.value
+
+    if(this.participacion === "tiempo"){
+      this.project.participationType_time = e.target.value
+    }
+
+    if(this.participacion === "dinero"){
+      this.project.participationType_money = e.target.value
+    }
+
+    if(this.participacion === "ambas"){
+      this.project.participationType_time = "tiempo"
+      this.project.participationType_money = "dinero"
+    }
   }
 
   handleCategoriaChange(e:any){
@@ -105,5 +125,9 @@ export class ProjectEditComponent {
 
   setCoordinates(event:any){
     this.project.ubication = event.coordinates.lat + "," + event.coordinates.lng
+  }
+
+  deleteProject(){
+
   }
 }

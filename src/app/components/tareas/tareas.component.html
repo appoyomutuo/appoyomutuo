@@ -1,4 +1,4 @@
-<div *ngIf="project" style="padding:0px 20px;">
+<div *ngIf="project" style="padding:70px 20px;">
     <div class="container text-center g-max-width-750 g-mb-0">
         <div class="text-uppercase g-mb-30">
           <h3 class="h3 g-letter-spacing-5 g-font-size-12 g-font-weight-400 g-color-black g-mb-25" style="font-family:Poppins;">{{project.name}}</h3>
@@ -9,9 +9,10 @@
     </div>
 
     <!-- AÑADIR TAREA -->
-    <div style="width: 200px;cursor: pointer;margin-left: 12%;margin-bottom: 20px;" (click)="showPopupNewTarea()">
+    <button (click)="showPopupNewTarea()" style="width: 170px;margin-top: 10px;display: flex;justify-content: center;align-items: center;margin-left: 12%;margin-bottom: 20px;" class="btn btn-block u-shadow-v32 g-brd-white g-brd-2 g-color-white g-bg-black g-brd-black--hover g-bg-white--hover g-color-black--hover g-font-size-16 g-rounded-30 g-py-10" type="button"><i class="material-icons g-mr-5 g-font-12 g-mb-4">add_circle_outline</i>Añadir Tarea</button>
+    <!-- <div style="width: 200px;cursor: pointer;margin-left: 12%;margin-bottom: 20px;" (click)="showPopupNewTarea()">
         <a class="btn btn-md g-bg-black g-color-white g-bg-white--hover g-color-black--hover u-btn-outline-black g-mr-10 g-mt-5" style="display: flex;align-items: center;justify-content: center;"><i class="material-icons g-mr-5 g-font-12 g-mb-4">add_circle_outline</i>Añadir Tarea</a>
-    </div>
+    </div> -->
 
     <!-- LISTAS -->
     <div class="tareasWrapper" style="display: flex;justify-content: center;align-items: flex-start;margin: auto;">

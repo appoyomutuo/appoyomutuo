@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { ProyectoService } from 'src/app/services/proyecto.service';
 import { Proyecto } from '../../models/proyecto';
 
@@ -16,7 +17,7 @@ export class BuscadorComponent implements OnInit {
 
   proyectos: any[] = [] as Proyecto[];
 
-  categoria: ""
+  categoria: string =  ""
   categoriaTransform: string = ""
   hasCategoria = false
 
@@ -24,16 +25,25 @@ export class BuscadorComponent implements OnInit {
 
   loading = false
 
-  constructor(private proyectoService: ProyectoService) { }
+  constructor(
+    private proyectoService: ProyectoService,
+    private activatedRoute: ActivatedRoute,
+  ) { }
 
 
   ngOnInit(): void {
-    // this.proyectoService.getItems().subscribe(proyectos =>{
-    //   // console.log("::::> datos de Proyectos: " + JSON.stringify(proyectos));
-    //   this.proyectos = proyectos;
-    //   this.currentData =  this.proyectos
-    // })
-    // this.busquedaInicial(this.categoria)
+    if(sessionStorage.getItem("categoria") == null){
+      this.activatedRoute.queryParams.subscribe((query: any) => {
+        this.categoria = query.categoria
+        this.selectCategoria(this.categoria)
+        this.busquedaInicial(this.categoria)
+      })
+    }else{
+      this.categoria = sessionStorage.getItem("categoria")
+      this.selectCategoria(this.categoria)
+      this.busquedaInicial(this.categoria)
+    }
+    
   }
 
   selectCategoria(categoria:any){
@@ -41,30 +51,43 @@ export class BuscadorComponent implements OnInit {
     this.categoria = categoria
     if(categoria == "agricultura_alimentacion"){
       this.categoriaTransform = "Agricultura y Alimentación"
+      sessionStorage.setItem("categoria", this.categoria)
     }
     if(categoria == "autoempleo_educacion"){
       this.categoriaTransform = "Autoempleo y Educación"
+      sessionStorage.setItem("categoria", this.categoria)
     }
     if(categoria == "salud_cuidados"){
       this.categoriaTransform = "Salud y Cuidados"
+      sessionStorage.setItem("categoria", this.categoria)
     }
     if(categoria == "creacionartistica"){
       this.categoriaTransform = "Creación Artística"
+      sessionStorage.setItem("categoria", this.categoria)
     }
     if(categoria == "espacios_vivienda"){
       this.categoriaTransform = "Espacios y Vivienda"
+      sessionStorage.setItem("categoria", this.categoria)
     }
     if(categoria == "tecnologia_energia"){
       this.categoriaTransform = "Tecnología y Energía"
+      sessionStorage.setItem("categoria", this.categoria)
     }
     if(categoria == "ocio_viajes"){
       this.categoriaTransform = "Ocio y Viajes"
+      sessionStorage.setItem("categoria", this.categoria)
     }
     if(categoria == "acciones_asambleas"){
       this.categoriaTransform = "Acciones y Asambleas"
+      sessionStorage.setItem("categoria", this.categoria)
+    }
+    
+    if(categoria == "all"){
+      this.showAll()
+    }else{
+      this.busquedaInicial(this.categoria)
     }
 
-    this.busquedaInicial(this.categoria)
   }
 
   showAll(){
@@ -85,7 +108,7 @@ export class BuscadorComponent implements OnInit {
   busquedaInicial(categoria:string){
     this.loading = true
     this.proyectoService.getItemsByCategoria(categoria).subscribe(proyectos =>{
-      console.log("::::> datos de Proyectos: " + JSON.stringify(proyectos));
+      // console.log("::::> datos de Proyectos: " + JSON.stringify(proyectos));
       this.proyectos = proyectos
       this.currentData =  this.proyectos
       this.totalProjects = this.proyectos.length
@@ -98,7 +121,6 @@ export class BuscadorComponent implements OnInit {
     this.proyectos = []
     this.currentData =  []
     if(this.proyectos.length == 0){
-      console.log("proyectos length", this.proyectos.length)
       this.proyectos = proyects.proyects
       this.currentData =  this.proyectos
       this.totalProjects = this.proyectos.length
@@ -107,8 +129,8 @@ export class BuscadorComponent implements OnInit {
   }
 
   changeCategory(category:any){
-    console.log("salto", category.category)
     this.selectCategoria(category.category)
+    sessionStorage.setItem("categoria", category.category)
   }
 
   showPopUpFilters(){

@@ -28,6 +28,14 @@ export class ProjectListComponent implements OnInit {
     }
   }
 
+  changeImage(image:any){
+    console.log("imagen", image)
+    // var index = this.project.imagenes.indexOf(image);
+    // if (image !== -1) {
+    //   this.currentImage = this.project.imagenes[index]
+    // }
+  }
+
   gotoProjectDetail(id:any){
     this.router.navigate(['/projectDetail'], { queryParams: { project: id } });
   }

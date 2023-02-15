@@ -109,19 +109,21 @@ export class ProyectoService {
     console.log("files", files)
     var urlFiles: string[] = []
     for (let index = 0; index < files.length; index++) {
-      var filePath = `ProyectImages/${files[index].name}`;
-      var fileRef = this.storage.ref(filePath);
       // console.log("files", files[index])
       const task = this.storage.upload(`ProyectImages/${files[index].name}`, files[index]);
       task
-        .snapshotChanges()
-        .pipe(
-          finalize(() => {
+      .snapshotChanges()
+      .pipe(
+        finalize(() => {
+            var filePath = `ProyectImages/${files[index].name}`;
+            var fileRef = this.storage.ref(filePath);
+            console.log("file ref", fileRef)
             this.downloadURL = fileRef.getDownloadURL();
             this.downloadURL.subscribe(url => {
               if (url) {
                 this.fb = url;
                 urlFiles.push(this.fb)
+                console.log("this fb", this.fb)
               }
               if(urlFiles.length == files.length){
                 item.imagenes = urlFiles

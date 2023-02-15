@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
     this._auth.login(mail, contra).then(res=> {
       console.log(res);
       // sessionStorage.setItem("usermail", mail)
-      this._router.navigate(['perfil']);
+      this._router.navigate(['myprojects']);
     });
   }
 

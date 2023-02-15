@@ -47,6 +47,7 @@ import { ForoComponent } from './components/foro/foro.component';
 import { PopupAcceptpeticionComponent } from './components/popup-acceptpeticion/popup-acceptpeticion.component';
 import { MapaDetalleComponent } from './components/mapa-detalle/mapa-detalle.component';
 import { ProjectEditComponent } from './components/project-edit/project-edit.component';
+import { CategoriasComponent } from './components/categorias/categorias.component';
 
 @NgModule({
   declarations: [
@@ -78,7 +79,8 @@ import { ProjectEditComponent } from './components/project-edit/project-edit.com
     ForoComponent,
     PopupAcceptpeticionComponent,
     MapaDetalleComponent,
-    ProjectEditComponent
+    ProjectEditComponent,
+    CategoriasComponent
   ],
   imports: [
     BrowserModule,

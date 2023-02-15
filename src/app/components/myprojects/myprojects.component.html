@@ -1,12 +1,12 @@
 <!-- PROYECTOS CREADOS POR MI -->
-<div class="container text-center g-max-width-750 g-pt-30">
-    <div class="text-uppercase g-mb-30">
+<div class="container text-center g-max-width-750 g-pt-70">
+    <div class="text-uppercase">
       <div style="display: flex;align-items: center;justify-content: center;">
         <h2 class="u-heading-v2__title g-line-height-1 g-letter-spacing-2 g-font-size-30 g-font-size-40--md g-color-black mb-0" style="font-family:Poppins;">Creados por mí</h2>
       </div>
     </div>
 </div>
-<div *ngIf="loading" style="display: flex;justify-content: center;width: 100%;">
+<div *ngIf="loading" style="display: flex;justify-content: center;width: 100%;height: 40vh;margin-top: 50px;">
     <div class="spinner"></div>
 </div>
 <div *ngIf="ownProjects.length == 0 && loading == false" style="display: flex;justify-content: center;width: 100%;flex-direction: column;align-items: center;">
@@ -30,13 +30,13 @@
                                 <i class="icon-user u-line-icon-pro-g-valign-middle g-font-size-20 g-color-black"></i>
                                 {{item.initialPeople}}/{{item.necessaryPeople}}
                             </div>
-                            <div *ngIf="item.participationType == 'tiempo'" class="js-modal-markup u-link-v5  g-color-main g-mr-15" href="#" data-content-target="#shortcode8" data-modal-target="#modalMarkup" data-modal-effect="fadein">
+                            <div *ngIf="item.participationType_time == 'tiempo'" class="js-modal-markup u-link-v5  g-color-main g-mr-15" href="#" data-content-target="#shortcode8" data-modal-target="#modalMarkup" data-modal-effect="fadein">
                                 <i class="icon-hotel-restaurant-003 u-line-icon-pro g-font-size-20 g-color-black"></i>
-                                {{item.requiredTime}} horas/{{item.period}}
+                                {{item.requiredTime}} horas/{{item.periodTime}}
                             </div>
-                            <div *ngIf="item.participationType == 'dinero'" class="js-modal-markup u-link-v5  g-color-main g-mr-15" href="#" data-content-target="#shortcode8" data-modal-target="#modalMarkup" data-modal-effect="fadein">
+                            <div *ngIf="item.participationType_money == 'dinero'" class="js-modal-markup u-link-v5  g-color-main g-mr-15" href="#" data-content-target="#shortcode8" data-modal-target="#modalMarkup" data-modal-effect="fadein">
                                 <i class="icon-finance-010 u-line-icon-pro g-font-size-20 g-color-black"></i>
-                                {{item.requiredTime}} €/{{item.period}}
+                                {{item.requiredMoney}} €/{{item.periodMoney}}
                             </div>
                         </div>
                         <div style="cursor: pointer;" class="imagebox u-shadow-v2 g-mb-30 g-pt-20">
@@ -61,21 +61,21 @@
 </div>
 
 <!-- PROYECTOS EN LOS QUE PARTICIPO -->
-<div class="container text-center g-max-width-750 g-pt-30 g-mt-50">
-    <div class="text-uppercase g-mb-30">
+<div class="container text-center g-max-width-750 g-pt-70">
+    <div class="text-uppercase ">
       <div style="display: flex;align-items: center;justify-content: center;">
         <h2 class="u-heading-v2__title g-line-height-1 g-letter-spacing-2 g-font-size-30 g-font-size-40--md g-color-black mb-0" style="font-family:Poppins;">En los que participo</h2>
       </div>
     </div>
 </div>
-<div *ngIf="loading" style="display: flex;justify-content: center;width: 100%;">
+<div *ngIf="loading" style="display: flex;justify-content: center;width: 100%;height: 40vh;margin-top: 50px;">
     <div class="spinner"></div>
 </div>
 <div *ngIf="participationProjects.length == 0 && loading == false" style="display: flex;justify-content: center;width: 100%;flex-direction: column;align-items: center;">
     <h4>Aún no participas en ningún proyecto</h4>
-    <p>Descubre dónde unirte en nuestro <a href="/buscador">Buscador</a></p>
+    <p>Descubre dónde unirte en nuestro <a href="/categorias">Buscador</a></p>
 </div>
-<div class="projectLis-wrapper" style="margin-bottom: 50px;" *ngIf="participationProjects.length > 0">
+<div class="projectLis-wrapper" style="margin-bottom: 100px;" *ngIf="participationProjects.length > 0">
     <div class="project-wrapper" *ngFor="let item of participationProjects">
         <div class="row" style="display: flex;flex-direction: column;justify-content: center;align-items: center;margin: auto;">
             <div class="col-lg">
@@ -92,20 +92,20 @@
                                 <i class="icon-user u-line-icon-pro-g-valign-middle g-font-size-20 g-color-black"></i>
                                 {{item.initialPeople}}/{{item.necessaryPeople}}
                             </div>
-                            <div *ngIf="item.participationType == 'tiempo'" class="js-modal-markup u-link-v5  g-color-main g-mr-15" href="#" data-content-target="#shortcode8" data-modal-target="#modalMarkup" data-modal-effect="fadein">
+                            <div *ngIf="item.participationType_time == 'tiempo'" class="js-modal-markup u-link-v5  g-color-main g-mr-15" href="#" data-content-target="#shortcode8" data-modal-target="#modalMarkup" data-modal-effect="fadein">
                                 <i class="icon-hotel-restaurant-003 u-line-icon-pro g-font-size-20 g-color-black"></i>
-                                {{item.requiredTime}} horas/{{item.period}}
+                                {{item.requiredTime}} horas/{{item.periodTime}}
                             </div>
-                            <div *ngIf="item.participationType == 'dinero'" class="js-modal-markup u-link-v5  g-color-main g-mr-15" href="#" data-content-target="#shortcode8" data-modal-target="#modalMarkup" data-modal-effect="fadein">
+                            <div *ngIf="item.participationType_money == 'dinero'" class="js-modal-markup u-link-v5  g-color-main g-mr-15" href="#" data-content-target="#shortcode8" data-modal-target="#modalMarkup" data-modal-effect="fadein">
                                 <i class="icon-finance-010 u-line-icon-pro g-font-size-20 g-color-black"></i>
-                                {{item.requiredTime}} €/{{item.period}}
+                                {{item.requiredMoney}} €/{{item.periodMoney}}
                             </div>
                         </div>
                         <div style="cursor: pointer;" class="imagebox u-shadow-v2 g-mb-30 g-pt-20">
                             <img class="" src="{{item.imagenes[0]}}" alt="Image Description">
                         </div>
                         <div class="infobottom g-font-size-12 g-my-10 g-pl-10">
-                            <div>
+                            <div style="display: flex;justify-content: center;align-items: center;">
                                 <button (click)="gotoTareas(item.id)" style="width: 100px;" class="btn btn-block u-shadow-v32 g-brd-white g-brd-2 g-color-white g-bg-black g-brd-black--hover g-bg-white--hover g-color-black--hover g-font-size-16 g-rounded-30 g-py-10 ml-2 g-mt-0" type="button">Tareas</button>
                                 <button (click)="gotoProjectForo(item.id)" style="width: 100px;" class="btn btn-block u-shadow-v32 g-brd-white g-brd-2 g-color-white g-bg-black g-brd-black--hover g-bg-white--hover g-color-black--hover g-font-size-16 g-rounded-30 g-py-10 ml-2 g-mt-0" type="button">Foro</button>
                                 <button (click)="gotoProjectDetail(item.id)" style="width: 100px;" class="btn btn-block u-shadow-v32 g-brd-white g-brd-2 g-color-white g-bg-black g-brd-black--hover g-bg-white--hover g-color-black--hover g-font-size-16 g-rounded-30 g-py-10 ml-2 g-mt-0" type="button">Detalle</button>

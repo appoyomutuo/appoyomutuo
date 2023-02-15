@@ -17,6 +17,7 @@ import { TareasComponent } from './components/tareas/tareas.component';
 import { MypeticionesComponent } from './components/mypeticiones/mypeticiones.component';
 import { ForoComponent } from './components/foro/foro.component';
 import { ProjectEditComponent } from './components/project-edit/project-edit.component';
+import { CategoriasComponent } from './components/categorias/categorias.component';
 
 
 const appRoutes: Routes = [
@@ -28,6 +29,7 @@ const appRoutes: Routes = [
     {path: 'profile', component:ProfileComponent},
     {path: 'myprojects', component:MyprojectsComponent},
     {path: 'home', component:HomeComponent},
+    {path: 'categorias', component:CategoriasComponent},
     {path: 'buscador', component:BuscadorComponent},
     {path: 'creador', component:ProjectCreatorComponent},
     {path: 'edit-project', component:ProjectEditComponent},

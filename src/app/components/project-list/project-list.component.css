@@ -23,6 +23,12 @@ img{
     border-color: rgba(207, 207, 207, 0.8) !important;
 }
 
+.texto{
+    height: 115px;
+    margin-bottom: 0px;
+    overflow: hidden;
+}
+
 .infobottom{
     display: flex;
     justify-content: space-between;

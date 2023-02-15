@@ -1,0 +1,51 @@
+.categoriasWrapper{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 0px 100px;
+}
+
+.pieza{
+    /* background-image: url("../../../assets/img/imagenes/PiezaCategoriaNegra.png"); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color:black;
+    /* flex: 20%; */
+    width: 310px;
+    height: 200px;
+    margin-bottom: 5%;
+    margin-right: 20px;
+    min-width: 400px;
+    box-shadow: 0 15px 6px -6px rgb(0 0 0 / 15%) !important;
+    border-color: rgba(207, 207, 207, 0.8) !important;
+}
+
+.logopieza{
+  background-image: url("../../../assets/img/imagenes/PiezaLogoPequeño.PNG");
+    width: 50px;
+    height: 50px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.pieza:hover{
+    /* background-image: url("../../../assets/img/imagenes/PiezaCategoriaAzul.png"); */
+    /* color:black; */
+    /* color:white; */
+    /* text-decoration: underline; */
+    transform: scale(0.95);
+}
+
+.categoriaTitle{
+    font-family:Poppins;
+    text-align: flex-start;
+    margin-bottom: 0px !important;
+    margin-left: 15px;
+    font-size: 20px;
+    width: 270px;
+}

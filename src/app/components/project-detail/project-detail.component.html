@@ -7,12 +7,12 @@
                     <div class="shortcode-html">
                         <!-- Box Shadow -->
                         <div style="cursor: pointer;" class="imagebox u-shadow-v2 g-mb-30 g-pt-20">
-                            <img class="" src="{{project.imagenes[0]}}" alt="Image Description">
+                            <img class="" src="{{currentImage}}" alt="Image Description">
                         </div>
                         <!-- End Box Shadow -->
                         <div *ngIf="hasGallery" style="display: flex;">
                             <div *ngFor="let item of project.imagenes">
-                                <img style="width:60px;height:50px;margin-right:5px;cursor:pointer;" class="" src="{{item}}" alt="Image Description">
+                                <img (click)="changeImage(item)" style="width:60px;height:50px;margin-right:5px;cursor:pointer;" class="" src="{{item}}" alt="Image Description">
                             </div>
                         </div>
                     </div>
@@ -29,13 +29,13 @@
                       <i class="icon-user u-line-icon-pro-g-valign-middle g-font-size-20 g-color-black"></i>
                       {{project.initialPeople}}/{{project.necessaryPeople}}
                   </div>
-                  <div *ngIf="project.participationType == 'tiempo'" class="js-modal-markup u-link-v5  g-color-main g-mr-15" href="#" data-content-target="#shortcode8" data-modal-target="#modalMarkup" data-modal-effect="fadein">
+                  <div *ngIf="project.participationType_time == 'tiempo'" class="js-modal-markup u-link-v5  g-color-main g-mr-15" href="#" data-content-target="#shortcode8" data-modal-target="#modalMarkup" data-modal-effect="fadein">
                       <i class="icon-hotel-restaurant-003 u-line-icon-pro g-font-size-20 g-color-black"></i>
-                      {{project.requiredTime}} horas/{{project.period}}
+                      {{project.requiredTime}} horas/{{project.periodTime}}
                   </div>
-                  <div *ngIf="project.participationType == 'dinero'" class="js-modal-markup u-link-v5  g-color-main g-mr-15" href="#" data-content-target="#shortcode8" data-modal-target="#modalMarkup" data-modal-effect="fadein">
+                  <div *ngIf="project.participationType_money == 'dinero'" class="js-modal-markup u-link-v5  g-color-main g-mr-15" href="#" data-content-target="#shortcode8" data-modal-target="#modalMarkup" data-modal-effect="fadein">
                       <i class="icon-finance-010 u-line-icon-pro g-font-size-20 g-color-black"></i>
-                      {{project.requiredTime}} €/{{project.period}}
+                      {{project.requiredMoney}} €/{{project.periodMoney}}
                   </div>
                 </div>
                 <div style="height:auto;" class="imagebox u-shadow-v2 g-brd-around g-brd-gray-light-v4 g-line-height-2 g-pa-40 g-mb-30" role="alert">
@@ -129,13 +129,13 @@
             </div>
           </div>
           <!-- UBICACIÓN -->
-          <div style="width: 100%;margin: auto;display: flex;justify-content: center;">
+          <div style="width: 100%;margin: auto;display: flex;justify-content: center;flex-direction: column;align-items: center;">
             <h3 class="h2 g-font-weight-300 g-mb-20 text-uppercase">Ubicación</h3>
+            <p> {{project.direction}}</p>
           </div>
           <div class="g-mb-30">
             <!-- POPUP INCUSTRADO -->
             <div style="height: 300px;overflow-y: hidden;">
-              <p> {{project.contact}}</p>
               <mapa-detalle [latLong]=latLong></mapa-detalle>
               <!-- <popup-mapa></popup-mapa> -->
             </div>

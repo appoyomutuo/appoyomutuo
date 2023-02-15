@@ -11,9 +11,12 @@ export interface Proyecto {
     comunidad:string;
     initialPeople: number;
     necessaryPeople: number;
-    requiredTime:number;
-    participationType:string;
-    period:string;
+    requiredTime:string;
+    requiredMoney:string;
+    participationType_time:string;
+    participationType_money:string;
+    periodTime:string;
+    periodMoney:string;
     imagenes: string[];
     offer:string;
     needs:string;

@@ -20,9 +20,12 @@ export class ProjectCreatorComponent implements OnInit {
     comunidad: "",
     initialPeople: 0,
     necessaryPeople: 0,
-    requiredTime:0,
-    participationType:"",
-    period:"semana",
+    requiredTime:"",
+    requiredMoney:"",
+    participationType_time:"",
+    participationType_money:"",
+    periodTime:"",
+    periodMoney:"",
     imagenes: [],
     offer:"",
     needs:"",
@@ -53,7 +56,7 @@ export class ProjectCreatorComponent implements OnInit {
 
   ngOnInit(){
     this.proyectoService.getItems().subscribe(proyectos =>{
-      console.log("::::> datos de Proyectos: " + JSON.stringify(proyectos));
+      // console.log("::::> datos de Proyectos: " + JSON.stringify(proyectos));
       this.proyectos = proyectos;
     })
   }
@@ -77,16 +80,30 @@ export class ProjectCreatorComponent implements OnInit {
   onFileSelected(event:any){
     const files = event.target.files;
     this.imagenes = files
+    console.log("imagenes", this.imagenes)
   }
 
-  setPeriod(event:any, value:string){
-    this.newProject.period = value;
+  setPeriod_Time(event:any, value:string){
+    this.newProject.periodTime = value;
+  }
+
+  setPeriod_Money(event:any, value:string){
+    this.newProject.periodMoney = value;
   }
 
   addTag(){
     if(this.tag != ""){
       this.tags.push(this.tag)
       console.log("tags", this.tags)
+    }
+
+    this.tag = ""
+  }
+
+  deleteTag(tag:any){
+    var index = this.tags.indexOf(tag);
+    if (tag !== -1) {
+      this.tags.splice(index, 1);
     }
   }
 
@@ -122,7 +139,19 @@ export class ProjectCreatorComponent implements OnInit {
   handleParticipationChange(e:any){
     console.log("valuie", e.target.value)
     this.participacion = e.target.value
-    this.newProject.participationType = e.target.value
+
+    if(this.participacion === "tiempo"){
+      this.newProject.participationType_time = e.target.value
+    }
+
+    if(this.participacion === "dinero"){
+      this.newProject.participationType_money = e.target.value
+    }
+
+    if(this.participacion === "ambas"){
+      this.newProject.participationType_time = "tiempo"
+      this.newProject.participationType_money = "dinero"
+    }
   }
 
   handleCategoriaChange(e:any){
