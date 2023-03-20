@@ -4,6 +4,7 @@ import { AngularFireStorage } from "@angular/fire/compat/storage";
 import { Observable } from 'rxjs';
 import { Proyecto } from '../models/proyecto'
 import { Tarea } from '../models/tareas';
+import { Usuario } from '../models/usuario';
 import { Foro } from '../models/foro';
 import { Peticion } from '../models/peticion';
 import { Participanteproyecto } from '../models/participanteproyecto';
@@ -11,6 +12,8 @@ import { Participanteproyecto } from '../models/participanteproyecto';
 import { finalize, map, tap } from 'rxjs/operators';
 import { collection, query, where, getDocs } from "firebase/firestore";
 import { getDatabase, ref, push, set } from "firebase/database";
+
+import { ProfileComponent } from '../components/profile/profile.component';
 // import 'rxjs/Rx';
 
 // const db = getDatabase();
@@ -41,6 +44,11 @@ export class ProyectoService {
   participanteProyecto: Observable<Participanteproyecto[]>;
   participanteProyectoDoc: AngularFirestoreDocument<Participanteproyecto> | undefined;
 
+  usuariosCollection: AngularFirestoreCollection<Usuario>;
+  usuarios: Observable<Usuario[]>;
+  usuariosDoc: AngularFirestoreDocument<Usuario> | undefined;
+  
+
   forosCollection: AngularFirestoreCollection<Foro>;
   foros: Observable<Foro[]>;
   forosDoc: AngularFirestoreDocument<Foro> | undefined;
@@ -56,6 +64,9 @@ export class ProyectoService {
         return data;
       });
     }))
+
+    // USUARIOS
+    // this.usuariosCollection = this.afs.collection('Usuarios');
   }
 
   // ==============================================================================>PROYECTOS
@@ -144,6 +155,7 @@ export class ProyectoService {
   updateItem(item:Proyecto){
     this.proyectosDoc = this.afs.doc(`Proyectos/${item.id}`);
     this.proyectosDoc.update(item);
+    
   }
 
   deleteItem(item: Proyecto){
@@ -309,5 +321,118 @@ export class ProyectoService {
       })
     );
     return  foro
+  }
+
+  // ==============================================================================>USUARIO
+  addUsuario(item:Usuario){
+    this.usuariosCollection = this.afs.collection('Usuarios');
+    this.usuariosCollection?.add(item);
+    console.log("usuario añadido", item)
+  }
+
+  deleteUsuario(itemID: any){
+    this.proyectosDoc = this.afs.doc(`Usuarios/${itemID}`);
+    this.proyectosDoc.delete();
+    console.log("usuario borrado");
+  }
+
+  addUsuarioAndImage(item:Usuario, filesData:any[]){
+    // this.usuariosCollection = this.afs.collection('Usuarios');
+    var n = Date.now();
+    var files = filesData;
+    console.log("files", files)
+    var urlFiles: string[] = []
+    for (let index = 0; index < files.length; index++) {
+      // console.log("files", files[index])
+      const task = this.storage.upload(`UsuariosImages/${files[index].name}`, files[index]);
+      task
+      .snapshotChanges()
+      .pipe(
+        finalize(() => {
+            var filePath = `UsuariosImages/${files[index].name}`;
+            var fileRef = this.storage.ref(filePath);
+            console.log("file ref", fileRef)
+            this.downloadURL = fileRef.getDownloadURL();
+            this.downloadURL.subscribe(url => {
+              if (url) {
+                this.fb = url;
+                urlFiles.push(this.fb)
+                console.log("this fb", this.fb)
+              }
+              if(urlFiles.length == files.length){
+                item.foto = urlFiles
+                // this.usuariosCollection?.add(item);
+                // console.log("usuario añadido", item)
+                this.addUsuario(item)
+              }
+            });
+          })
+        )
+        .subscribe(url => {
+          if (url) {
+            console.log(url);
+          }
+        });
+    }
+  }
+
+  getUsuarioByMail(userMail:any){
+    var usuario = this.afs.collection('Usuarios', ref => ref.where('mail', '==', userMail)).snapshotChanges().pipe(
+      map(actions => {       
+        return actions.map(a => {
+          const data = a.payload.doc.data() as Usuario;
+          data.idUsuario = a.payload.doc.id;
+          data.$key = a.payload.doc.id;
+          return data;
+        });
+      })
+    );
+    return  usuario
+  }
+
+  updateUsuario(usuario:Usuario){
+    console.log("update usuario", usuario)
+    this.peticionesDoc = this.afs.doc(`Usuarios/${usuario.idUsuario}`);
+    this.peticionesDoc.update(usuario);
+  }
+
+  updateUsuarioAndImage(item:Usuario, filesData:any[]){
+     // this.usuariosCollection = this.afs.collection('Usuarios');
+     var n = Date.now();
+     var files = filesData;
+     console.log("files", files)
+     var urlFiles: string[] = []
+     for (let index = 0; index < files.length; index++) {
+       // console.log("files", files[index])
+       const task = this.storage.upload(`UsuariosImages/${files[index].name}`, files[index]);
+       task
+       .snapshotChanges()
+       .pipe(
+         finalize(() => {
+             var filePath = `UsuariosImages/${files[index].name}`;
+             var fileRef = this.storage.ref(filePath);
+             console.log("file ref", fileRef)
+             this.downloadURL = fileRef.getDownloadURL();
+             this.downloadURL.subscribe(url => {
+               if (url) {
+                 this.fb = url;
+                 urlFiles.push(this.fb)
+                 console.log("this fb", this.fb)
+               }
+               if(urlFiles.length == files.length){
+                 item.foto = urlFiles
+                 // this.usuariosCollection?.add(item);
+                 // console.log("usuario añadido", item)
+                 this.updateUsuario(item)
+               }
+             });
+           })
+         )
+         .subscribe(url => {
+           if (url) {
+             console.log(url);
+           }
+         });
+     }
   }
 }

@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
     this._auth.login(mail, contra).then(res=> {
       console.log(res);
       // sessionStorage.setItem("usermail", mail)
-      this._router.navigate(['myprojects']);
+      this._router.navigate(['profile']);
     });
   }
 
@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
       console.log(res);
       // sessionStorage.setItem("usermail", mail)
       // console.log(sessionStorage.getItem("usermail"))
-      this._router.navigate(['myprojects']);
+      this._router.navigate(['profile']);
     });
   }
 
@@ -49,8 +49,10 @@ export class LoginComponent implements OnInit {
       if(res != null){
         this.logueado = true;
         this.usuario = res;
+        console.log("usuario", res)
         sessionStorage.setItem("usermail", this.usuario.email)
         sessionStorage.setItem("isLogued", "true")
+        sessionStorage.setItem("displayName", this.usuario.displayName)
       }
       else{
         this.logueado = false;

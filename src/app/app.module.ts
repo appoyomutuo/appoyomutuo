@@ -48,6 +48,7 @@ import { PopupAcceptpeticionComponent } from './components/popup-acceptpeticion/
 import { MapaDetalleComponent } from './components/mapa-detalle/mapa-detalle.component';
 import { ProjectEditComponent } from './components/project-edit/project-edit.component';
 import { CategoriasComponent } from './components/categorias/categorias.component';
+import { PopupEditarperfilComponent } from './components/popup-editarperfil/popup-editarperfil.component';
 
 @NgModule({
   declarations: [
@@ -80,7 +81,8 @@ import { CategoriasComponent } from './components/categorias/categorias.componen
     PopupAcceptpeticionComponent,
     MapaDetalleComponent,
     ProjectEditComponent,
-    CategoriasComponent
+    CategoriasComponent,
+    PopupEditarperfilComponent
   ],
   imports: [
     BrowserModule,
