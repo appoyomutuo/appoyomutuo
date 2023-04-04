@@ -25,19 +25,21 @@ export class ProjectEditComponent {
 
   editState: boolean = false;
   proyectoToEdit!: Proyecto;
-  imagenes: string[] = []
+  newImages: string[] = []
   tag: string = "";
   tags: string[] =[];
 
   categoria = ""
   participacion = ""
 
+  firstCordinates = ""
+
+  loading = true
+
   ngOnInit(): void {
     this.activatedRoute.queryParams.subscribe((query: any) => {
       this.id = query.project
     })
-
-    console.log("hola", this.id)
 
     this.subscription = this.proyectoService.getItemByID(this.id).subscribe(proyecto =>{
       console.log("proyecto recibido", proyecto)
@@ -45,23 +47,24 @@ export class ProjectEditComponent {
       // if(this.project.imagenes.length > 2){
       //   this.hasGallery = true
       // }
+      this.project.id = this.id
 
       this.tags = this.project.tags
       this.latLong = this.project.ubication
       this.participacion = this.project.participationType
       console.log("partipacion", this.project.participationType)
 
+      this.firstCordinates = this.project.ubication
+
+      this.loading = false
       this.subscription.unsubscribe()
     })
   }
 
-  editProject(){
-
-  }
-
   onFileSelected(event:any){
     const files = event.target.files;
-    this.imagenes = files
+    this.newImages = files
+    console.log("new Images", this.newImages)
   }
 
   setPeriod_Time(event:any, value:string){
@@ -74,7 +77,7 @@ export class ProjectEditComponent {
 
   addTag(){
     if(this.tag != ""){
-      this.tags.push(this.tag)
+      this.project.tags.push(this.tag)
       console.log("tags", this.tags)
     }
 
@@ -84,16 +87,32 @@ export class ProjectEditComponent {
   deleteTag(tag:any){
     var index = this.tags.indexOf(tag);
     if (tag !== -1) {
-      this.tags.splice(index, 1);
+      this.project.tags.splice(index, 1);
     }
+  }
+
+  updateItem(){
+    this.loading = true
+    console.log("update item", this.project)
+    if(this.newImages.length > 0){
+      this.proyectoService.addNewImages(this.project,this.newImages)
+    }else{
+      this.proyectoService.updateItem(this.project);
+    }
+    this.resolveAfter2Seconds(30).then(value => {
+      // this.getUsuarioFromDB()
+      // this.loading = false
+      window.location.reload(); 
+    });
   }
 
   deleteItem(event: any, item: Proyecto){
     this.proyectoService.deleteItem(item);
   }
 
-  updateItem(item: Proyecto){
-    this.proyectoService.updateItem(item);
+  deleteImage(imageIndex:any){
+    console.log("borrar")
+    this.project.imagenes.splice(imageIndex, 1)
   }
 
   handleComunidadChange(e:any){
@@ -129,5 +148,13 @@ export class ProjectEditComponent {
 
   deleteProject(){
 
+  }
+
+  resolveAfter2Seconds(x) {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve(x);
+      }, 5000);
+    });
   }
 }

@@ -102,7 +102,7 @@ export class ProfileComponent implements OnInit {
     this.newUser = user.user
     this.newUser.mail = sessionStorage.getItem("usermail")
 
-    this.subscription2 = this.proyectoService.getUsuarioByMail(this.newUser.mail).subscribe(usuario =>{
+    this.subscription2 = this.proyectoService.getUsuarioByMail(this.newUser.mail).subscribe(async usuario =>{
       if(usuario.length === 0){
         this.proyectoService.addUsuarioAndImage(this.newUser, this.newUser.foto)
       }else{
@@ -114,9 +114,22 @@ export class ProfileComponent implements OnInit {
           this.proyectoService.deleteUsuario(usuario[0].idUsuario)
         }
       }
-      this.loading = false
+      this.resolveAfter2Seconds(30).then(value => {
+        // this.getUsuarioFromDB()
+        this.loading = false
+        window.location.reload(); 
+      });
+      
       this.subscription2.unsubscribe()
     })
+  }
+
+  resolveAfter2Seconds(x) {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve(x);
+      }, 3000);
+    });
   }
 
 }

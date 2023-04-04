@@ -80,39 +80,39 @@ export class ProyectoService {
     console.log("proyecto añadido", item)
   }
 
-  addImages(filesData:any[]){
-    var n = Date.now();
-    var files = filesData;
-    // console.log("files", files)
-    const filePath = `ProyectImages/${n}`;
-    const fileRef = this.storage.ref(filePath);
-    var urlFiles: string[] = []
-    for (let index = 0; index < files.length; index++) {
-      // console.log("files", files[index])
-      const task = this.storage.upload(`ProyectImages/${n}`, files[index].name);
-      task
-        .snapshotChanges()
-        .pipe(
-          finalize(() => {
-            this.downloadURL = fileRef.getDownloadURL();
-            this.downloadURL.subscribe(url => {
-              if (url) {
-                this.fb = url;
-                urlFiles.push(this.fb)
-              }
-              console.log("urlFiles",urlFiles);
-            });
-          })
-        )
-        .subscribe(url => {
-          if (url) {
-            console.log(url);
-          }
-        });
-    }
-    // console.log("urlFiles",urlFiles)
-    return urlFiles
-  }
+  // addImages(filesData:any[]){
+  //   var n = Date.now();
+  //   var files = filesData;
+  //   // console.log("files", files)
+  //   const filePath = `ProyectImages/${n}`;
+  //   const fileRef = this.storage.ref(filePath);
+  //   var urlFiles: string[] = []
+  //   for (let index = 0; index < files.length; index++) {
+  //     // console.log("files", files[index])
+  //     const task = this.storage.upload(`ProyectImages/${n}`, files[index].name);
+  //     task
+  //       .snapshotChanges()
+  //       .pipe(
+  //         finalize(() => {
+  //           this.downloadURL = fileRef.getDownloadURL();
+  //           this.downloadURL.subscribe(url => {
+  //             if (url) {
+  //               this.fb = url;
+  //               urlFiles.push(this.fb)
+  //             }
+  //             console.log("urlFiles",urlFiles);
+  //           });
+  //         })
+  //       )
+  //       .subscribe(url => {
+  //         if (url) {
+  //           console.log(url);
+  //         }
+  //       });
+  //   }
+  //   // console.log("urlFiles",urlFiles)
+  //   return urlFiles
+  // }
 
   addItem2(item:Proyecto, filesData:any[]){
     var n = Date.now();
@@ -162,6 +162,40 @@ export class ProyectoService {
     this.proyectosDoc = this.afs.doc(`Proyectos/${item.id}`);
     this.proyectosDoc.delete();
     console.log("elemento borrado");
+  }
+
+  addNewImages(item:Proyecto, newImages:any){
+    var n = Date.now();
+    var files = newImages;
+    console.log("files", files)
+    var urlFiles: string[] = []
+    for (let index = 0; index < files.length; index++) {
+      // console.log("files", files[index])
+      const task = this.storage.upload(`ProyectImages/${files[index].name}`, files[index]);
+      task
+      .snapshotChanges()
+      .pipe(
+        finalize(() => {
+            var filePath = `ProyectImages/${files[index].name}`;
+            var fileRef = this.storage.ref(filePath);
+            console.log("file ref", fileRef)
+            this.downloadURL = fileRef.getDownloadURL();
+            this.downloadURL.subscribe(url => {
+              if (url) {
+                this.fb = url;
+                item.imagenes.push(this.fb)
+                console.log("this fb", this.fb)
+                this.updateItem(item);
+              }
+            });
+          })
+        )
+        .subscribe(url => {
+          if (url) {
+            console.log(url);
+          }
+        });
+    }
   }
 
   searchItemByMail(mail:string){

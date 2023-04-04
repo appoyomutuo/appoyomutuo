@@ -106,6 +106,7 @@ export class BuscadorComponent implements OnInit {
   }
   
   busquedaInicial(categoria:string){
+    console.log("entro aqui", categoria)
     this.loading = true
     this.proyectoService.getItemsByCategoria(categoria).subscribe(proyectos =>{
       // console.log("::::> datos de Proyectos: " + JSON.stringify(proyectos));
