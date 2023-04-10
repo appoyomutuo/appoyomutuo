@@ -49,6 +49,48 @@
                 <small class="form-text text-muted g-font-size-default g-mt-10 g-mb-30">Indica en pocas palabras de qué trata el proyecto</small>
             </div>
 
+            <!-- FECHA INICIO -->
+            <div class="form-group g-mb-30" style="display: flex;flex-direction: column;">
+                <label class="g-mb-10" for="inputGroup2_1">Fecha de Inicio</label>
+                <div style="width: 300px;">
+                    <mat-form-field appearance="fill" class="example-form-field">
+                        <mat-label>Elige una fecha</mat-label>
+                        <input matInput [matDatepicker]="datepicker" (dateChange)="updateDOB($event)">
+                        <!-- <mat-hint>MM/DD/YYYY</mat-hint> -->
+                        <mat-datepicker-toggle matIconSuffix [for]="datepicker"></mat-datepicker-toggle>
+                        <mat-datepicker #datepicker>
+                          <mat-datepicker-actions>
+                            <button mat-button matDatepickerCancel>Cancel</button>
+                            <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
+                          </mat-datepicker-actions>
+                        </mat-datepicker>
+                    </mat-form-field>
+                </div>
+                <small class="form-text text-muted g-font-size-default g-mt-10 g-mb-30">Indica en qué fecha comienza el proyecto</small>
+            </div>
+
+            <!-- FECHA FIN -->
+            <div class="form-group g-mb-30" style="display: flex;flex-direction: column;">
+                <label class="g-mb-10" for="inputGroup2_1">Fecha de Fin</label>
+                <div style="width: 300px;">
+                    <mat-form-field appearance="fill" class="example-form-field">
+                        <mat-label>Elige una fecha</mat-label>
+                        <input matInput [matDatepicker]="datepicker2" (dateChange)="updateDOB_Final($event)">
+                        <!-- <mat-hint>MM/DD/YYYY</mat-hint> -->
+                        <mat-datepicker-toggle matIconSuffix [for]="datepicker2"></mat-datepicker-toggle>
+                        <mat-datepicker #datepicker2>
+                          <mat-datepicker-actions>
+                            <button mat-button matDatepickerCancel>Cancel</button>
+                            <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
+                          </mat-datepicker-actions>
+                        </mat-datepicker>
+                    </mat-form-field>
+                </div>
+                <small class="form-text text-muted g-font-size-default g-mt-10 g-mb-30">Indica en qué fecha acaba el proyecto (si no hay puedes dejar este campo sin rellenar)</small>
+            </div>
+
+            
+
             <!-- CATEGORIA -->
             <div class="form-group g-mb-30" style="display: flex;flex-direction: column;">
                 <label class="g-mb-10">Categoría</label>

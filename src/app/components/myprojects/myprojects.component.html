@@ -17,7 +17,10 @@
     <div class="project-wrapper" *ngFor="let item of ownProjects">
         <div class="row" style="display: flex;flex-direction: column;justify-content: center;align-items: center;margin: auto;">
             <div class="col-lg">
-                <h3 class="h2 g-font-weight-300 text-uppercase" style="text-align: center;">{{item.name}}</h3>
+                <h3 class="h2 g-font-weight-300 text-uppercase" style="text-align: center;margin-bottom: 5px;">{{item.name}}</h3>
+                <div style="display: flex;align-items: center;margin-bottom: 10px;justify-content: center;">
+                    <p *ngIf="item.fechaInicio" style="margin-bottom: 0px !important;">Desde el {{item.fechaInicio}}</p><p *ngIf="item.fechaFin" style="margin: 0px 10px">al</p><p *ngIf="item.fechaFin" style="margin-bottom: 0px !important;"> {{item.fechaFin}} </p>
+                </div>
                 <div id="shortcode8">
                     <div class="shortcode-html" style="display:flex;flex-direction:column;justify-content:center;align-items: center;">
                         <!-- Box Shadow -->
@@ -42,10 +45,11 @@
                         <div style="cursor: pointer;" class="imagebox u-shadow-v2 g-mb-30 g-pt-20">
                             <img class="" src="{{item.imagenes[0]}}" alt="Image Description">
                         </div>
-                        <div class="infobottom g-font-size-12 g-my-10 g-pl-10">
+                        <div class="infobottom g-font-size-12 g-my-10">
                             <div style="display: flex;justify-content: center;align-items: center;">
                                 <button (click)="gotoTareas(item.id)" style="width: 100px;" class="btn btn-block u-shadow-v32 g-brd-white g-brd-2 g-color-white g-bg-black g-brd-black--hover g-bg-white--hover g-color-black--hover g-font-size-16 g-rounded-30 g-py-10 ml-2 g-mt-0" type="button">Tareas</button>
                                 <button (click)="gotoProjectForo(item.id)" style="width: 100px;" class="btn btn-block u-shadow-v32 g-brd-white g-brd-2 g-color-white g-bg-black g-brd-black--hover g-bg-white--hover g-color-black--hover g-font-size-16 g-rounded-30 g-py-10 ml-2 g-mt-0" type="button">Foro</button>
+                                <button (click)="gotoCalendario(item.id)" style="width: 100px;" class="btn btn-block u-shadow-v32 g-brd-white g-brd-2 g-color-white g-bg-black g-brd-black--hover g-bg-white--hover g-color-black--hover g-font-size-16 g-rounded-30 g-py-10 ml-2 g-mt-0" type="button">Calendario</button>
                                 <button (click)="gotoProjectDetail(item.id)" style="width: 100px;" class="btn btn-block u-shadow-v32 g-brd-white g-brd-2 g-color-white g-bg-black g-brd-black--hover g-bg-white--hover g-color-black--hover g-font-size-16 g-rounded-30 g-py-10 ml-2 g-mt-0" type="button">Detalle</button>
                                 <!-- <a (click)="gotoTareas(item.id)" style="border: 1px solid black !important;" class="btn btn-md g-bg-black g-color-white g-bg-white--hover g-color-black--hover u-btn-outline-white g-mr-10 g-mt-10">Tareas</a>
                                 <a (click)="gotoProjectForo(item.id)" style="border: 1px solid black !important;" class="btn btn-md g-bg-black g-color-white g-bg-white--hover g-color-black--hover u-btn-outline-white g-mr-10 g-mt-10">Foro</a>
@@ -80,6 +84,9 @@
         <div class="row" style="display: flex;flex-direction: column;justify-content: center;align-items: center;margin: auto;">
             <div class="col-lg">
                 <h3 class="h2 g-font-weight-300 text-uppercase">{{item.name}}</h3>
+                <div style="display: flex;align-items: center;margin-bottom: 10px;justify-content: center;margin-bottom: 5px;">
+                    <p *ngIf="item.fechaInicio" style="margin-bottom: 0px !important;">Desde el {{item.fechaInicio}}</p><p *ngIf="item.fechaFin" style="margin: 0px 10px">al</p><p *ngIf="item.fechaFin" style="margin-bottom: 0px !important;"> {{item.fechaFin}} </p>
+                </div>
                 <div id="shortcode8">
                     <div class="shortcode-html" style="display:flex;flex-direction:column;justify-content:center;align-items: center;">
                         <!-- Box Shadow -->
@@ -104,10 +111,11 @@
                         <div style="cursor: pointer;" class="imagebox u-shadow-v2 g-mb-30 g-pt-20">
                             <img class="" src="{{item.imagenes[0]}}" alt="Image Description">
                         </div>
-                        <div class="infobottom g-font-size-12 g-my-10 g-pl-10">
+                        <div class="infobottom g-font-size-12 g-my-10">
                             <div style="display: flex;justify-content: center;align-items: center;">
                                 <button (click)="gotoTareas(item.id)" style="width: 100px;" class="btn btn-block u-shadow-v32 g-brd-white g-brd-2 g-color-white g-bg-black g-brd-black--hover g-bg-white--hover g-color-black--hover g-font-size-16 g-rounded-30 g-py-10 ml-2 g-mt-0" type="button">Tareas</button>
                                 <button (click)="gotoProjectForo(item.id)" style="width: 100px;" class="btn btn-block u-shadow-v32 g-brd-white g-brd-2 g-color-white g-bg-black g-brd-black--hover g-bg-white--hover g-color-black--hover g-font-size-16 g-rounded-30 g-py-10 ml-2 g-mt-0" type="button">Foro</button>
+                                <button (click)="gotoCalendario(item.id)" style="width: 100px;" class="btn btn-block u-shadow-v32 g-brd-white g-brd-2 g-color-white g-bg-black g-brd-black--hover g-bg-white--hover g-color-black--hover g-font-size-16 g-rounded-30 g-py-10 ml-2 g-mt-0" type="button">Calendario</button>
                                 <button (click)="gotoProjectDetail(item.id)" style="width: 100px;" class="btn btn-block u-shadow-v32 g-brd-white g-brd-2 g-color-white g-bg-black g-brd-black--hover g-bg-white--hover g-color-black--hover g-font-size-16 g-rounded-30 g-py-10 ml-2 g-mt-0" type="button">Detalle</button>
                                 <!-- <a (click)="gotoTareas(item.id)" style="border: 1px solid black !important;" class="btn btn-md g-bg-black g-color-white g-bg-white--hover g-color-black--hover u-btn-outline-white g-mr-10 g-mt-10">Tareas</a>
                                 <a (click)="gotoProjectForo(item.id)" style="border: 1px solid black !important;" class="btn btn-md g-bg-black g-color-white g-bg-white--hover g-color-black--hover u-btn-outline-white g-mr-10 g-mt-10">Foro</a>

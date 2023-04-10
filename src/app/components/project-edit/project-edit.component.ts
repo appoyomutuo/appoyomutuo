@@ -36,6 +36,9 @@ export class ProjectEditComponent {
 
   loading = true
 
+  fechaInicio = ""
+  fechaFin = ""
+
   ngOnInit(): void {
     this.activatedRoute.queryParams.subscribe((query: any) => {
       this.id = query.project
@@ -52,6 +55,9 @@ export class ProjectEditComponent {
       this.tags = this.project.tags
       this.latLong = this.project.ubication
       this.participacion = this.project.participationType
+      this.fechaInicio = this.project.fechaInicio
+      this.fechaFin = this.project.fechaFin?this.project.fechaFin : "Elige una Fecha"
+      console.log("fecha Inicio", this.fechaInicio)
       console.log("partipacion", this.project.participationType)
 
       this.firstCordinates = this.project.ubication
@@ -144,6 +150,16 @@ export class ProjectEditComponent {
 
   setCoordinates(event:any){
     this.project.ubication = event.coordinates.lat + "," + event.coordinates.lng
+  }
+
+  updateDOB(event:any){
+    console.log("fecha seleccionada", event.value.toLocaleDateString())
+    this.project.fechaInicio =  event.value.toLocaleDateString()
+  }
+
+  updateDOB_Final(event:any){
+    console.log("fecha seleccionada", event.value.toLocaleDateString())
+    this.project.fechaFin =  event.value.toLocaleDateString()
   }
 
   deleteProject(){

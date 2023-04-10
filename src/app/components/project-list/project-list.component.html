@@ -20,7 +20,10 @@
 
             <div class="col-lg">
                 <div style="height:300px;display: flex;flex-direction: column;justify-content: space-evenly;" class="imagebox u-shadow-v2 g-brd-around g-brd-gray-light-v4 g-line-height-2 g-pa-20 g-mb-20" role="alert">
-                    <h3 class="h2 g-font-weight-300 g-mb-20 text-uppercase">{{item.name}}</h3>
+                    <h3 class="h2 g-font-weight-300 text-uppercase" style="margin-bottom:0px !important">{{item.name}}</h3>
+                    <div style="display: flex;align-items: center;margin-bottom: 10px;">
+                        <p *ngIf="item.fechaInicio" style="margin-bottom: 0px !important;">Desde el {{item.fechaInicio}}</p><p *ngIf="item.fechaFin" style="margin: 0px 10px">al</p><p *ngIf="item.fechaFin" style="margin-bottom: 0px !important;"> {{item.fechaFin}} </p>
+                      </div>
                     <div>
                         <p class="texto">{{ item.description | slice:0:270 }}<span (click)="gotoProjectDetail(item.id)" style="cursor: pointer;" *ngIf="item.description.length >= 270">(...)</span></p>
                         <!-- <p class="texto">{{item.description}}</p> -->

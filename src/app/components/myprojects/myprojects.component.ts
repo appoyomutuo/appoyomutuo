@@ -67,4 +67,8 @@ export class MyprojectsComponent implements OnInit {
     this.router.navigate(['/foro'], { queryParams: { project: id } });
   }
 
+  gotoCalendario(id:any){
+    this.router.navigate(['/calendario'], { queryParams: { project: id } });
+  }
+
 }

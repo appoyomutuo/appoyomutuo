@@ -14,6 +14,7 @@ import { collection, query, where, getDocs } from "firebase/firestore";
 import { getDatabase, ref, push, set } from "firebase/database";
 
 import { ProfileComponent } from '../components/profile/profile.component';
+import { Evento } from '../models/evento';
 // import 'rxjs/Rx';
 
 // const db = getDatabase();
@@ -47,6 +48,10 @@ export class ProyectoService {
   usuariosCollection: AngularFirestoreCollection<Usuario>;
   usuarios: Observable<Usuario[]>;
   usuariosDoc: AngularFirestoreDocument<Usuario> | undefined;
+
+  EventosCollection: AngularFirestoreCollection<Evento>;
+  eventos: Observable<Evento[]>;
+  eventosDoc: AngularFirestoreDocument<Evento> | undefined;
   
 
   forosCollection: AngularFirestoreCollection<Foro>;
@@ -468,5 +473,32 @@ export class ProyectoService {
            }
          });
      }
+  }
+
+  // ==============================================================================>EVENTOS
+  addEvento(item:Evento){
+    this.EventosCollection = this.afs.collection('Eventos');
+    this.EventosCollection?.add(item);
+    console.log("evento añadido", item)
+  }
+
+  deleteEvento(itemID: any){
+    this.eventosDoc = this.afs.doc(`Eventos/${itemID}`);
+    this.eventosDoc.delete();
+    console.log("evento borrado");
+  }
+
+  getEventosByIdProject(idProyecto:string){
+    var eventos =this.afs.collection('Eventos', ref => ref.where('idProyecto', '==', idProyecto)).snapshotChanges().pipe(
+      map(actions => {       
+        return actions.map(a => {
+          const data = a.payload.doc.data() as Evento;
+          data.idEvento = a.payload.doc.id;
+          data.$key = a.payload.doc.id;
+          return data;
+        });
+      })
+    );
+    return  eventos
   }
 }

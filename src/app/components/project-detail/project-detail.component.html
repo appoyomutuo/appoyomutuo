@@ -39,7 +39,10 @@
                   </div>
                 </div>
                 <div style="height:auto;" class="imagebox u-shadow-v2 g-brd-around g-brd-gray-light-v4 g-line-height-2 g-pa-40 g-mb-30" role="alert">
-                    <h3 class="h2 g-font-weight-300 g-mb-20 text-uppercase">{{project.name}}</h3>
+                    <h3 class="h2 g-font-weight-300 text-uppercase" style="margin-bottom: 0px !important;">{{project.name}}</h3>
+                    <div style="display: flex;align-items: center;margin-bottom: 10px;">
+                      <p *ngIf="project.fechaInicio" style="margin-bottom: 0px !important;">Desde el {{project.fechaInicio}}</p><p *ngIf="project.fechaFin" style="margin: 0px 10px">al</p><p *ngIf="project.fechaFin" style="margin-bottom: 0px !important;"> {{project.fechaFin}} </p>
+                    </div>
                     <p style="height: auto;overflow: hidden;text-overflow: ellipsis;" class="mb-0">{{project.description}}</p>
                 </div>
                 <div class="infobottom g-font-size-12 g-my-10 g-pl-10">

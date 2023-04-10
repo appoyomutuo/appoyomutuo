@@ -26,7 +26,8 @@ export class PopupMapaComponent implements AfterViewInit  {
     tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}').addTo(map);
     var markers: L.Layer[] = []
 
-    if(this.firstCordinates !== ""){
+    if(this.firstCordinates !== undefined){
+      console.log("this.firstCordinates", this.firstCordinates)
       var lat = parseFloat(this.firstCordinates.split(",")[0])
       var long = parseFloat(this.firstCordinates.split(",")[1])
       console.log("lat", lat)

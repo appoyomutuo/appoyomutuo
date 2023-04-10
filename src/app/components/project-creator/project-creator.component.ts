@@ -32,6 +32,8 @@ export class ProjectCreatorComponent implements OnInit {
     contact:"",
 
     owner:"",
+    fechaInicio: "",
+    fechaFin: "",
     fechaCreacion:"",
 
     tareas:[],
@@ -51,6 +53,8 @@ export class ProjectCreatorComponent implements OnInit {
   categoria = ""
   participacion = ""
 
+  picker = ""
+
 
   constructor(private proyectoService: ProyectoService) { }
 
@@ -66,9 +70,9 @@ export class ProjectCreatorComponent implements OnInit {
       this.newProject.id = (this.proyectos.length +1).toString();
       this.newProject.owner = sessionStorage.getItem("usermail")!;
       this.newProject.tags = this.tags;
-      var date = new Date()
-      this.newProject.fechaCreacion = date.getDay().toString() + "/" + date.getMonth().toString() + "/" + date.getFullYear().toString()
-      console.log("date", this.newProject.fechaCreacion)
+      var date = new Date().toLocaleDateString()
+      this.newProject.fechaCreacion = date
+      console.log("fechaCreacion", this.newProject.fechaCreacion)
       this.proyectoService.addItem2(this.newProject, this.imagenes)
       console.log("poyecto creado", this.newProject)
     }else{
@@ -81,6 +85,16 @@ export class ProjectCreatorComponent implements OnInit {
     const files = event.target.files;
     this.imagenes = files
     console.log("imagenes", this.imagenes)
+  }
+
+  updateDOB(event:any){
+    console.log("fecha seleccionada", event.value.toLocaleDateString())
+    this.newProject.fechaInicio =  event.value.toLocaleDateString()
+  }
+
+  updateDOB_Final(event:any){
+    console.log("fecha seleccionada", event.value.toLocaleDateString())
+    this.newProject.fechaFin =  event.value.toLocaleDateString()
   }
 
   setPeriod_Time(event:any, value:string){

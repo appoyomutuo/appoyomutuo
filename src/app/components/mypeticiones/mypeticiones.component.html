@@ -11,8 +11,10 @@
 <div *ngIf="loading" style="display: flex;justify-content: center;width: 100%;">
     <div class="spinner"></div>
 </div>
-<div *ngIf="peticionesSinLeer.length == 0 && loading == false" style="display: flex;justify-content: center;width: 100%;flex-direction: column;align-items: center;">
-    <h4>No tienes peticiones pendientes</h4>
+<div style="height: 50vh;">
+    <div *ngIf="peticionesSinLeer.length == 0 && loading == false" style="display: flex;justify-content: center;width: 100%;flex-direction: column;align-items: center;">
+        <h4>No tienes peticiones pendientes</h4>
+    </div>
 </div>
 <!-- LISTA PETICIONES -->
 <div class="projectLis-wrapper">

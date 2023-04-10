@@ -1,3 +1,4 @@
+@import '../node_modules/@syncfusion/ej2-material-theme/styles/material.css';
 .navbar-nav > li {
     display: flex;
     justify-content: center;
@@ -9,3 +10,5 @@
 #navBar{
     padding-top: 0px !important;
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

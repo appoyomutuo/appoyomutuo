@@ -18,3 +18,7 @@ textarea{
 select{
     border-color: rgba(167, 167, 167, 0.8) !important;
 }
+
+.mat-mdc-text-field-wrapper{
+    width: 200px !important;
+}

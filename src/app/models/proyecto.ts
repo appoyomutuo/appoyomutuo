@@ -23,6 +23,8 @@ export interface Proyecto {
     contact:string;
 
     owner:string;
+    fechaInicio: string;
+    fechaFin: string;
     fechaCreacion:string;
 
     tareas:[];

@@ -3,6 +3,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { routing, appRoutingProviders } from './app.routing';
 import { FormsModule } from '@angular/forms';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatNativeDateModule } from '@angular/material/core';
+
 
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAnalyticsModule } from '@angular/fire/compat/analytics';
@@ -49,6 +54,11 @@ import { MapaDetalleComponent } from './components/mapa-detalle/mapa-detalle.com
 import { ProjectEditComponent } from './components/project-edit/project-edit.component';
 import { CategoriasComponent } from './components/categorias/categorias.component';
 import { PopupEditarperfilComponent } from './components/popup-editarperfil/popup-editarperfil.component';
+import { CalendarioEventosComponent } from './components/calendario-eventos/calendario-eventos.component';
+import { CalendarioControlDayComponent } from './components/calendario-control-day/calendario-control-day.component';
+import { ScheduleModule, RecurrenceEditorModule, DayService, WeekService, MonthService, MonthAgendaService  } from '@syncfusion/ej2-angular-schedule';
+import { FullCalendarModule } from '@fullcalendar/angular';
+import { PopupCreateEventComponent } from './components/popup-create-event/popup-create-event.component';
 
 @NgModule({
   declarations: [
@@ -82,7 +92,10 @@ import { PopupEditarperfilComponent } from './components/popup-editarperfil/popu
     MapaDetalleComponent,
     ProjectEditComponent,
     CategoriasComponent,
-    PopupEditarperfilComponent
+    PopupEditarperfilComponent,
+    CalendarioEventosComponent,
+    CalendarioControlDayComponent,
+    PopupCreateEventComponent
   ],
   imports: [
     BrowserModule,
@@ -94,11 +107,17 @@ import { PopupEditarperfilComponent } from './components/popup-editarperfil/popu
     AngularFireAnalyticsModule,
     AngularFirestoreModule,
     AngularFireAuthModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatNativeDateModule,
+    FullCalendarModule,
     routing,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideDatabase(() => getDatabase()),
+    ScheduleModule, RecurrenceEditorModule,
   ],
-  providers: [appRoutingProviders, ProyectoService, AuthService],
+  providers: [appRoutingProviders, ProyectoService, AuthService, DayService, WeekService, MonthService, MonthAgendaService],
   bootstrap: [AppComponent, LoginbuttonComponent]
 })
 export class AppModule { }

@@ -18,6 +18,7 @@ import { MypeticionesComponent } from './components/mypeticiones/mypeticiones.co
 import { ForoComponent } from './components/foro/foro.component';
 import { ProjectEditComponent } from './components/project-edit/project-edit.component';
 import { CategoriasComponent } from './components/categorias/categorias.component';
+import { CalendarioEventosComponent } from './components/calendario-eventos/calendario-eventos.component';
 
 
 const appRoutes: Routes = [
@@ -36,6 +37,7 @@ const appRoutes: Routes = [
     {path: 'projectDetail', component:ProjectDetailComponent},
     {path: 'tareas', component:TareasComponent},
     {path: 'foro', component:ForoComponent},
+    {path: 'calendario', component:CalendarioEventosComponent},
     {path: 'peticiones', component:MypeticionesComponent},
     {path: 'informacion', component:FaqComponent},
     {path: 'contacto', component:ContactComponent},
