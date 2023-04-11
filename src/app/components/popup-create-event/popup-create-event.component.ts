@@ -7,8 +7,9 @@ import { Evento } from 'src/app/models/evento';
   styleUrls: ['./popup-create-event.component.css']
 })
 export class PopupCreateEventComponent {
-  @Input() eventoToRead: any[];
+  @Input() eventoToRead: Evento;
   @Input() startDate: string;
+  @Input() isEditing: boolean;
   @Output() closePopUp = new EventEmitter<{ closePopUP: Boolean }>();
   @Output() createNewEvent = new EventEmitter<{ newEvent: any }>();
   @Output() editEvent = new EventEmitter<{ newEvent: any }>();
@@ -22,10 +23,10 @@ export class PopupCreateEventComponent {
     description: '',
     start: '',
     end: '',
-    tiempoHora:12,
-    tiempoMinuto:30,
-    tiempoHoraFin:14,
-    tiempoMinutoFin:30,
+    tiempoHora:"12",
+    tiempoMinuto:"30",
+    tiempoHoraFin:"14",
+    tiempoMinutoFin:"30",
     day: 0,
     month: 0,
     year: 0
@@ -34,10 +35,25 @@ export class PopupCreateEventComponent {
   isReading = false
 
   ngOnInit(): void {
-    if(this.eventoToRead != null){
-      // this.newEvent = this.eventoToRead
+    if(this.isEditing){
+      this.newEvent = this.eventoToRead
       this.isReading = true
     }else{
+      this.newEvent = {
+        idEvento: "",
+        idProyecto: "",
+        title: '',
+        description: '',
+        start: '',
+        end: '',
+        tiempoHora:"12",
+        tiempoMinuto:"30",
+        tiempoHoraFin:"14",
+        tiempoMinutoFin:"30",
+        day: 0,
+        month: 0,
+        year: 0
+      }
       this.isReading = false
     }
   }
@@ -58,6 +74,7 @@ export class PopupCreateEventComponent {
   }
 
   click_DeleteEvent(){
+    this.newEvent.idEvento = this.eventoToRead.idEvento
     this.deleteEvent.emit({ newEvent: this.newEvent });
     this.closeModal()
   }

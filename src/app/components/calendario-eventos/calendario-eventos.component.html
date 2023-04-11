@@ -18,4 +18,4 @@
 </section>
 
 
-<popup-create-event *ngIf="showPopUp_CreateEvent" (closePopUp)=closePopUp() (createNewEvent)=createEvent($event) (editEvent)=editEvent($event) (deleteEvent)=deleteEvent($event) [startDate]="startDate"></popup-create-event>
+<popup-create-event *ngIf="showPopUp_CreateEvent" (closePopUp)=closePopUp() (createNewEvent)=createEvent($event) (editEvent)=editEvent($event) (deleteEvent)=deleteEvent($event) [startDate]="startDate" [eventoToRead]="eventoToRead" [isEditing]="isEditing"></popup-create-event>

@@ -488,6 +488,12 @@ export class ProyectoService {
     console.log("evento borrado");
   }
 
+  editEvento(evento:any){
+    console.log("update evento", evento)
+    this.proyectosDoc = this.afs.doc(`Eventos/${evento.idEvento}`);
+    this.proyectosDoc.update(evento);
+  }
+
   getEventosByIdProject(idProyecto:string){
     var eventos =this.afs.collection('Eventos', ref => ref.where('idProyecto', '==', idProyecto)).snapshotChanges().pipe(
       map(actions => {       
@@ -500,5 +506,13 @@ export class ProyectoService {
       })
     );
     return  eventos
+  }
+
+  getEventoByIdEvento(idEvento:string){
+    var evento = this.afs.collection("Eventos").doc(idEvento).valueChanges().pipe(
+      tap(docs => console.log('docs', docs)),
+      map(val => val)
+    );
+    return evento
   }
 }

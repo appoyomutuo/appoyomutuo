@@ -29,8 +29,8 @@
                                 <div class="form-group g-mb-30">
                                     <label class="g-mb-10" for="inputGroup1_133">Hora de Inicio</label>
                                     <div style="display: flex;">
-                                        <input style="width: 50px;" id="col-sm-6 inputGroup1_133" class="form-control form-control-md rounded-0" type="tiempoHora" placeholder="12" name="hora" [(ngModel)]="newEvent.tiempoHora">
-                                        <input style="width: 50px;" id="col-sm-6 inputGroup1_133" class="form-control form-control-md rounded-0" type="tiempoMinuto" placeholder="30" name="minuto" [(ngModel)]="newEvent.tiempoMinuto">
+                                        <input style="width: 75px;" id="col-sm-6 inputGroup1_133" class="form-control form-control-md rounded-0" type="number" placeholder="12" name="hora" min="0" [(ngModel)]="newEvent.tiempoHora">
+                                        <input style="width: 75px;" id="col-sm-6 inputGroup1_133" class="form-control form-control-md rounded-0" type="number" placeholder="30" name="minuto" min="0" [(ngModel)]="newEvent.tiempoMinuto">
                                     </div>
                                     <small class="form-text text-muted g-font-size-default g-mt-10 g-mb-30">A qué hora comienza el evento</small>
                                 </div>
@@ -41,8 +41,8 @@
                                 <div class="form-group g-mb-30">
                                     <label class="g-mb-10" for="inputGroup1_133">Hora de Fin</label>
                                     <div style="display: flex;">
-                                        <input style="width: 50px;" id="col-sm-6 inputGroup1_133" class="form-control form-control-md rounded-0" type="tiempoHoraFin" placeholder="12" name="horaFin" [(ngModel)]="newEvent.tiempoHoraFin">
-                                        <input style="width: 50px;" id="col-sm-6 inputGroup1_133" class="form-control form-control-md rounded-0" type="tiempoMinutoFin" placeholder="30" name="minutoFin" [(ngModel)]="newEvent.tiempoMinutoFin">
+                                        <input style="width: 75px;" id="col-sm-6 inputGroup1_133" class="form-control form-control-md rounded-0" type="number" placeholder="12" name="horaFin" min="0" [(ngModel)]="newEvent.tiempoHoraFin">
+                                        <input style="width: 75px;" id="col-sm-6 inputGroup1_133" class="form-control form-control-md rounded-0" type="number" placeholder="30" name="minutoFin" min="0" [(ngModel)]="newEvent.tiempoMinutoFin">
                                     </div>
                                     <small class="form-text text-muted g-font-size-default g-mt-10 g-mb-30">Cuándo acaba el evento</small>
                                 </div>
