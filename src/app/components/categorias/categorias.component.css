@@ -8,6 +8,17 @@
     padding: 0px 100px;
 }
 
+.categoriasWrapper :hover{
+    
+    background-color: black;
+    color: white;
+}
+
+.categoriaText{
+    padding: 20px 40px;
+    text-align: center;
+}
+
 .pieza{
     /* background-image: url("../../../assets/img/imagenes/PiezaCategoriaNegra.png"); */
     display: flex;
@@ -31,6 +42,7 @@
     height: 50px;
     background-size: contain;
     background-repeat: no-repeat;
+    margin-right: 15px;
 }
 
 .pieza:hover{
@@ -48,7 +60,8 @@
     font-family:Poppins;
     text-align: flex-start;
     margin-bottom: 0px !important;
-    margin-left: 15px;
+    padding-top: 10px;
+    /* margin-left: 15px; */
     font-size: 20px;
-    width: 270px;
+    /* width: 270px; */
 }

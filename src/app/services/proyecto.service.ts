@@ -256,6 +256,72 @@ export class ProyectoService {
     return  projects
   }
 
+  getItemsQuery(comunidad:string, categoria:string){
+    // const proyectosRef = collection(db, "Proyectos");
+    // const q1 = query(proyectosRef, where("comunidad", "==", "comunidad"), where("categoria", "==", "categoria"));
+    // return this.afs.collection<Proyecto>('Proyectos', ref =>
+    //   ref
+    //     .where('comunidad', '==', comunidad)
+    //     .where('categoria', '==', categoria)
+    // ).valueChanges();
+    // console.log("entro", comunidad)
+
+    if(comunidad === "" && categoria === ""){
+      console.log("entro1")
+      var projects = this.afs.collection('Proyectos', ref => ref.where('comunidad', '==', comunidad).where('categoria', '==', categoria)).snapshotChanges().pipe(
+        map(actions => {       
+          return actions.map(a => {
+            const data = a.payload.doc.data() as Proyecto;
+            data.id = a.payload.doc.id;
+            data.$key = a.payload.doc.id;
+            return data;
+          });
+        })
+      );
+      return  projects
+    }else if(comunidad !== ""){
+      console.log("entro2")
+      var projects = this.afs.collection('Proyectos', ref => ref.where('comunidad', '==', comunidad)).snapshotChanges().pipe(
+        map(actions => {       
+          return actions.map(a => {
+            const data = a.payload.doc.data() as Proyecto;
+            data.id = a.payload.doc.id;
+            data.$key = a.payload.doc.id;
+            return data;
+          });
+        })
+      );
+      return  projects
+    }else if(categoria !== ""){
+      console.log("entro3")
+      var projects = this.afs.collection('Proyectos', ref => ref.where('categoria', '==', categoria)).snapshotChanges().pipe(
+        map(actions => {       
+          return actions.map(a => {
+            const data = a.payload.doc.data() as Proyecto;
+            data.id = a.payload.doc.id;
+            data.$key = a.payload.doc.id;
+            return data;
+          });
+        })
+      );
+      return  projects
+    }else{
+      console.log("entro4")
+      var projects = this.afs.collection('Proyectos', ref => ref.where('comunidad', '==', comunidad).where('categoria', '==', categoria)).snapshotChanges().pipe(
+        map(actions => {       
+          return actions.map(a => {
+            const data = a.payload.doc.data() as Proyecto;
+            data.id = a.payload.doc.id;
+            data.$key = a.payload.doc.id;
+            return data;
+          });
+        })
+      );
+      return  projects
+    }
+
+  }
+
   // ==============================================================================>TAREAS
   addTask(task:any){
     this.tareasCollection = this.afs.collection('Tareas');

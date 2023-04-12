@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-lg">
                 <div id="shortcode8">
-                    <div class="shortcode-html">
+                    <div class="shortcode-html" style="display: flex;flex-direction: column;">
                         <!-- Box Shadow -->
                         <div style="cursor: pointer;padding-top:0px !important;" class="imagebox u-shadow-v2 g-mb-30 g-pt-20">
                             <img class="" src="{{item.imagenes[0]}}" alt="Image Description">
@@ -19,7 +19,7 @@
             </div>
 
             <div class="col-lg">
-                <div style="height:300px;display: flex;flex-direction: column;justify-content: space-evenly;" class="imagebox u-shadow-v2 g-brd-around g-brd-gray-light-v4 g-line-height-2 g-pa-20 g-mb-20" role="alert">
+                <div style="width: 465px;height:300px;display: flex;flex-direction: column;justify-content: space-evenly;" class="imagebox u-shadow-v2 g-brd-around g-brd-gray-light-v4 g-line-height-2 g-pa-20 g-mb-20" role="alert">
                     <h3 class="h2 g-font-weight-300 text-uppercase" style="margin-bottom:0px !important">{{item.name}}</h3>
                     <div style="display: flex;align-items: center;margin-bottom: 10px;">
                         <p *ngIf="item.fechaInicio" style="margin-bottom: 0px !important;">Desde el {{item.fechaInicio}}</p><p *ngIf="item.fechaFin" style="margin: 0px 10px">al</p><p *ngIf="item.fechaFin" style="margin-bottom: 0px !important;"> {{item.fechaFin}} </p>

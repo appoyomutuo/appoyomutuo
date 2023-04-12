@@ -38,38 +38,56 @@ export class PopupFiltersComponent implements OnInit {
     var proyectosByComunidad = []
 
     
-    // CATEGORIA
-    if(this.selectedCategoria != ""){
-      this.subscription = this.proyectoService.getItemsByCategoria(this.selectedCategoria).subscribe(proyectos =>{
+    // // CATEGORIA
+    // if(this.selectedCategoria != ""){
+    //   this.subscription = this.proyectoService.getItemsByCategoria(this.selectedCategoria).subscribe(proyectos =>{
+    //     proyectosByCategoria = proyectos
+    //     console.log("categoria", proyectos)
+    //     proyectosByCategoria.forEach(element => {
+    //       if(!proyectosEncontrados.includes(element)){
+    //         proyectosEncontrados.push(element)
+    //       }
+    //     });
+    //     this.subscription.unsubscribe()
+    //     this.changeCategory.emit({ category: this.selectedCategoria });
+    //     this.showSearched.emit({ proyects: proyectosEncontrados });
+    //     this.closeModal()
+    //   })
+    // }
+    
+    // // COMUNIDAD
+    // if(this.selectedComunidad != ""){
+    //   this.subscription2 = this.proyectoService.getItemsByComunidad(this.selectedComunidad).subscribe(proyectos =>{
+    //     console.log("comunidad", proyectos)
+    //     console.log(proyectos)
+    //     proyectosByComunidad = proyectos
+    //     proyectosByComunidad.forEach(element => {
+    //       if(!proyectosEncontrados.includes(element)){
+    //         proyectosEncontrados.push(element)
+    //       }
+    //     });
+    //     this.subscription2.unsubscribe()
+    //     this.showSearched.emit({ proyects: proyectosEncontrados });
+    //     this.closeModal()
+    //   })
+    // }
+
+    if(this.selectedCategoria !== "all"){
+      this.subscription = this.proyectoService.getItemsQuery(this.selectedComunidad, this.selectedCategoria).subscribe(proyectos =>{
         proyectosByCategoria = proyectos
-        console.log("categoria", this.selectedCategoria)
+        console.log("proyectos", proyectos)
         proyectosByCategoria.forEach(element => {
           if(!proyectosEncontrados.includes(element)){
             proyectosEncontrados.push(element)
           }
         });
         this.subscription.unsubscribe()
-        this.showSearched.emit({ proyects: proyectosEncontrados });
-        this.changeCategory.emit({ category: this.selectedCategoria });
-        this.closeModal()
-      })
-    }
-    
-    // COMUNIDAD
-    if(this.selectedComunidad != ""){
-      this.subscription2 = this.proyectoService.getItemsByComunidad(this.selectedComunidad).subscribe(proyectos =>{
-        console.log("buscar")
-        console.log(proyectos)
-        proyectosByComunidad = proyectos
-        proyectosByComunidad.forEach(element => {
-          if(!proyectosEncontrados.includes(element)){
-            proyectosEncontrados.push(element)
-          }
-        });
-        this.subscription2.unsubscribe()
+        // this.changeCategory.emit({ category: this.selectedCategoria });
         this.showSearched.emit({ proyects: proyectosEncontrados });
         this.closeModal()
       })
+    }else{
+      console.log("es all")
     }
   }
 

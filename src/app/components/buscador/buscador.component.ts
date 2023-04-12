@@ -32,17 +32,11 @@ export class BuscadorComponent implements OnInit {
 
 
   ngOnInit(): void {
-    if(sessionStorage.getItem("categoria") == null){
-      this.activatedRoute.queryParams.subscribe((query: any) => {
-        this.categoria = query.categoria
-        this.selectCategoria(this.categoria)
-        this.busquedaInicial(this.categoria)
-      })
-    }else{
-      this.categoria = sessionStorage.getItem("categoria")
+    this.activatedRoute.queryParams.subscribe((query: any) => {
+      this.categoria = query.categoria
       this.selectCategoria(this.categoria)
       this.busquedaInicial(this.categoria)
-    }
+    })
     
   }
 
@@ -82,11 +76,7 @@ export class BuscadorComponent implements OnInit {
       sessionStorage.setItem("categoria", this.categoria)
     }
     
-    if(categoria == "all"){
-      this.showAll()
-    }else{
-      this.busquedaInicial(this.categoria)
-    }
+    this.busquedaInicial(categoria)
 
   }
 

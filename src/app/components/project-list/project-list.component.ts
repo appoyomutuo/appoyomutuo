@@ -23,7 +23,7 @@ export class ProjectListComponent implements OnInit {
   ngDoCheck(){
     if(this.data.length > 0 && this.prevData !== this.data){
       this.cards = []
-      console.log("===data===", this.data)
+      // console.log("===data===", this.data)
       this.cards = this.data
     }
   }

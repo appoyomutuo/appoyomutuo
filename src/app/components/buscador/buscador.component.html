@@ -20,7 +20,14 @@
     </div>
   </div>
 
-  <project-list [data]="currentData"></project-list>
+  <!-- NO PROJECTS -->
+  <div *ngIf="proyectos.length == 0 && !loading" style="display: flex;justify-content: center;width: 100%;flex-direction: column;align-items: center;margin-top: 75px;">
+    <h4>Aún no hay ningún proyecto que coincida con la búsqueda</h4>
+    <p>Crea uno con nuestro<a href="/creador">Creador</a></p>
+  </div>
+
+  <!-- PROJECTS -->
+  <project-list *ngIf="proyectos.length > 0 && !loading" [data]="currentData"></project-list>
   <!-- <carrousel [data]="currentData"></carrousel> -->
 </section>
 <div *ngIf="loading" style="display: flex;justify-content: center;width: 100%;height: 60vh;">

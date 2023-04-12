@@ -13,6 +13,7 @@ export class CategoriasComponent {
   ) { }
 
   selectCategoria(categoria:any){
+    console.log("categoria", categoria)
     this.router.navigate(['/buscador'], { queryParams: { categoria: categoria } });
     // if(categoria == "agricultura_alimentacion"){
     //   this.categoriaTransform = "Agricultura y Alimentación"
