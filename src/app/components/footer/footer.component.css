@@ -1,0 +1,23 @@
+/* Estilo del footer negro */
+.footer {
+  background-color: #000;
+  color: #fff;
+  padding: 20px 0;
+}
+
+/* Estilo del contenido del footer */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Estilo del marcador de posición para el logo */
+.footer-logo {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+}

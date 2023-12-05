@@ -1,0 +1,47 @@
+/* Estilo de la caja de FAQ */
+.contact-container {
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+    max-width: 800px;
+    margin: 20px auto;
+  }
+  
+  /* Estilo del título de FAQ */
+  .contact-container h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+  
+  /* Estilo del texto explicativo de FAQ */
+  .contact-container p {
+    font-size: 18px;
+  }
+  
+  /* Estilo de los enlaces del acordeón */
+  .u-accordion__control-icon {
+    font-size: 20px;
+    margin-left: 10px;
+  }
+  
+  /* Estilo del contenido del acordeón */
+  .u-accordion__body {
+    font-size: 16px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 5px;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Estilo del acordeón al hacer hover */
+  .u-accordion__control-icon:hover {
+    color: #007bff;
+    transition: color 0.2s;
+  }
+
+  .card{
+    margin-bottom: 30px;
+  }
+  

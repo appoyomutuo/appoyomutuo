@@ -1,0 +1,32 @@
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.menu-button {
+  display: none;
+}
+
+.menu-icon {
+  color: black;
+}
+
+@media screen and (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+
+  .menu-button {
+    display: block;
+  }
+}

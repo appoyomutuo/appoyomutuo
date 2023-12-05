@@ -1,4 +1,35 @@
-<!-- <circularmenu></circularmenu> -->
-<principalslider></principalslider>
-
- 
+<div class="home-container">
+  <div class="parallax-background">
+    <img src="../../../assets/img/principal.PNG" alt="Imagen de fondo" class="background-image">
+  </div>
+  <div class="content">
+    <!-- Título y texto -->
+    <div class="content-text">
+      <h1>Tu Portal hacia la Autogestión</h1>
+      <p>En AppoyoMutuo.com,<br> creemos en un futuro donde las personas trabajen juntas para construir un mundo más justo y equitativo.
+        <br>
+        <br>
+        Nuestra misión es conectar a personas como tú con iniciativas que promueven la solidaridad, la sostenibilidad y la participación activa en una nueva forma de consumo.
+        <br>
+        <br>
+        Explora un universo de proyectos que están cambiando la forma en que vivimos y consumimos. Juntos, podemos dar forma al futuro que deseamos.
+        <br> 
+        <br>
+        ¡Únete y sé parte del movimiento de autogestión global!
+      </p>
+    </div>
+    <!-- Botones de acción -->
+    <div class="action-buttons">
+      <button class="action-button" (click)="navigateToProjects()">
+        <mat-icon class="icon-small">menu</mat-icon> 
+        <span class="button-text">Proyectos</span>
+      </button>
+      <button class="action-button" (click)="navigateToFAQ()">
+        <mat-icon class="icon-small">lightbulb</mat-icon> 
+        <span class="button-text">Más información</span>
+      </button>
+    </div>
+    
+      
+  </div>
+</div>

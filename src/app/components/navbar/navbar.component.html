@@ -1,0 +1,22 @@
+<mat-toolbar color="primary">
+  <div class="logo-container">
+    <img src="../../../assets/img/logo2.png" alt="Logo" class="logo" style="max-width: 180px;">
+  </div>
+  <div class="spacer"></div>
+  <div class="nav-links" *ngIf="!isMenuOpen; else menuIcon">
+    <a mat-button routerLink="/proyectos">Proyectos</a>
+    <a mat-button routerLink="/contacto">Contacto</a>
+    <a mat-button routerLink="/informacion">Información</a>
+  </div>
+  <ng-template #menuIcon>
+    <button mat-icon-button class="menu-button" (click)="toggleMenu()">
+      <mat-icon class="menu-button" style="color: black;">menu</mat-icon>
+    </button>    
+  </ng-template>
+</mat-toolbar>
+
+<mat-menu #appMenu="matMenu">
+  <button mat-menu-item routerLink="/proyectos" (click)="closeMenu()">Proyectos</button>
+  <button mat-menu-item routerLink="/contacto" (click)="closeMenu()">Contacto</button>
+  <button mat-menu-item routerLink="/informacion" (click)="closeMenu()">Información</button>
+</mat-menu>

@@ -1,17 +1,22 @@
-import { Component, OnInit } from '@angular/core';
-import { NavigationStart, Router } from '@angular/router';
-import { CircularmenuComponent } from '../circularmenu/circularmenu.component';
-import { PrincipalsliderComponent } from '../principalslider/principalslider.component';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
 
-  constructor(private router:Router) { }
-  
-  ngOnInit(): void {
+  constructor(private router: Router) { }
+
+  // Función para navegar a la sección de Preguntas Frecuentes (FAQ)
+  navigateToFAQ() {
+    this.router.navigate(['/faq']); // Reemplaza '/faq' con la ruta real de tu sección de preguntas frecuentes
+  }
+
+  // Función para navegar a la sección de Proyectos
+  navigateToProjects() {
+    this.router.navigate(['/projects']); // Reemplaza '/projects' con la ruta real de tu sección de proyectos
   }
 }

@@ -1,0 +1,36 @@
+<div class="projects-container">
+  <!-- Caja del título y texto -->
+  <div class="content-box" style="margin-bottom: 60px;">
+    <h1>Proyectos</h1>
+    <p>Explora proyectos de autogestión y únete a la revolución del consumo consciente.</p>
+  </div>
+
+  <!-- Desplegable para elección de comunidad -->
+  <div class="form-group" style="margin-bottom: 40px;">
+    <label for="communitySelect">Comunidad:</label>
+    <select class="form-control" id="communitySelect" [(ngModel)]="selectedCommunity"
+      (change)="filterProjectsByCommunity()">
+      <option value="">Todas</option>
+      <option *ngFor="let community of communities" [value]="community">{{ community }}</option>
+    </select>
+  </div>
+
+  <!-- Lista de proyectos filtrados en filas de tres -->
+  <div class="project-row">
+    <div class="project-box" *ngFor="let project of filteredProjects">
+      <div class="project-card">
+        <img [src]="'https://via.placeholder.com/300x200'" style="margin-top: 20px; margin-bottom: 10px;" class="card-img-top" alt="{{ project.title }}"
+          alt="{{ project.title }}">
+        <div class="card-body">
+          <h3 class="card-title text-center" style="margin: 0px;">{{ project.title }}</h3>
+          <p style="margin: 0px; margin-bottom: 20px;">({{project.community}})</p>
+          <p class="card-text">{{ project.description }}</p>
+          <div style="margin-top: 20px;" class="button-wrapper">
+            <button (click)="viewProjectDetails(project.id)" type="submit">Ver Proyecto</button>
+          </div>
+          <!-- <a [href]="project.website" class="btn btn-primary" target="_blank">Ver proyecto</a> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

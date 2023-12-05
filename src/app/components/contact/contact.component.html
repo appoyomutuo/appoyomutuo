@@ -1,79 +1,39 @@
-<section class="g-py-100">
-  <div class="row justify-content-center g-mb-20">
-    <div class="col-lg-7">
-      <!-- Heading -->
-      <div class="text-center">
-        <h2 class="h1 g-color-black g-font-weight-700 text-uppercase mb-4">Te ayudamos con tu proyecto</h2>
-        <div class="d-inline-block g-width-70 g-height-2 g-bg-black mb-4"></div>
-        <p class="g-font-size-18 mb-0">Si ya tienes un proyecto empezado y quieres unirte a nuestra red, o tienes alguna otra duda, dejános un mensaje y estaremos encantados en responderte.</p>
+<div class="contact-container">
+    <div class="content">
+      <!-- Caja del título y texto -->
+      <div class="content-box">
+        <h1>Contacto</h1>
+        <p>¿Tienes un proyecto que te gustaría que aparezca en nuestra web o necesitas más información? ¡Estamos aquí para ayudarte!</p>
       </div>
-      <!-- End Heading -->
-    </div>
-  </div>
-
-  <div style="width: 100%;display: flex;justify-content: center;margin-bottom: 50px;">
-    <div class="col-md-6 col-lg-3 g-brd-right--md g-brd-gray-light-v4">
-      <!-- Icon Blocks -->
-      <div class="text-center g-py-20">
-        <span class="u-icon-v1 u-icon-size--xl g-color-black g-mb-10">
-          <i class="icon-electronics-005 u-line-icon-pro"></i>
-          </span>
-        <h4 class="h5 g-font-weight-600 g-mb-5">Teléfono de contacto</h4>
-        <span class="d-block">+34 644 43 12 32</span>
-      </div>
-      <!-- End Icon Blocks -->
-    </div>
   
-    <div class="col-md-6 col-lg-3 g-brd-right--md g-brd-gray-light-v4">
-      <!-- Icon Blocks -->
-      <div class="text-center g-py-20">
-        <span class="u-icon-v1 u-icon-size--xl g-color-black g-mb-10">
-          <i class="icon-communication-062 u-line-icon-pro"></i>
-          </span>
-        <h4 class="h5 g-font-weight-600 g-mb-5">Email</h4>
-        <span class="d-block">appoyomutuo@gmail.com</span>
+      <!-- Caja del formulario -->
+      <div class="content-box">
+        <form (submit)="submitForm()">
+          <div class="form-group">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" name="nombre" [(ngModel)]="formData.nombre" required>
+          </div>
+  
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" [(ngModel)]="formData.email" required>
+          </div>
+  
+          <div class="form-group">
+            <label for="mensaje">Mensaje</label>
+            <textarea id="mensaje" name="mensaje" [(ngModel)]="formData.mensaje" required></textarea>
+          </div>
+  
+          <div class="form-group">
+            <input type="checkbox" id="terminos" name="terminos" [(ngModel)]="formData.terminos" required>
+            <label for="terminos">He leído y acepto los términos y condiciones.</label>
+          </div>
+
+          <div class="button-wrapper">
+              <button type="submit">Enviar</button>
+          </div>
+        </form>
       </div>
-      <!-- End Icon Blocks -->
     </div>
   </div>
-
-  <div class="row justify-content-center">
-    <div class="col-lg-9">
-      <form>
-        <div class="row" style="max-width:800px;margin: auto;">
-          <div class="col-md-6 form-group g-mb-20">
-            <input class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v3 g-brd-primary--hover rounded-3 g-py-13 g-px-15" type="text" placeholder="Nombre">
-          </div>
-
-          <div class="col-md-6 form-group g-mb-20">
-            <input class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v3 g-brd-primary--hover rounded-3 g-py-13 g-px-15" type="email" placeholder="Email">
-          </div>
-
-          <div class="col-md-6 form-group g-mb-20">
-            <input class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v3 g-brd-primary--hover rounded-3 g-py-13 g-px-15" type="text" placeholder="Asunto">
-          </div>
-
-          <div class="col-md-6 form-group g-mb-20">
-            <input class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v3 g-brd-primary--hover rounded-3 g-py-13 g-px-15" type="tel" placeholder="Teléfono">
-          </div>
-
-          <div class="col-md-12 form-group g-mb-40">
-            <textarea class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v3 g-brd-primary--hover g-resize-none rounded-3 g-py-13 g-px-15" rows="7" placeholder="Mensaje"></textarea>
-          </div>
-        </div>
-
-        <div class="text-center" style="display: flex;justify-content: center;">
-          <button style="width: 200px;margin-bottom: 10px;" class="btn btn-block u-shadow-v32 g-brd-white g-brd-2 g-color-white g-bg-black g-brd-black--hover g-bg-white--hover g-color-black--hover g-font-size-16 g-rounded-30 g-py-10 ml-2 g-mt-0" type="button">Enviar</button>
-        </div>
-      </form>
-    </div>
-  </div>
-</section>
-
-<section class="clearfix g-brd-bottom g-brd-gray-light-v4 g-pb-50">
-    <div class="row no-gutters" style="display: flex;justify-content: center;">
-      
-    </div>
-</section>
-
-
+  

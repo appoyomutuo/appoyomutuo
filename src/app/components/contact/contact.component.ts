@@ -1,15 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.css']
 })
-export class ContactComponent implements OnInit {
+export class ContactComponent {
+  formData = {
+    nombre: '',
+    email: '',
+    mensaje: '',
+    terminos: false
+  };
 
-  constructor() { }
-
-  ngOnInit(): void {
+  submitForm() {
+    // Aquí puedes agregar la lógica para enviar el formulario, por ejemplo, una solicitud HTTP
+    console.log('Formulario enviado:', this.formData);
   }
-
 }

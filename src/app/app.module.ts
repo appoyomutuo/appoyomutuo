@@ -1,124 +1,54 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { routing, appRoutingProviders } from './app.routing';
+
 import { FormsModule } from '@angular/forms';
-import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatNativeDateModule } from '@angular/material/core';
-
-
-import { AngularFireModule } from '@angular/fire/compat';
-import { AngularFireAnalyticsModule } from '@angular/fire/compat/analytics';
-import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
-import { AngularFireAuthModule } from '@angular/fire/compat/auth';
-import { getFirestore } from "firebase/firestore";
-import { AuthService } from '../app/services/auth.service';
-
+import { RouterModule } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
-import { CircularmenuComponent } from './components/circularmenu/circularmenu.component';
-import { BuscadorComponent } from './components/buscador/buscador.component';
-import { PopupFiltersComponent } from './components/popup-filters/popup-filters.component';
-import { ProjectCreatorComponent } from './components/project-creator/project-creator.component';
-import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
-import { environment } from '../environments/environment';
-import { provideDatabase,getDatabase } from '@angular/fire/database';
-import { DragDropModule } from '@angular/cdk/drag-drop';
-
-import { ProyectoService } from './services/proyecto.service';
-import { CarrouselComponent } from './components/carrousel/carrousel.component';
-import { LoginroomComponent } from './components/loginroom/loginroom.component';
-import { LoginComponent } from './components/login/login.component';
-import { NewuserComponent } from './components/newuser/newuser.component';
-import { LogoutComponent } from './components/logout/logout.component';
-import { ProfileComponent } from './components/profile/profile.component';
-import { LoginbuttonComponent } from './components/loginbutton/loginbutton.component';
-import { PrincipalsliderComponent } from './components/principalslider/principalslider.component';
-import { PopupWarningComponent } from './components/popup-warning/popup-warning.component';
-import { MyprojectsComponent } from './components/myprojects/myprojects.component';
-import { ProjectDetailComponent } from './components/project-detail/project-detail.component';
 import { FaqComponent } from './components/faq/faq.component';
+import { ProjectsComponent } from './components/projects/projects.component';
 import { ContactComponent } from './components/contact/contact.component';
-import { TareasComponent } from './components/tareas/tareas.component';
-import { ProjectListComponent } from './components/project-list/project-list.component';
-import { PopupMapaComponent } from './components/popup-mapa/popup-mapa.component';
-import { PopupNewtareaComponent } from './components/popup-newtarea/popup-newtarea.component';
-import { PopupPeticionComponent } from './components/popup-peticion/popup-peticion.component';
-import { MypeticionesComponent } from './components/mypeticiones/mypeticiones.component';
-import { ForoComponent } from './components/foro/foro.component';
-import { PopupAcceptpeticionComponent } from './components/popup-acceptpeticion/popup-acceptpeticion.component';
-import { MapaDetalleComponent } from './components/mapa-detalle/mapa-detalle.component';
-import { ProjectEditComponent } from './components/project-edit/project-edit.component';
-import { CategoriasComponent } from './components/categorias/categorias.component';
-import { PopupEditarperfilComponent } from './components/popup-editarperfil/popup-editarperfil.component';
-import { CalendarioEventosComponent } from './components/calendario-eventos/calendario-eventos.component';
-import { CalendarioControlDayComponent } from './components/calendario-control-day/calendario-control-day.component';
-import { ScheduleModule, RecurrenceEditorModule, DayService, WeekService, MonthService, MonthAgendaService  } from '@syncfusion/ej2-angular-schedule';
-import { FullCalendarModule } from '@fullcalendar/angular';
-import { PopupCreateEventComponent } from './components/popup-create-event/popup-create-event.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { ProjectDetailComponent } from './components/project-detail/project-detail.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatMenuModule } from '@angular/material/menu';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    CircularmenuComponent,
-    BuscadorComponent,
-    PopupFiltersComponent,
-    ProjectCreatorComponent,
-    CarrouselComponent,
-    LoginroomComponent,
-    LoginComponent,
-    NewuserComponent,
-    LogoutComponent,
-    ProfileComponent,
-    LoginbuttonComponent,
-    PrincipalsliderComponent,
-    PopupWarningComponent,
-    MyprojectsComponent,
-    ProjectDetailComponent,
     FaqComponent,
+    ProjectsComponent,
     ContactComponent,
-    TareasComponent,
-    ProjectListComponent,
-    PopupMapaComponent,
-    PopupNewtareaComponent,
-    PopupPeticionComponent,
-    MypeticionesComponent,
-    ForoComponent,
-    PopupAcceptpeticionComponent,
-    MapaDetalleComponent,
-    ProjectEditComponent,
-    CategoriasComponent,
-    PopupEditarperfilComponent,
-    CalendarioEventosComponent,
-    CalendarioControlDayComponent,
-    PopupCreateEventComponent
+    NavbarComponent,
+    FooterComponent,
+    ProjectDetailComponent
   ],
   imports: [
     BrowserModule,
-    BrowserAnimationsModule,
-    DragDropModule,
     AppRoutingModule,
-    AngularFireModule.initializeApp(environment.firebase),
     FormsModule,
-    AngularFireAnalyticsModule,
-    AngularFirestoreModule,
-    AngularFireAuthModule,
-    MatDatepickerModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatNativeDateModule,
-    FullCalendarModule,
-    routing,
-    provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideDatabase(() => getDatabase()),
-    ScheduleModule, RecurrenceEditorModule,
+    RouterModule.forRoot([]), 
+    MatToolbarModule,
+    MatButtonModule,
+    MatIconModule,
+    MatSidenavModule,
+    MatListModule,
+    BrowserAnimationsModule,
+    FlexLayoutModule,
+    MatMenuModule
   ],
-  providers: [appRoutingProviders, ProyectoService, AuthService, DayService, WeekService, MonthService, MonthAgendaService],
-  bootstrap: [AppComponent, LoginbuttonComponent]
+  providers: [],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
