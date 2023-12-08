@@ -1,79 +1,18 @@
-<div class="contact-container">
-  <!-- Caja de título y texto explicativo -->
-  <div class="content-box">
-    <h1>Preguntas Frecuentes</h1>
-    <p>
-      Te explicamos un poco más en qué consiste nuestro proyecto y cómo puedes formar parte de nuestra red de proyectos para la autogestión.
-    </p>
-  </div>
+<div class="header">
+  <h1 class="title">Preguntas Frecuentes</h1>
+  <p class="subtitle">
+    ¿Tienes dudas? Encuentra respuestas aquí.
+  </p>
+</div>
 
-  <!-- Acordeón de preguntas frecuentes -->
-  <div id="accordion" class="u-accordion u-accordion-color-primary" style="margin-top: 40px;" role="tablist" aria-multiselectable="true">
-    <!-- Pregunta 1 -->
-    <div class="card g-brd-none rounded g-mb-20">
-      <div id="accordion-heading-01" class="g-pa-0" role="tab">
-        <h5 class="mb-0">
-          <p class="d-flex justify-content-between u-shadow-v19 g-color-main g-text-underline--none--hover rounded g-px-30 g-py-20 collapsed" href="#accordion-body-01" data-toggle="collapse" data-parent="#accordion" aria-expanded="false" aria-controls="accordion-body-01">
-            ¿Por qué Appoyo Mutuo .com?
-          </p>
-        </h5>
+<div style="height: 100vh;">
+  <div class="container">
+    <div *ngFor="let item of faqItems" class="item">
+      <div class="question" (click)="item.expanded = !item.expanded">
+        {{ item.pregunta }}
+        <mat-icon>{{ item.expanded ? 'expand_less' : 'expand_more' }}</mat-icon>
       </div>
-      <div id="accordion-body-01" class="collapse" role="tabpanel" aria-labelledby="accordion-heading-01" data-parent="#accordion" style="">
-        <div class="u-accordion__body g-color-gray-dark-v4 g-pa-30">
-          Appoyo Mutuo .com busca promover la autogestión y la colaboración en proyectos que benefician a todos. Creemos en un mundo donde las comunidades pueden unirse y gestionar proyectos de manera sostenible y justa.
-        </div>
-      </div>
-    </div>
-
-    <!-- Pregunta 2 -->
-    <div class="card g-brd-none rounded g-mb-20">
-      <div id="accordion-heading-02" class="g-pa-0" role="tab">
-        <h5 class="mb-0">
-          <p class="collapsed d-flex justify-content-between u-shadow-v19 g-color-main g-text-underline--none--hover rounded g-px-30 g-py-20" href="#accordion-body-02" data-toggle="collapse" data-parent="#accordion" aria-expanded="false" aria-controls="accordion-body-02">
-            ¿Cómo funciona?
-            
-          </p>
-        </h5>
-      </div>
-      <div id="accordion-body-02" class="collapse" role="tabpanel" aria-labelledby="accordion-heading-02" data-parent="#accordion">
-        <div class="u-accordion__body g-color-gray-dark-v4 g-pa-30">
-          Appoyo Mutuo .com conecta proyectos de autogestión con personas interesadas en participar. Puedes explorar proyectos, unirte a ellos y contribuir a una forma de consumo más consciente y sostenible.
-        </div>
-      </div>
-    </div>
-
-    <!-- Pregunta 3 -->
-    <div class="card g-brd-none rounded g-mb-20">
-      <div id="accordion-heading-03" class="g-pa-0" role="tab">
-        <h5 class="mb-0">
-          <p class="collapsed d-flex justify-content-between u-shadow-v19 g-color-main g-text-underline--none--hover rounded g-px-30 g-py-20" href="#accordion-body-03" data-toggle="collapse" data-parent="#accordion" aria-expanded="false" aria-controls="accordion-body-03">
-            ¿Puedo subir todo tipo de proyectos?
-            
-          </p>
-        </h5>
-      </div>
-      <div id="accordion-body-03" class="collapse" role="tabpanel" aria-labelledby="accordion-heading-03" data-parent="#accordion">
-        <div class="u-accordion__body g-color-gray-dark-v4 g-pa-30">
-          En Appoyo Mutuo .com, fomentamos la diversidad de proyectos. Siempre que tu proyecto promueva la autogestión, la sostenibilidad y el bienestar para todos, eres bienvenido a subirlo y compartirlo con la comunidad.
-        </div>
-      </div>
-    </div>
-
-    <!-- Pregunta 4 -->
-    <div class="card g-brd-none rounded g-mb-20">
-      <div id="accordion-heading-04" class="g-pa-0" role="tab">
-        <h5 class="mb-0">
-          <p class="collapsed d-flex justify-content-between u-shadow-v19 g-color-main g-text-underline--none--hover rounded g-px-30 g-py-20" href="#accordion-body-04" data-toggle="collapse" data-parent="#accordion" aria-expanded="false" aria-controls="accordion-body-04">
-            Nuestra filosofía
-            
-          </p>
-        </h5>
-      </div>
-      <div id="accordion-body-04" class="collapse" role="tabpanel" aria-labelledby="accordion-heading-04" data-parent="#accordion">
-        <div class="u-accordion__body g-color-gray-dark-v4 g-pa-30">
-          Nuestra filosofía se basa en la idea del bienestar para todos. Creemos que al trabajar juntos en proyectos de autogestión, podemos crear un mundo más justo y equitativo donde todos tengan acceso a los recursos necesarios para vivir una vida digna.
-        </div>
-      </div>
+      <div class="answer" [class.active]="item.expanded">{{ item.respuesta }}</div>
     </div>
   </div>
 </div>

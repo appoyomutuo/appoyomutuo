@@ -2,7 +2,7 @@
 .home-container {
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: auto;
   overflow: hidden;
 }
 
@@ -31,6 +31,14 @@
   margin-top: 5%;
 }
 
+.title {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 12px;
+  color: #333; /* Color del título */
+}
+
+
 /* Estilo de la caja de texto */
 .content-text {
   padding: 20px;
@@ -54,8 +62,10 @@
   margin-top: 15px;
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   flex-direction: row; /* Cambia la dirección de la columna en dispositivos más pequeños */
   align-items: center; /* Centra los elementos en dispositivos más pequeños */
+  margin-bottom: 30px;
 }
 
 /* Estilo de los botones de acción */
@@ -81,9 +91,8 @@
 
 /* Estilo para los íconos pequeños */
 .icon-small {
-  font-size: 20px;
   margin-right: 4px;
-  margin-bottom: -8px;
+  margin-bottom: -6px;
 }
 
 /* Estilo para el texto del botón */

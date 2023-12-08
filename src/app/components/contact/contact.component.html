@@ -1,39 +1,34 @@
-<div class="contact-container">
-    <div class="content">
-      <!-- Caja del título y texto -->
-      <div class="content-box">
-        <h1>Contacto</h1>
-        <p>¿Tienes un proyecto que te gustaría que aparezca en nuestra web o necesitas más información? ¡Estamos aquí para ayudarte!</p>
-      </div>
-  
-      <!-- Caja del formulario -->
-      <div class="content-box">
-        <form (submit)="submitForm()">
-          <div class="form-group">
-            <label for="nombre">Nombre</label>
-            <input type="text" id="nombre" name="nombre" [(ngModel)]="formData.nombre" required>
-          </div>
-  
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" [(ngModel)]="formData.email" required>
-          </div>
-  
-          <div class="form-group">
-            <label for="mensaje">Mensaje</label>
-            <textarea id="mensaje" name="mensaje" [(ngModel)]="formData.mensaje" required></textarea>
-          </div>
-  
-          <div class="form-group">
-            <input type="checkbox" id="terminos" name="terminos" [(ngModel)]="formData.terminos" required>
-            <label for="terminos">He leído y acepto los términos y condiciones.</label>
-          </div>
+<div class="header">
+  <h1 class="title">Contacto</h1>
+  <p class="subtitle">
+    ¿Tienes un proyecto que te gustaría que aparezca en nuestra web o necesitas más información? ¡Estamos aquí para ayudarte!
+  </p>
+</div>
 
-          <div class="button-wrapper">
-              <button type="submit">Enviar</button>
-          </div>
-        </form>
-      </div>
+<div class="container">
+  <form (submit)="submitForm()">
+    <div class="form-group">
+      <label for="nombre">Nombre</label>
+      <input type="text" id="nombre" name="nombre" [(ngModel)]="formData.nombre" required>
     </div>
-  </div>
-  
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" [(ngModel)]="formData.email" required>
+    </div>
+
+    <div class="form-group">
+      <label for="mensaje">Mensaje</label>
+      <textarea id="mensaje" name="mensaje" [(ngModel)]="formData.mensaje" required></textarea>
+    </div>
+
+    <div class="form-group">
+      <input type="checkbox" id="terminos" name="terminos" [(ngModel)]="formData.terminos" required>
+      <label for="terminos">He leído y acepto los términos y condiciones.</label>
+    </div>
+
+    <div class="button-wrapper">
+      <button type="submit">Enviar</button>
+    </div>
+  </form>
+</div>

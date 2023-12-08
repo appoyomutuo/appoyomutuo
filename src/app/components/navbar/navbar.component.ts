@@ -1,5 +1,5 @@
-import { Component, ViewChild } from '@angular/core';
-import { MatMenuTrigger } from '@angular/material/menu';
+import { Component, ViewChild, ElementRef, Renderer2 } from '@angular/core';
+import { MatSidenav } from '@angular/material/sidenav';
 
 @Component({
   selector: 'app-navbar',
@@ -7,16 +7,25 @@ import { MatMenuTrigger } from '@angular/material/menu';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
-  @ViewChild(MatMenuTrigger, { static: false }) menuTrigger?: MatMenuTrigger;
-  isMenuOpen = false;
+  @ViewChild('sidenav') sidenav: MatSidenav;
+  isSidenavOpen = false;
+
+  constructor(private renderer: Renderer2, private el: ElementRef) {}
 
   toggleMenu() {
-    if (this.menuTrigger) {
-      this.menuTrigger.toggleMenu();
-    }
+    this.isSidenavOpen = !this.isSidenavOpen;
   }
 
-  closeMenu() {
-    this.isMenuOpen = false;
+  closeSidenav() {
+    this.sidenav.close();
+    this.isSidenavOpen = false;
+  }
+
+  ngOnInit() {
+    this.renderer.listen('window', 'click', (e: Event) => {
+      if (!this.el.nativeElement.contains(e.target)) {
+        this.closeSidenav();
+      }
+    });
   }
 }

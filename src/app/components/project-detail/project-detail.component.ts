@@ -15,16 +15,16 @@ export class ProjectDetailComponent implements OnInit {
   constructor(private route: ActivatedRoute, private projectsComponent: ProjectsComponent) {}
 
   ngOnInit() {
-    this.route.queryParams.subscribe((query: any) => {
-      this.id = +query.id;
-      this.project = this.findProjectById(this.id);
-    });
+    // this.route.queryParams.subscribe((query: any) => {
+    //   this.id = +query.id;
+    //   this.project = this.findProjectById(this.id);
+    // });
   }
   
 
-  private findProjectById(id: number): Project | undefined {
-    return this.projectsComponent.projectsData.find((project) => project.id === id);
-  }
+  // private findProjectById(id: number): Project | undefined {
+  //   // return this.projectsComponent.projectsData.find((project) => project.id === id);
+  // }
   
   
 }

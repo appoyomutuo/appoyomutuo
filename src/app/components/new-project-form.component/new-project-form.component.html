@@ -1,0 +1,57 @@
+<div class="header">
+    <h1 class="title">Únios a la iniciativa</h1>
+    <p class="subtitle">
+      Esto es un llamada a la cooperación y a la solaridad. Gracias por considerar uniros a la plataforma. Este formulario es para conoceros más y, en caso de que queráis, poder incluiros en la web.
+    </p>
+  </div>
+  
+  <div style="height: 100vh;">
+    <div class="container">
+      <form (submit)="submitForm()">
+        <div class="form-group">
+          <label for="nombreGrupo">Nombre del Grupo</label>
+          <input type="text" id="nombreGrupo" name="nombreGrupo" [(ngModel)]="formData.nombreGrupo" required>
+        </div>
+    
+        <div class="form-group">
+          <label for="comunidad">Comunidad</label>
+          <input type="text" id="comunidad" name="comunidad" [(ngModel)]="formData.comunidad" required>
+        </div>
+    
+        <div class="form-group">
+          <label for="ciudad">Ciudad</label>
+          <input type="text" id="ciudad" name="ciudad" [(ngModel)]="formData.ciudad" required>
+        </div>
+    
+        <div class="form-group">
+          <label for="descripcionGrupo">Descripción del Grupo</label>
+          <textarea id="descripcionGrupo" name="descripcionGrupo" [(ngModel)]="formData.descripcionGrupo" required></textarea>
+        </div>
+    
+        <div class="form-group">
+          <label for="funcionamiento">Cómo Funcionamos</label>
+          <textarea id="funcionamiento" name="funcionamiento" [(ngModel)]="formData.funcionamiento" required></textarea>
+        </div>
+    
+        <div class="form-group">
+          <label for="unirse">Cómo Unirse</label>
+          <textarea id="unirse" name="unirse" [(ngModel)]="formData.unirse" required></textarea>
+        </div>
+    
+        <div class="form-group">
+          <label for="requisitos">Requisitos para unirse a vuestro grupo</label>
+          <textarea id="requisitos" name="requisitos" [(ngModel)]="formData.requisitos" required></textarea>
+        </div>
+  
+        <div class="form-group">
+          <input type="checkbox" id="perfilWeb" name="perfilWeb" [(ngModel)]="formData.perfilWeb">
+          <label for="perfilWeb">¿Estaríais de acuerdo en usar esta información para haceros un perfil en la web?</label>
+        </div>
+    
+        <div class="button-wrapper">
+          <button type="submit">Enviar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  

@@ -1,22 +1,29 @@
-<mat-toolbar color="primary">
-  <div class="logo-container">
-    <img src="../../../assets/img/logo2.png" alt="Logo" class="logo" style="max-width: 180px;">
+<mat-toolbar color="primary" class="menuNormal">
+  <img src="../../../assets/img/logo2.png" routerLink="/" alt="Logo" class="logo" style="max-width: 180px;">
+  <span class="spacer"></span> <!-- Esto crea un espacio entre el logo y los enlaces -->
+  <div style="display: flex;min-width: 500px;">
+    <a mat-list-item routerLink="/projects" (click)="closeSidenav()">Proyectos</a>
+    <a mat-list-item routerLink="/faq" (click)="closeSidenav()">Información</a>
+    <a mat-list-item routerLink="/contact" (click)="closeSidenav()">Contacto</a>
   </div>
-  <div class="spacer"></div>
-  <div class="nav-links" *ngIf="!isMenuOpen; else menuIcon">
-    <a mat-button routerLink="/proyectos">Proyectos</a>
-    <a mat-button routerLink="/contacto">Contacto</a>
-    <a mat-button routerLink="/informacion">Información</a>
-  </div>
-  <ng-template #menuIcon>
-    <button mat-icon-button class="menu-button" (click)="toggleMenu()">
-      <mat-icon class="menu-button" style="color: black;">menu</mat-icon>
-    </button>    
-  </ng-template>
 </mat-toolbar>
 
-<mat-menu #appMenu="matMenu">
-  <button mat-menu-item routerLink="/proyectos" (click)="closeMenu()">Proyectos</button>
-  <button mat-menu-item routerLink="/contacto" (click)="closeMenu()">Contacto</button>
-  <button mat-menu-item routerLink="/informacion" (click)="closeMenu()">Información</button>
-</mat-menu>
+<mat-sidenav-container class="sidenav-container menuHamburguesa" [ngStyle]="{'height': isSidenavOpen ? '20%' : '56px'}">
+  <mat-sidenav #sidenav class="sidenav">
+    <mat-nav-list>
+      <a mat-list-item routerLink="/projects" (click)="closeSidenav()">Proyectos</a>
+      <a mat-list-item routerLink="/faq" (click)="closeSidenav()">Información</a>
+      <a mat-list-item routerLink="/contact" (click)="closeSidenav()">Contacto</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <img src="../../../assets/img/logo2.png" routerLink="/" alt="Logo" class="logo" style="max-width: 180px;">
+      <button mat-icon-button (click)="sidenav.toggle(); toggleMenu()">
+        <mat-icon>menu</mat-icon>
+      </button>
+    </mat-toolbar>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+

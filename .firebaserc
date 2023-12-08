@@ -2,7 +2,7 @@
   "targets": {
     "appoyomutuo-e91e9": {
       "hosting": {
-        "appoyomutuoweb": [
+        "appoyo-mutuo-app": [
           "appoyomutuo-e91e9"
         ]
       }

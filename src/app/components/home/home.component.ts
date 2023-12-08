@@ -19,4 +19,8 @@ export class HomeComponent {
   navigateToProjects() {
     this.router.navigate(['/projects']); // Reemplaza '/projects' con la ruta real de tu sección de proyectos
   }
+
+  navigateToNewProjectForm() {
+    this.router.navigate(['/newproject']); // Reemplaza '/projects' con la ruta real de tu sección de proyectos
+  }
 }

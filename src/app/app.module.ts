@@ -21,6 +21,7 @@ import { MatListModule } from '@angular/material/list';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatMenuModule } from '@angular/material/menu';
+import { NewProjectFormComponentComponent } from './components/new-project-form.component/new-project-form.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { MatMenuModule } from '@angular/material/menu';
     ContactComponent,
     NavbarComponent,
     FooterComponent,
-    ProjectDetailComponent
+    ProjectDetailComponent,
+    NewProjectFormComponentComponent
   ],
   imports: [
     BrowserModule,
