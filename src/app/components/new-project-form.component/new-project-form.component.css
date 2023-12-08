@@ -1,95 +1,126 @@
 /* Estilos para el encabezado */
 .header {
-    text-align: center;
-    padding-top: 5%;
-  }
-  
-  .title {
-    font-size: 32px;
-    font-weight: bold;
-    margin-bottom: 12px;
-    color: #333; /* Color del título */
-  }
-  
-  .subtitle {
-    font-size: 16px;
-    color: #666; /* Color del subtítulo */
-    padding: 20px 0px;
-  }
-  
-  /* Estilos para el contenedor principal */
-  .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 800px;
-    margin: 0 auto;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
-    padding: 30px 0px;
-  }
-  
-  /* Estilos para los grupos de formulario */
-  .form-group {
-    margin-bottom: 20px;
-  }
-  
-  /* Estilos para etiquetas de formulario */
-  label {
-    font-weight: bold;
-  }
-  
-  /* Estilos para campos de formulario */
-  input[type="text"],
-  input[type="email"],
-  textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-  }
-  
-  /* Estilos para el botón de envío */
-  .button-wrapper {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  }
-  
-  button[type="submit"] {
-    padding: 12px 24px;
-    font-size: 18px;
-    margin: 0 10px;
-    background-color: black; /* Color de fondo original #273556; */
-    color: #fff; /* Color de texto original */
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.2s, color 0.2s; /* Transición suave de color en 0.2 segundos */
-    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
-  }
-  
-  /* Estilos para el botón de envío en hover */
-  button[type="submit"]:hover {
-    background-color: #fff; /* Cambiar el color de fondo al blanco */
-    color: #000; /* Cambiar el color de texto a negro */
-  }
-  
-  @media (max-width: 768px) {
-    /* Estilos responsivos si es necesario */
-    .header {
-      padding-top: 20%;
-    }
-  
-    .container {
-      max-width: 85%;
-      padding: 30px 20px;
-    }
+  text-align: center;
+  padding-top: 5%;
+  animation-name: fadeIn;
+  animation-duration: 2s;
+}
 
-    .subtitle {
-      padding: 20px 30px;
-    }
+@keyframes fadeIn {
+  from {
+    opacity: 0;
   }
-  
+
+  to {
+    opacity: 1;
+  }
+}
+
+.title {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 12px;
+  color: #333;
+  /* Color del título */
+}
+
+.subtitle {
+  font-size: 16px;
+  color: #666;
+  /* Color del subtítulo */
+  padding: 20px 0px;
+}
+
+/* Estilos para el contenedor principal */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+  padding: 30px 0px;
+  animation-name: fadeIn;
+  animation-duration: 2s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* Estilos para los grupos de formulario */
+.form-group {
+  margin-bottom: 20px;
+}
+
+/* Estilos para etiquetas de formulario */
+label {
+  font-weight: bold;
+}
+
+/* Estilos para campos de formulario */
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+/* Estilos para el botón de envío */
+.button-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+button[type="submit"] {
+  padding: 12px 24px;
+  font-size: 18px;
+  margin: 0 10px;
+  background-color: black;
+  /* Color de fondo original #273556; */
+  color: #fff;
+  /* Color de texto original */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+  /* Transición suave de color en 0.2 segundos */
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos para el botón de envío en hover */
+button[type="submit"]:hover {
+  background-color: #fff;
+  /* Cambiar el color de fondo al blanco */
+  color: #000;
+  /* Cambiar el color de texto a negro */
+}
+
+@media (max-width: 768px) {
+
+  /* Estilos responsivos si es necesario */
+  .header {
+    padding-top: 20%;
+  }
+
+  .container {
+    max-width: 85%;
+    padding: 30px 20px;
+  }
+
+  .subtitle {
+    padding: 20px 30px;
+  }
+}

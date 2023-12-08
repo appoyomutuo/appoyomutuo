@@ -1,6 +1,18 @@
 .header {
     text-align: center;
     padding-top: 5%;
+    animation-name: fadeIn;
+    animation-duration: 2s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 .title {
@@ -39,6 +51,18 @@
     max-width: 566px;
     margin: 20px auto;
     margin-bottom: 150px;
+    animation-name: fadeIn;
+    animation-duration: 2s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 .title {
