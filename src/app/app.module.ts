@@ -22,6 +22,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatMenuModule } from '@angular/material/menu';
 import { NewProjectFormComponentComponent } from './components/new-project-form.component/new-project-form.component';
+import { AdminComponent } from './components/admin/admin.component';
+import { AdminDashBoardComponent } from './components/admin-dash-board/admin-dash-board.component';
+import { AdminNewBlogComponent } from './components/admin-new-blog/admin-new-blog.component';
 
 
 @NgModule({
@@ -34,7 +37,10 @@ import { NewProjectFormComponentComponent } from './components/new-project-form.
     NavbarComponent,
     FooterComponent,
     ProjectDetailComponent,
-    NewProjectFormComponentComponent
+    NewProjectFormComponentComponent,
+    AdminComponent,
+    AdminDashBoardComponent,
+    AdminNewBlogComponent,
   ],
   imports: [
     BrowserModule,

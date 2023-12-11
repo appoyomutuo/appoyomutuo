@@ -112,7 +112,7 @@ button[type="submit"]:hover {
 
   /* Estilos responsivos si es necesario */
   .header {
-    padding-top: 20%;
+    padding-top: 25%;
   }
 
   .container {
@@ -122,5 +122,10 @@ button[type="submit"]:hover {
 
   .subtitle {
     padding: 20px 30px;
+  }
+
+  .form-group{
+    max-width: 200px;
+    padding: 0px 20px;
   }
 }
