@@ -2,8 +2,8 @@
   <img src="../../../assets/img/logo2.png" routerLink="/" alt="Logo" class="logo" style="max-width: 180px;">
   <span class="spacer"></span> <!-- Esto crea un espacio entre el logo y los enlaces -->
   <div style="display: flex;min-width: 500px;">
-    <a mat-list-item routerLink="/projects" (click)="closeSidenav()">Proyectos</a>
     <a mat-list-item routerLink="/faq" (click)="closeSidenav()">Información</a>
+    <a mat-list-item routerLink="/projects" (click)="closeSidenav()">Proyectos</a>
     <a mat-list-item routerLink="/contact" (click)="closeSidenav()">Contacto</a>
   </div>
 </mat-toolbar>
@@ -11,8 +11,8 @@
 <mat-sidenav-container class="sidenav-container menuHamburguesa" [ngStyle]="{'height': isSidenavOpen ? '25%' : '56px'}">
   <mat-sidenav #sidenav class="sidenav">
     <mat-nav-list>
-      <a mat-list-item routerLink="/projects" (click)="closeSidenav()">Proyectos</a>
       <a mat-list-item routerLink="/faq" (click)="closeSidenav()">Información</a>
+      <a mat-list-item routerLink="/projects" (click)="closeSidenav()">Proyectos</a>
       <a mat-list-item routerLink="/contact" (click)="closeSidenav()">Contacto</a>
     </mat-nav-list>
   </mat-sidenav>
