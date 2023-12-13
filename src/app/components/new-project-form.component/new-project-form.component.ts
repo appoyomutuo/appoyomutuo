@@ -15,6 +15,8 @@ export class NewProjectFormComponentComponent {
     unirse: '',
     requisitos: '',
     perfilWeb: false,
+    open:false,
+    contacto:''
   };
 
   submitForm() {

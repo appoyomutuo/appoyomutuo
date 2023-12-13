@@ -12,7 +12,7 @@
         {{ item.pregunta }}
         <mat-icon>{{ item.expanded ? 'expand_less' : 'expand_more' }}</mat-icon>
       </div>
-      <div class="answer" [class.active]="item.expanded">{{ item.respuesta }}</div>
+      <div class="answer" [class.active]="item.expanded" style="white-space: pre-line;">{{ item.respuesta }}</div>
     </div>
   </div>
 </div>
