@@ -18,6 +18,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatMenuModule } from '@angular/material/menu';
@@ -47,11 +49,15 @@ import { AdminNewBlogComponent } from './components/admin-new-blog/admin-new-blo
     AppRoutingModule,
     FormsModule,
     RouterModule.forRoot([]), 
+
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,
     MatSidenavModule,
     MatListModule,
+    MatInputModule,
+    MatFormFieldModule,
+
     BrowserAnimationsModule,
     FlexLayoutModule,
     MatMenuModule

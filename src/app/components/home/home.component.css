@@ -1,8 +1,7 @@
 /* Estilo del contenedor principal */
 .home-container {
   position: relative;
-  width: 100%;
-  height: auto;
+  height: 85vh;
   overflow: hidden;
 
   animation-name: fadeIn;
@@ -114,6 +113,10 @@
 
 @media (max-width: 768px) {
   /* Cambios de diseño para dispositivos de tamaño de tablet o menor */
+  .home-container{
+    height: auto;
+  }
+  
   .background-image {
     height: auto; /* Ajusta la altura automáticamente */
     width: 100%;

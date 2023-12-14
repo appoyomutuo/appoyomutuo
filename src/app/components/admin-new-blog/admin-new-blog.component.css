@@ -1,131 +1,202 @@
-/* Estilos para el encabezado */
 .header {
-    text-align: center;
-    padding-top: 5%;
-    animation-name: fadeIn;
-    animation-duration: 2s;
+  text-align: center;
+  padding-top: 5%;
+  animation-name: fadeIn;
+  animation-duration: 2s;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+.title {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 12px;
+  color: #333; /* Color del título */
+}
+
+.subtitle {
+  font-size: 16px;
+  color: #666; /* Color del subtítulo */
+  padding: 20px 0px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 800px;
+  margin: auto;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+  padding: 30px 0px;
+  animation-name: fadeIn;
+  animation-duration: 2s;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+
+.file-input-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.file-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.custom-file-input {
+  display: inline-block;
+  padding: 10px 15px;
+  background-color: #fff; /* Color de fondo del botón */
+  color: black; /* Color del texto del botón */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+  margin-bottom: 30px;
+}
+
+.custom-file-input:hover {
+  background-color: #1976D2; /* Cambiar el color de fondo en el hover */
+}
+
+.contact-container {
+  text-align: center;
+  padding: 40px 0;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 800px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.contact-title {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.contact-subtitle {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+form {
+  text-align: left;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.button-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+button[type="submit"] {
+  padding: 12px 24px;
+  font-size: 18px;
+  margin: 0 10px;
+  background-color: black;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+button[type="submit"]:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+.selected-images {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.selected-image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+
+.selected-image img {
+  max-width: 100px;
+  max-height: 100px;
+  margin-bottom: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.selected-image button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.selected-image button mat-icon {
+  color: red;
+  font-size: 18px;
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding-top: 25%;
   }
-  
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-  
-    to {
-      opacity: 1;
-    }
-  }
-  
-  .title {
-    font-size: 32px;
-    font-weight: bold;
-    margin-bottom: 12px;
-    color: #333;
-    /* Color del título */
-  }
-  
-  .subtitle {
-    font-size: 16px;
-    color: #666;
-    /* Color del subtítulo */
-    padding: 20px 0px;
-  }
-  
-  /* Estilos para el contenedor principal */
-  .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 800px;
-    margin: 0 auto;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+
+  .container{
+    max-width: 85%;
     padding: 30px 0px;
-    animation-name: fadeIn;
-    animation-duration: 2s;
   }
-  
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-  
-    to {
-      opacity: 1;
-    }
+
+  .subtitle {
+    padding: 20px 30px;
   }
-  
-  /* Estilos para los grupos de formulario */
-  .form-group {
-    margin-bottom: 20px;
+
+  .form-group{
+    max-width: 200px;
+    padding: 0px 20px;
   }
-  
-  /* Estilos para etiquetas de formulario */
-  label {
-    font-weight: bold;
-  }
-  
-  /* Estilos para campos de formulario */
-  input[type="text"],
-  input[type="email"],
-  textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-  }
-  
-  /* Estilos para el botón de envío */
-  .button-wrapper {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  }
-  
-  button[type="submit"] {
-    padding: 12px 24px;
-    font-size: 18px;
-    margin: 0 10px;
-    background-color: black;
-    /* Color de fondo original #273556; */
-    color: #fff;
-    /* Color de texto original */
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.2s, color 0.2s;
-    /* Transición suave de color en 0.2 segundos */
-    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
-  }
-  
-  /* Estilos para el botón de envío en hover */
-  button[type="submit"]:hover {
-    background-color: #fff;
-    /* Cambiar el color de fondo al blanco */
-    color: #000;
-    /* Cambiar el color de texto a negro */
-  }
-  
-  @media (max-width: 768px) {
-  
-    /* Estilos responsivos si es necesario */
-    .header {
-      padding-top: 25%;
-    }
-  
-    .container {
-      max-width: 85%;
-      padding: 30px 20px;
-    }
-  
-    .subtitle {
-      padding: 20px 30px;
-    }
-  
-    .form-group{
-      max-width: 200px;
-      padding: 0px 20px;
-    }
-  }
+}
